@@ -1,0 +1,9 @@
+D:\TTNT45k_08\calculator\calculator\bin\Debug\calculator.exe.config
+D:\TTNT45k_08\calculator\calculator\bin\Debug\calculator.exe
+D:\TTNT45k_08\calculator\calculator\bin\Debug\calculator.pdb
+D:\TTNT45k_08\calculator\calculator\obj\Debug\calculator.csprojResolveAssemblyReference.cache
+D:\TTNT45k_08\calculator\calculator\obj\Debug\calculator.Form1.resources
+D:\TTNT45k_08\calculator\calculator\obj\Debug\calculator.Properties.Resources.resources
+D:\TTNT45k_08\calculator\calculator\obj\Debug\calculator.csproj.GenerateResource.Cache
+D:\TTNT45k_08\calculator\calculator\obj\Debug\calculator.exe
+D:\TTNT45k_08\calculator\calculator\obj\Debug\calculator.pdb
