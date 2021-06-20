@@ -1,26 +1,74 @@
-create database QUANLYDATPHONGKHACHSAN
+﻿create database QUANLYDATPHONGKHACHSAN
 use quanlydatphongkhachsan
 
-create table NGUOIDUNG(TaiKhoan varchar(50) not null primary key,MatKhau varchar(50) not null ,Makhach varchar(5) not null,
-TenKhachHang varchar(50) not null, Email varchar(50) not null, SoDienThoai int not null )
+create table NGUOIDUNG(TaiKhoan varchar(50) not null primary key,MatKhau varchar(50) not null)
+insert into NGUOIDUNG(TaiKhoan, MatKhau)
+values ('tranhoaiviet','tranhoaiviet'),
+('vothitotrinh','vothitotrinh')
 
-create table PHONG(MaPhong varchar(5) not null primary key, LoaiPhong char(20) not null, SoGiuong int not null, DonGia int not null)
-insert into PHONG (MaPhong, LoaiPhong, SoGiuong, DonGia)
-values ('S9001', 'Suite(SUT)','2', '900'),
-('S9002', 'Suite(SUT)','1', '800'),
-('S9003', 'Suite(SUT)','1', '800'),
-('A8001', 'Deluxe(DLX)','2', '700'),
-('A8002', 'Deluxe(DLX)','2', '700'),
-('A8003', 'Deluxe(DLX)','1', '600'),
-('B7001', 'Superior (SUP)','2', '500'),
-('B6001', 'Superior (SUP)','1', '400'),
-('B7002', 'Superior (SUP)','1', '400'),
-('C5001', 'Standard (STD)','2', '300'),
-('C4001', 'Standard (STD)','2', '300'),
-('C4002', 'Standard (STD)','1', '200')
+create table PHONG(MaPhong varchar(5) not null primary key, MaLoaiPhong varchar(5) not null, TenPhong varchar(10) not null, MoTaPhong text,
+HinhAnhPhong varchar(255) not null, HinhAnhPhong1 varchar(255) not null, TrangThai bit not null)
+insert into PHONG (MaPhong, MaLoaiPhong, TenPhong, MoTaPhong, HinhAnhPhong, HinhAnhPhong1, TrangThai)
+values ('SS901', 'S1001', 'Phong 901', 'Phòng Suite có khu vực sảnh tiếp khách riêng biệt với hướng nhìn bao quát toàn cảnh thành phố và bãi biển Đà Nẵng, có ban công sưởi nắng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng với tất cả các quyền lợi kèm theo, phòng có trang thiết bị hiện đại bật nhất với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, miễn phí các cuộc gọi địa phương, quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Suite-03-750x430.jpg', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Suite-02-750x430.jpg',0),
+('SS902', 'S1002', 'Phong 902', 'Phòng Suite có khu vực sảnh tiếp khách riêng biệt với hướng nhìn bao quát toàn cảnh thành phố và bãi biển Đà Nẵng, có ban công sưởi nắng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng với tất cả các quyền lợi kèm theo, phòng có trang thiết bị hiện đại bật nhất với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, miễn phí các cuộc gọi địa phương, quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Suite-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Suite-02-750x430.jpg',0),
+('SS903', 'S1003', 'Phong 903', 'Phòng Suite có khu vực sảnh tiếp khách riêng biệt với hướng nhìn bao quát toàn cảnh thành phố và bãi biển Đà Nẵng, có ban công sưởi nắng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng với tất cả các quyền lợi kèm theo, phòng có trang thiết bị hiện đại bật nhất với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, miễn phí các cuộc gọi địa phương, quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Suite-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Suite-02-750x430.jpg',0),
+('SS904', 'S1004', 'Phong 904', 'Phòng Suite có khu vực sảnh tiếp khách riêng biệt với hướng nhìn bao quát toàn cảnh thành phố và bãi biển Đà Nẵng, có ban công sưởi nắng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng với tất cả các quyền lợi kèm theo, phòng có trang thiết bị hiện đại bật nhất với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, miễn phí các cuộc gọi địa phương, quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Suite-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Suite-02-750x430.jpg',0),
+('AA801', 'A1001', 'Phong 801', 'Phòng Executive có tầm nhìn bao quát toàn cảnh thành phố và bãi biển Đà Nẵng, có ban công sưởi nắng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng với tất cả các quyền lợi kèm theo, phòng có trang thiết bị hiện đại với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, miễn phí các cuộc gọi địa phương, quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Executive-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Executive-01-750x430.jpg', 0),
+('AA802', 'A1002', 'Phong 802', 'Phòng Executive có tầm nhìn bao quát toàn cảnh thành phố và bãi biển Đà Nẵng, có ban công sưởi nắng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng với tất cả các quyền lợi kèm theo, phòng có trang thiết bị hiện đại với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, miễn phí các cuộc gọi địa phương, quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Executive-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Executive-01-750x430.jpg', 0),
+('AA803', 'A1003', 'Phong 803', 'Phòng Executive có tầm nhìn bao quát toàn cảnh thành phố và bãi biển Đà Nẵng, có ban công sưởi nắng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng với tất cả các quyền lợi kèm theo, phòng có trang thiết bị hiện đại với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, miễn phí các cuộc gọi địa phương, quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Executive-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Executive-01-750x430.jpg', 0),
+('AA804', 'A1004', 'Phong 804', 'Phòng Executive có tầm nhìn bao quát toàn cảnh thành phố và bãi biển Đà Nẵng, có ban công sưởi nắng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng với tất cả các quyền lợi kèm theo, phòng có trang thiết bị hiện đại với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, miễn phí các cuộc gọi địa phương, quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Executive-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Executive-01-750x430.jpg', 0),
+('BB701', 'B1001', 'Phong 701', 'Phòng Deluxe có ban công với tầm nhìn toàn cảnh sông Hàn cũng như các bãi biển Đà Nẵng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng, phòng có trang thiết bị hiện đại với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, , quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Deluxe-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Deluxe-01-750x430.jpg', 0),
+('BB702', 'B1002', 'Phong 702', 'Phòng Deluxe có ban công với tầm nhìn toàn cảnh sông Hàn cũng như các bãi biển Đà Nẵng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng, phòng có trang thiết bị hiện đại với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, , quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Deluxe-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Deluxe-01-750x430.jpg', 0),
+('BB703', 'B1003', 'Phong 703', 'Phòng Deluxe có ban công với tầm nhìn toàn cảnh sông Hàn cũng như các bãi biển Đà Nẵng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng, phòng có trang thiết bị hiện đại với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, , quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Deluxe-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Deluxe-01-750x430.jpg', 0),
+('BB704', 'B1004', 'Phong 704', 'Phòng Deluxe có ban công với tầm nhìn toàn cảnh sông Hàn cũng như các bãi biển Đà Nẵng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng, phòng có trang thiết bị hiện đại với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, , quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.', 'https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Deluxe-03-750x430.jpg','https://danangfantasticity.com/wp-content/uploads/2019/05/novotel-danang-premier-han-river-danang-fantasticity-com-Deluxe-01-750x430.jpg', 0),
+('CC601', 'C1001', 'Phong 601', 'Phòng Superior có không gian khiêm tốn nhưng được trang bị với những trang thiết bị hiện đại , tiện nghi chuẩn khách sạn 5 sao như internet miễn phí, TV truyền hình cáp, , quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác. Khách hàng có cơ hội được thưởng thức toàn cảnh sông Hàn và những bãi biển đẹp.','https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/72/2019/06/11140246/heroshot-11.jpg','https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/72/2019/06/11140308/LNL_4033-3.jpg',0),
+('CC602', 'C1002', 'Phong 602', 'Phòng Superior có không gian khiêm tốn nhưng được trang bị với những trang thiết bị hiện đại , tiện nghi chuẩn khách sạn 5 sao như internet miễn phí, TV truyền hình cáp, , quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác. Khách hàng có cơ hội được thưởng thức toàn cảnh sông Hàn và những bãi biển đẹp.','https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/72/2019/06/11140246/heroshot-11.jpg','https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/72/2019/06/11140308/LNL_4033-3.jpg',0),
+('CC603', 'C1003', 'Phong 603', 'Phòng Superior có không gian khiêm tốn nhưng được trang bị với những trang thiết bị hiện đại , tiện nghi chuẩn khách sạn 5 sao như internet miễn phí, TV truyền hình cáp, , quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác. Khách hàng có cơ hội được thưởng thức toàn cảnh sông Hàn và những bãi biển đẹp.','https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/72/2019/06/11140246/heroshot-11.jpg','https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/72/2019/06/11140308/LNL_4033-3.jpg',0),
+('CC604', 'C1004', 'Phong 604', 'Phòng Superior có không gian khiêm tốn nhưng được trang bị với những trang thiết bị hiện đại , tiện nghi chuẩn khách sạn 5 sao như internet miễn phí, TV truyền hình cáp, , quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác. Khách hàng có cơ hội được thưởng thức toàn cảnh sông Hàn và những bãi biển đẹp.','https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/72/2019/06/11140246/heroshot-11.jpg','https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/72/2019/06/11140308/LNL_4033-3.jpg',0)
 
-create table KhachHang(MaKhach varchar(5) not null primary key, TenKhachHang varchar(50) not null, DiaChi varchar(50) not null,
+Create table LOAIPHONG(MaLoaiPhong varchar(5) not null primary key, LoaiPhong varchar (30) not null, SoGiuong int not null, GiaPhong int not null)
+insert into LOAIPHONG(MaLoaiPhong, LoaiPhong, SoGiuong, GiaPhong)
+values('S1001', 'Suite', 1, 900), 
+('S1002', 'Suite', 1, 900),
+('S1003', 'Suite', 1, 900),
+('S1004', 'Suite', 1, 900),
+('A1001', 'Executive', 2, 800),
+('A1002', 'Executive', 2, 800),
+('A1003', 'Executive', 1, 700),
+('A1004', 'Executive', 1, 700),
+('B1001', 'Deluxe', 2, 600),
+('B1002', 'Deluxe', 2, 600),
+('B1003', 'Deluxe', 1, 500),
+('B1004', 'Deluxe', 1, 500),
+('C1001', 'Superior', 2, 400),
+('C1002', 'Superior', 2, 400),
+('C1003', 'Superior', 1, 300),
+('C1004', 'Superior', 1, 300)
+
+create table KHACHHANG(MaKhach varchar(5) not null primary key, TenKhachHang varchar(50) not null, DiaChi varchar(50) not null,
 Email varchar(50) not null, SoDienThoai int not null, GioiTinh bit not null)
+insert into KHACHHANG(MaKhach, TenKhachhang, DiaChi, Email, SoDienThoai, GioiTinh)
+values('10004', 'Tran Hoai Nam', '100 Au Co Da Nang', 'tranhoainam@gmail.com', '0934777143', 1),
+('10005', 'Phan Tiep', '54 Phan Lang 9 Da Nang', 'phantiep@gmail.com', '0934938106', 1),
+('10006', 'Phan Thi Hien', '495 Au Co Da Nang', 'hienphan@gmail.com', '0934938275', 0),
+('10007', 'Pham Long Nhat', '56 Phan Lang 9 Da Nang', 'nhatpham@gmail.com', '0934123456', 1),
+('10008', 'Tran Van Phuoc', '56 Ha Huy Tap Da Nang', 'phuocvan@gmail.com', '0934456789', 1),
+('10009', 'Tran Van Vinh', '45 Dien Bien Phu Hue', 'vinhtran@gmail.com', '0934987654', 1),
+('10010', 'Tran Hoai Viet', '945 Au Co Da Nang', 'hangul309@gmail.com', '0934777106', 1),
+('10011', 'Tran Van Tai', '89 Dien Bien Phu Da Nang', 'taivan@gmail.com', '0934569106', 1),
+('10012', 'Tran Minh Quan', '90 My An Da Nang', 'vannha@gmail.com', '0787356631', 1),
+('10003', 'Nguyen Minh tri', '100 Au Co Da Nang', 'triminh@gmail.com', '0934777143', 1)
 
-create table DONDATPHONG (MaDonDatPhong varchar(5) not null primary key, MaPhong varchar(5) not null, MaKhach varchar(5) not null,
-NgayDen date not null,NgayDi date not null, HuyDon bit not null, ThoiGianThue int, TienPhong int)
+create table DONDATPHONG (MaDonDatPhong varchar(10) not null primary key, MaPhong varchar(5) not null, MaKhach varchar(5) not null,
+NgayDatPhong date not null, NgayDen date not null, NgayDi date not null, HuyDon bit not null, ThoiGianThue int, TienPhong int)
+insert into DONDATPHONG(MaDonDatPhong, MaPhong, MaKhach, NgayDatPhong, NgayDen, NgayDi, HuyDon)
+values('DS00001','SS901','10010', '2021-06-10', '2021-08-30', '2021-09-30',0),
+ ('DS00002','SS903','10004', '2020-09-30', '2021-07-30', '2021-08-31',0),
+ ('DA00001','AA803','10006', '2020-12-10', '2021-05-10', '2021-05-30',0),
+ ('DA00002','AA804','10012', '2020-11-30', '2021-06-30', '2021-07-05',1),
+ ('DB00001','BB702','10011', '2020-12-30', '2021-02-15', '2021-03-30',1),
+ ('DB00002','BB704','10003', '2020-08-15', '2021-01-30', '2021-03-01',0),
+ ('DC00001','CC601','10005', '2020-10-20', '2021-01-01', '2021-01-30',0),
+ ('DC00002','CC602','10007', '2020-08-30', '2021-07-31', '2021-09-29',0),
+ ('DB00003','BB701','10008', '2020-12-12', '2021-04-20', '2021-05-20',0),
+ ('DA00003','AA801','10009', '2020-10-30', '2021-03-30', '2021-04-30',0)
