@@ -60,7 +60,7 @@ values('10004', 'Tran Hoai Nam', '100 Au Co Da Nang', 'tranhoainam@gmail.com', '
 ('10003', 'Nguyen Minh tri', '100 Au Co Da Nang', 'triminh@gmail.com', '0934777143', 1)
 
 create table DONDATPHONG (MaDonDatPhong varchar(10) not null primary key, MaPhong varchar(5) not null, MaKhach varchar(5) not null,
-NgayDatPhong date not null, NgayDen date not null, NgayDi date not null, HuyDon bit not null, ThoiGianThue int, TienPhong int)
+NgayDatPhong date not null, NgayDen date not null, NgayDi date not null, HuyDon bit not null, ThoiGianThue int, TienPhong int, DatCoc int, ConLai int)
 insert into DONDATPHONG(MaDonDatPhong, MaPhong, MaKhach, NgayDatPhong, NgayDen, NgayDi, HuyDon)
 values('DS00001','SS901','10010', '2021-06-10', '2021-08-30', '2021-09-30',0),
  ('DS00002','SS903','10004', '2020-09-30', '2021-07-30', '2021-08-31',0),
@@ -72,3 +72,32 @@ values('DS00001','SS901','10010', '2021-06-10', '2021-08-30', '2021-09-30',0),
  ('DC00002','CC602','10007', '2020-08-30', '2021-07-31', '2021-09-29',0),
  ('DB00003','BB701','10008', '2020-12-12', '2021-04-20', '2021-05-20',0),
  ('DA00003','AA801','10009', '2020-10-30', '2021-03-30', '2021-04-30',0)
+
+ ALTER TABLE dbo.PHONG 
+ADD CONSTRAINT FK_LOAIPHONG FOREIGN KEY (MaLoaiPhong) REFERENCES dbo.LOAIPHONG(MaLoaiPhong) 
+
+ALTER TABLE dbo.DONDATPHONG 
+ADD CONSTRAINT FK_PHONG FOREIGN KEY (MaPhong) REFERENCES dbo.PHONG(MaPhong) 
+
+ALTER TABLE dbo.DONDATPHONG 
+ADD CONSTRAINT FK_KHACHHANG FOREIGN KEY (MaKhach) REFERENCES dbo.KHACHHANG(MaKhach) 
+
+--Thoi gian thue
+update DONDATPHONG
+set ThoiGianThue = iif(DATEDIFF(day, NgayDi, NgayDen)=0,1,DATEDIFF(day, NgayDen, NgayDi))
+
+--Tien phong
+update DONDATPHONG
+set TienPhong = ThoiGianThue * GiaPhong
+FROM DONDATPHONG INNER JOIN  PHONG ON 
+DONDATPHONG.MaPhong = PHONG.MaPhong 
+ INNER JOIN LOAIPHONG ON LOAIPHONG.MaLoaiPhong = PHONG.MaLoaiPhong 
+ 
+ --Tien dat coc
+ update DONDATPHONG
+ set DatCoc = TienPhong * 0.3
+ 
+ --Con lai
+ update DONDATPHONG
+ set ConLai = TienPhong - DatCoc
+ select * from DONDATPHONG
