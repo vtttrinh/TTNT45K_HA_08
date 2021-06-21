@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsQuanLyDatPhongKhachSan
+namespace quanlydatphongkhachsan
 {
-    public partial class DatPhongKhachSan : Form
+    public partial class fLogin : Form
     {
-        public DatPhongKhachSan()
+        public fLogin()
         {
             InitializeComponent();
         }

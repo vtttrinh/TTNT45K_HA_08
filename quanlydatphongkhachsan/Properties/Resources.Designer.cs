@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsQuanLyDatPhongKhachSan.Properties
+namespace quanlydatphongkhachsan.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace WindowsFormsQuanLyDatPhongKhachSan.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WindowsFormsQuanLyDatPhongKhachSan.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("quanlydatphongkhachsan.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

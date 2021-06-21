@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsQuanLyDatPhongKhachSan.Properties
+namespace quanlydatphongkhachsan.Properties
 {
 
 
