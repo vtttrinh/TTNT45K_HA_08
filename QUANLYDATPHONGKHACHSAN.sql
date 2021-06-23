@@ -1,5 +1,5 @@
 ﻿create database QUANLYDATPHONGKHACHSAN
-use quanlydatphongkhachsan
+use quanlydatphongkhachsan--cái tên máy là chi???mới thay ổ cứng cái kb luôn admin nớ đó
 
 create table NGUOIDUNG(TaiKhoan varchar(50) not null primary key,MatKhau varchar(50) not null)
 insert into NGUOIDUNG(TaiKhoan, MatKhau)
