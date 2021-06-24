@@ -1,12 +1,12 @@
-﻿create database QUANLYDATPHONGKHACHSAN1
-use quanlydatphongkhachsan1
+﻿create database QUANLYDATPHONGKHACHSAN
+use QUANLYDATPHONGKHACHSAN
 
 create table NGUOIDUNG(TaiKhoan varchar(50) not null primary key,MatKhau varchar(50) not null)
 insert into NGUOIDUNG(TaiKhoan, MatKhau)
 values ('tranhoaiviet','tranhoaiviet'),
 ('vothitotrinh','vothitotrinh')
 
-create table PHONG(MaPhong varchar(5) not null primary key, MaLoaiPhong varchar(5) not null, TenPhong varchar(10) not null, MoTaPhong text , TrangThai bit not null)
+create table PHONG(MaPhong varchar(5) not null primary key, MaLoaiPhong varchar(5) not null, TenPhong varchar(10) not null, MoTaPhong nvarchar(1000) not null , TrangThai bit not null)
 insert into PHONG (MaPhong, MaLoaiPhong, TenPhong, MoTaPhong, TrangThai)
 values ('SS901', 'S1001', 'Phong 901', 'Phòng Suite có khu vực sảnh tiếp khách riêng biệt với hướng nhìn bao quát toàn cảnh thành phố và bãi biển Đà Nẵng, có ban công sưởi nắng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng với tất cả các quyền lợi kèm theo, phòng có trang thiết bị hiện đại bật nhất với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, miễn phí các cuộc gọi địa phương, quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.' ,0),
 ('SS902', 'S1001', 'Phong 902', 'Phòng Suite có khu vực sảnh tiếp khách riêng biệt với hướng nhìn bao quát toàn cảnh thành phố và bãi biển Đà Nẵng, có ban công sưởi nắng. Khách cũng có thể sử dụng các dịch vụ tại quầy bar tầng thượng hạng với tất cả các quyền lợi kèm theo, phòng có trang thiết bị hiện đại bật nhất với đầy đủ tiện nghi chuẩn khách sạn 5 sao như: internet miễn phí, TV truyền hình cáp, miễn phí các cuộc gọi địa phương, quầy bar mini với các loại đồ uống hấp dẫn, phòng tắm rộng rãi với vòi tắm và đầy đủ các tiện nghi khác.',0),
@@ -35,7 +35,7 @@ values('S1001', 'Suite', 1, 900),
 ('C1001', 'Superior', 2, 400),
 ('C1002', 'Superior', 1, 300)
 
-create table KHACHHANG(MaKhach varchar(5) not null primary key, TenKhachHang varchar(50) not null, DiaChi varchar(50) not null,
+create table KHACHHANG(MaKhach varchar(5) not null primary key, TenKhachHang nvarchar(100) not null, DiaChi nvarchar(100) not null,
 Email varchar(50) not null, SoDienThoai int not null, GioiTinh bit not null)
 insert into KHACHHANG(MaKhach, TenKhachhang, DiaChi, Email, SoDienThoai, GioiTinh)
 values('10004', 'Tran Hoai Nam', '100 Au Co Da Nang', 'tranhoainam@gmail.com', '0934777143', 1),
@@ -72,22 +72,22 @@ ADD CONSTRAINT FK_PHONG FOREIGN KEY (MaPhong) REFERENCES dbo.PHONG(MaPhong)
 ALTER TABLE dbo.DONDATPHONG 
 ADD CONSTRAINT FK_KHACHHANG FOREIGN KEY (MaKhach) REFERENCES dbo.KHACHHANG(MaKhach) 
 
---Thoi gian thue
+--Thoi gian thue--
 update DONDATPHONG
 set ThoiGianThue = iif(DATEDIFF(day, NgayDi, NgayDen)=0,1,DATEDIFF(day, NgayDen, NgayDi))
 
---Tien phong
+--Tien phong--
 update DONDATPHONG
 set TienPhong = ThoiGianThue * GiaPhong
 FROM DONDATPHONG INNER JOIN  PHONG ON 
 DONDATPHONG.MaPhong = PHONG.MaPhong 
  INNER JOIN LOAIPHONG ON LOAIPHONG.MaLoaiPhong = PHONG.MaLoaiPhong 
  
- --Tien dat coc
+ --Tien dat coc--
  update DONDATPHONG
  set DatCoc = TienPhong * 0.3
  
- --Con lai
+ --Con lai--
  update DONDATPHONG
  set ConLai = TienPhong - DatCoc
  select * from DONDATPHONG
