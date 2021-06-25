@@ -49,12 +49,13 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbThongtindondatphong = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbbHuyDon = new System.Windows.Forms.ComboBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tbConlai = new System.Windows.Forms.TextBox();
             this.tbTienphong = new System.Windows.Forms.TextBox();
-            this.tbHuydon = new System.Windows.Forms.TextBox();
             this.tbThoigianthue = new System.Windows.Forms.TextBox();
             this.tbMaphong = new System.Windows.Forms.TextBox();
             this.tbMakhach = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
             this.lbMaphong = new System.Windows.Forms.Label();
             this.lbMakhach = new System.Windows.Forms.Label();
             this.lbThoigianthue = new System.Windows.Forms.Label();
-            this.lbHuydon = new System.Windows.Forms.Label();
             this.lbNgaydi = new System.Windows.Forms.Label();
             this.lbTienphong = new System.Windows.Forms.Label();
             this.lbNgayden = new System.Windows.Forms.Label();
@@ -76,6 +76,7 @@
             this.qUANLYDATPHONGKHACHSAN1DataSet = new quanlydatphongkhachsan.QUANLYDATPHONGKHACHSAN1DataSet();
             this.dONDATPHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dONDATPHONGTableAdapter = new quanlydatphongkhachsan.QUANLYDATPHONGKHACHSAN1DataSetTableAdapters.DONDATPHONGTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             this.grbDondatphong.SuspendLayout();
             this.grbSuathongtindondatphong.SuspendLayout();
             this.grbThongtindondatphong.SuspendLayout();
@@ -86,6 +87,7 @@
             // 
             // grbDondatphong
             // 
+            this.grbDondatphong.Controls.Add(this.button1);
             this.grbDondatphong.Controls.Add(this.grbSuathongtindondatphong);
             this.grbDondatphong.Controls.Add(this.tbTimdondatphong);
             this.grbDondatphong.Controls.Add(this.btTimFgiaodienchinh);
@@ -271,12 +273,13 @@
             // 
             // grbThongtindondatphong
             // 
+            this.grbThongtindondatphong.Controls.Add(this.label1);
+            this.grbThongtindondatphong.Controls.Add(this.cbbHuyDon);
             this.grbThongtindondatphong.Controls.Add(this.dateTimePicker3);
             this.grbThongtindondatphong.Controls.Add(this.dateTimePicker2);
             this.grbThongtindondatphong.Controls.Add(this.dateTimePicker1);
             this.grbThongtindondatphong.Controls.Add(this.tbConlai);
             this.grbThongtindondatphong.Controls.Add(this.tbTienphong);
-            this.grbThongtindondatphong.Controls.Add(this.tbHuydon);
             this.grbThongtindondatphong.Controls.Add(this.tbThoigianthue);
             this.grbThongtindondatphong.Controls.Add(this.tbMaphong);
             this.grbThongtindondatphong.Controls.Add(this.tbMakhach);
@@ -286,7 +289,6 @@
             this.grbThongtindondatphong.Controls.Add(this.lbMaphong);
             this.grbThongtindondatphong.Controls.Add(this.lbMakhach);
             this.grbThongtindondatphong.Controls.Add(this.lbThoigianthue);
-            this.grbThongtindondatphong.Controls.Add(this.lbHuydon);
             this.grbThongtindondatphong.Controls.Add(this.lbNgaydi);
             this.grbThongtindondatphong.Controls.Add(this.lbTienphong);
             this.grbThongtindondatphong.Controls.Add(this.lbNgayden);
@@ -299,6 +301,28 @@
             this.grbThongtindondatphong.TabIndex = 0;
             this.grbThongtindondatphong.TabStop = false;
             this.grbThongtindondatphong.Text = "Thông tin đơn đặt phòng";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(314, 176);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Hủy đơn";
+            // 
+            // cbbHuyDon
+            // 
+            this.cbbHuyDon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbHuyDon.Items.AddRange(new object[] {
+            "Đã hủy",
+            "Chưa hủy"});
+            this.cbbHuyDon.Location = new System.Drawing.Point(416, 168);
+            this.cbbHuyDon.Name = "cbbHuyDon";
+            this.cbbHuyDon.Size = new System.Drawing.Size(131, 27);
+            this.cbbHuyDon.TabIndex = 23;
             // 
             // dateTimePicker3
             // 
@@ -336,7 +360,7 @@
             // tbConlai
             // 
             this.tbConlai.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbConlai.Location = new System.Drawing.Point(416, 157);
+            this.tbConlai.Location = new System.Drawing.Point(120, 170);
             this.tbConlai.Margin = new System.Windows.Forms.Padding(2);
             this.tbConlai.Name = "tbConlai";
             this.tbConlai.Size = new System.Drawing.Size(131, 24);
@@ -345,25 +369,16 @@
             // tbTienphong
             // 
             this.tbTienphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTienphong.Location = new System.Drawing.Point(120, 161);
+            this.tbTienphong.Location = new System.Drawing.Point(120, 131);
             this.tbTienphong.Margin = new System.Windows.Forms.Padding(2);
             this.tbTienphong.Name = "tbTienphong";
             this.tbTienphong.Size = new System.Drawing.Size(131, 24);
             this.tbTienphong.TabIndex = 19;
             // 
-            // tbHuydon
-            // 
-            this.tbHuydon.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbHuydon.Location = new System.Drawing.Point(120, 128);
-            this.tbHuydon.Margin = new System.Windows.Forms.Padding(2);
-            this.tbHuydon.Name = "tbHuydon";
-            this.tbHuydon.Size = new System.Drawing.Size(131, 24);
-            this.tbHuydon.TabIndex = 18;
-            // 
             // tbThoigianthue
             // 
             this.tbThoigianthue.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbThoigianthue.Location = new System.Drawing.Point(416, 128);
+            this.tbThoigianthue.Location = new System.Drawing.Point(416, 131);
             this.tbThoigianthue.Margin = new System.Windows.Forms.Padding(2);
             this.tbThoigianthue.Name = "tbThoigianthue";
             this.tbThoigianthue.Size = new System.Drawing.Size(131, 24);
@@ -411,7 +426,7 @@
             // 
             this.lbConlai.AutoSize = true;
             this.lbConlai.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbConlai.Location = new System.Drawing.Point(318, 162);
+            this.lbConlai.Location = new System.Drawing.Point(22, 175);
             this.lbConlai.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbConlai.Name = "lbConlai";
             this.lbConlai.Size = new System.Drawing.Size(49, 17);
@@ -444,23 +459,12 @@
             // 
             this.lbThoigianthue.AutoSize = true;
             this.lbThoigianthue.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbThoigianthue.Location = new System.Drawing.Point(314, 134);
+            this.lbThoigianthue.Location = new System.Drawing.Point(314, 137);
             this.lbThoigianthue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbThoigianthue.Name = "lbThoigianthue";
             this.lbThoigianthue.Size = new System.Drawing.Size(92, 17);
             this.lbThoigianthue.TabIndex = 10;
             this.lbThoigianthue.Text = "Thời gian thuê";
-            // 
-            // lbHuydon
-            // 
-            this.lbHuydon.AutoSize = true;
-            this.lbHuydon.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHuydon.Location = new System.Drawing.Point(4, 134);
-            this.lbHuydon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbHuydon.Name = "lbHuydon";
-            this.lbHuydon.Size = new System.Drawing.Size(60, 17);
-            this.lbHuydon.TabIndex = 5;
-            this.lbHuydon.Text = "Hủy đơn";
             // 
             // lbNgaydi
             // 
@@ -477,7 +481,7 @@
             // 
             this.lbTienphong.AutoSize = true;
             this.lbTienphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTienphong.Location = new System.Drawing.Point(4, 167);
+            this.lbTienphong.Location = new System.Drawing.Point(4, 137);
             this.lbTienphong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTienphong.Name = "lbTienphong";
             this.lbTienphong.Size = new System.Drawing.Size(72, 17);
@@ -557,12 +561,24 @@
             // 
             this.dONDATPHONGTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(590, 396);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(84, 35);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "K";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // fGiaodienchinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1104, 599);
+            this.ClientSize = new System.Drawing.Size(1104, 601);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.grbDondatphong);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -609,7 +625,6 @@
         private System.Windows.Forms.GroupBox grbThongtindondatphong;
         private System.Windows.Forms.TextBox tbConlai;
         private System.Windows.Forms.TextBox tbTienphong;
-        private System.Windows.Forms.TextBox tbHuydon;
         private System.Windows.Forms.TextBox tbThoigianthue;
         private System.Windows.Forms.TextBox tbMaphong;
         private System.Windows.Forms.TextBox tbMakhach;
@@ -619,7 +634,6 @@
         private System.Windows.Forms.Label lbMaphong;
         private System.Windows.Forms.Label lbMakhach;
         private System.Windows.Forms.Label lbThoigianthue;
-        private System.Windows.Forms.Label lbHuydon;
         private System.Windows.Forms.Label lbNgaydi;
         private System.Windows.Forms.Label lbTienphong;
         private System.Windows.Forms.Label lbNgayden;
@@ -634,5 +648,8 @@
         private QUANLYDATPHONGKHACHSAN1DataSet qUANLYDATPHONGKHACHSAN1DataSet;
         private System.Windows.Forms.BindingSource dONDATPHONGBindingSource;
         private QUANLYDATPHONGKHACHSAN1DataSetTableAdapters.DONDATPHONGTableAdapter dONDATPHONGTableAdapter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbbHuyDon;
+        private System.Windows.Forms.Button button1;
     }
 }

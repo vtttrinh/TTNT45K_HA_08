@@ -66,14 +66,14 @@ namespace quanlydatphongkhachsan
                 lvi.SubItems.Add(dt.Rows[i]["ThoiGianThue"].ToString());
                 lvi.SubItems.Add(dt.Rows[i]["TienPhong"].ToString());
                 lvi.SubItems.Add(dt.Rows[i]["ConLai"].ToString());
-
+                cbbHuyDon.SelectedValue = 0;
                 if (dt.Rows[i]["HuyDon"].ToString().Equals("False"))
                 {
-                    lvi.SubItems.Add("Chưa hủy");
+                    cbbHuyDon.SelectedValue = 0;
                 }
                 else
                 {
-                    lvi.SubItems.Add("Đã hủy");
+                    cbbHuyDon.SelectedValue = 1;
                 }
 
                 listDatPhong.Items.Add(lvi);
@@ -145,6 +145,7 @@ namespace quanlydatphongkhachsan
             dateTimePicker3.Value = oDate3;
             tbThoigianthue.Text = dt.Rows[0]["ThoiGianThue"].ToString();
 
+            /**
             if (dt.Rows[0]["HuyDon"].ToString().Equals("False"))
             {
                 tbHuydon.Text = "Chưa hủy";
@@ -153,7 +154,7 @@ namespace quanlydatphongkhachsan
             {
                 tbHuydon.Text = "Đã hủy";
             }
-
+            */
 
         }
 
@@ -181,10 +182,7 @@ namespace quanlydatphongkhachsan
         public void update(String maDonDatPhong)
         {
             int intHuyDon = 0;
-            if (tbHuydon.Text.Equals("Đã hủy"))
-            {
-                intHuyDon = 1;
-            }
+            
             String sql = "UPDATE DONDATPHONG SET MaPhong = '" + tbMaphong.Text + "', MaKhach = '" + tbMakhach.Text + "', NgayDatPhong = '" +
                 dateTimePicker1.Value + "', NgayDen = '" + dateTimePicker2.Value + "',NgayDi = '" + dateTimePicker3.Value + "', HuyDon = " + intHuyDon +
                 ", ThoiGianThue = '" + tbThoigianthue.Text + "',TienPhong ='" + tbTienphong.Text + "',ConLai ='" + tbConlai.Text
@@ -360,6 +358,12 @@ namespace quanlydatphongkhachsan
         {
             fQuanLyPhong fQuanLyPhong = new fQuanLyPhong();
             fQuanLyPhong.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MainForm mf = new MainForm();
+            mf.ShowDialog();
         }
     }
 }

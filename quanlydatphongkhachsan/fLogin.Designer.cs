@@ -77,6 +77,7 @@
             this.TB_user.Name = "TB_user";
             this.TB_user.Size = new System.Drawing.Size(174, 24);
             this.TB_user.TabIndex = 3;
+            this.TB_user.Text = "vothitotrinh";
             // 
             // TB_pass
             // 
@@ -86,6 +87,7 @@
             this.TB_pass.Name = "TB_pass";
             this.TB_pass.Size = new System.Drawing.Size(174, 24);
             this.TB_pass.TabIndex = 4;
+            this.TB_pass.Text = "vothitotrinh";
             this.TB_pass.UseSystemPasswordChar = true;
             // 
             // fLogin
