@@ -35,10 +35,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdoTrue = new System.Windows.Forms.RadioButton();
             this.rdoFalse = new System.Windows.Forms.RadioButton();
-            this.tbDatcoc = new System.Windows.Forms.TextBox();
-            this.tbMaphong = new System.Windows.Forms.TextBox();
-            this.tbMakhach = new System.Windows.Forms.TextBox();
-            this.tbMadondatphong = new System.Windows.Forms.TextBox();
+            this.tbMoTa = new System.Windows.Forms.TextBox();
+            this.tbMaTenPhong = new System.Windows.Forms.TextBox();
+            this.tbTenPhong = new System.Windows.Forms.TextBox();
+            this.tbMaPhong = new System.Windows.Forms.TextBox();
             this.lbMadondatphong = new System.Windows.Forms.Label();
             this.lbMaphong = new System.Windows.Forms.Label();
             this.lbDatcoc = new System.Windows.Forms.Label();
@@ -67,6 +67,9 @@
             this.LoaiPhong1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SoLuong1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GiaPhong1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.bttThemPhong = new System.Windows.Forms.Button();
+            this.btnSuaPhong = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tbPhong.SuspendLayout();
             this.grbPhong.SuspendLayout();
@@ -104,6 +107,9 @@
             // grbPhong
             // 
             this.grbPhong.BackColor = System.Drawing.Color.Transparent;
+            this.grbPhong.Controls.Add(this.btnXoa);
+            this.grbPhong.Controls.Add(this.btnSuaPhong);
+            this.grbPhong.Controls.Add(this.bttThemPhong);
             this.grbPhong.Controls.Add(this.grbThongtindondatphong);
             this.grbPhong.Controls.Add(this.listPhong);
             this.grbPhong.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -119,10 +125,10 @@
             // grbThongtindondatphong
             // 
             this.grbThongtindondatphong.Controls.Add(this.groupBox1);
-            this.grbThongtindondatphong.Controls.Add(this.tbDatcoc);
-            this.grbThongtindondatphong.Controls.Add(this.tbMaphong);
-            this.grbThongtindondatphong.Controls.Add(this.tbMakhach);
-            this.grbThongtindondatphong.Controls.Add(this.tbMadondatphong);
+            this.grbThongtindondatphong.Controls.Add(this.tbMoTa);
+            this.grbThongtindondatphong.Controls.Add(this.tbMaTenPhong);
+            this.grbThongtindondatphong.Controls.Add(this.tbTenPhong);
+            this.grbThongtindondatphong.Controls.Add(this.tbMaPhong);
             this.grbThongtindondatphong.Controls.Add(this.lbMadondatphong);
             this.grbThongtindondatphong.Controls.Add(this.lbMaphong);
             this.grbThongtindondatphong.Controls.Add(this.lbDatcoc);
@@ -142,7 +148,7 @@
             this.groupBox1.Controls.Add(this.rdoTrue);
             this.groupBox1.Controls.Add(this.rdoFalse);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(7, 127);
+            this.groupBox1.Location = new System.Drawing.Point(7, 126);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(244, 79);
             this.groupBox1.TabIndex = 17;
@@ -172,45 +178,45 @@
             this.rdoFalse.Text = "Hết phòng";
             this.rdoFalse.UseVisualStyleBackColor = true;
             // 
-            // tbDatcoc
+            // tbMoTa
             // 
-            this.tbDatcoc.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDatcoc.Location = new System.Drawing.Point(396, 26);
-            this.tbDatcoc.Margin = new System.Windows.Forms.Padding(2);
-            this.tbDatcoc.Multiline = true;
-            this.tbDatcoc.Name = "tbDatcoc";
-            this.tbDatcoc.Size = new System.Drawing.Size(310, 174);
-            this.tbDatcoc.TabIndex = 16;
+            this.tbMoTa.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMoTa.Location = new System.Drawing.Point(396, 26);
+            this.tbMoTa.Margin = new System.Windows.Forms.Padding(2);
+            this.tbMoTa.Multiline = true;
+            this.tbMoTa.Name = "tbMoTa";
+            this.tbMoTa.Size = new System.Drawing.Size(310, 174);
+            this.tbMoTa.TabIndex = 16;
             // 
-            // tbMaphong
+            // tbMaTenPhong
             // 
-            this.tbMaphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaphong.Location = new System.Drawing.Point(120, 63);
-            this.tbMaphong.Margin = new System.Windows.Forms.Padding(2);
-            this.tbMaphong.Name = "tbMaphong";
-            this.tbMaphong.Size = new System.Drawing.Size(131, 24);
-            this.tbMaphong.TabIndex = 15;
-            this.tbMaphong.TextChanged += new System.EventHandler(this.tbMaphong_TextChanged);
+            this.tbMaTenPhong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaTenPhong.Location = new System.Drawing.Point(120, 63);
+            this.tbMaTenPhong.Margin = new System.Windows.Forms.Padding(2);
+            this.tbMaTenPhong.Name = "tbMaTenPhong";
+            this.tbMaTenPhong.Size = new System.Drawing.Size(131, 24);
+            this.tbMaTenPhong.TabIndex = 15;
+            this.tbMaTenPhong.TextChanged += new System.EventHandler(this.tbMaphong_TextChanged);
             // 
-            // tbMakhach
+            // tbTenPhong
             // 
-            this.tbMakhach.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMakhach.Location = new System.Drawing.Point(120, 97);
-            this.tbMakhach.Margin = new System.Windows.Forms.Padding(2);
-            this.tbMakhach.Name = "tbMakhach";
-            this.tbMakhach.Size = new System.Drawing.Size(131, 24);
-            this.tbMakhach.TabIndex = 14;
-            this.tbMakhach.TextChanged += new System.EventHandler(this.tbMakhach_TextChanged);
+            this.tbTenPhong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenPhong.Location = new System.Drawing.Point(120, 97);
+            this.tbTenPhong.Margin = new System.Windows.Forms.Padding(2);
+            this.tbTenPhong.Name = "tbTenPhong";
+            this.tbTenPhong.Size = new System.Drawing.Size(131, 24);
+            this.tbTenPhong.TabIndex = 14;
+            this.tbTenPhong.TextChanged += new System.EventHandler(this.tbMakhach_TextChanged);
             // 
-            // tbMadondatphong
+            // tbMaPhong
             // 
-            this.tbMadondatphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMadondatphong.Location = new System.Drawing.Point(120, 27);
-            this.tbMadondatphong.Margin = new System.Windows.Forms.Padding(2);
-            this.tbMadondatphong.Name = "tbMadondatphong";
-            this.tbMadondatphong.Size = new System.Drawing.Size(131, 24);
-            this.tbMadondatphong.TabIndex = 13;
-            this.tbMadondatphong.TextChanged += new System.EventHandler(this.tbMadondatphong_TextChanged);
+            this.tbMaPhong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaPhong.Location = new System.Drawing.Point(120, 27);
+            this.tbMaPhong.Margin = new System.Windows.Forms.Padding(2);
+            this.tbMaPhong.Name = "tbMaPhong";
+            this.tbMaPhong.Size = new System.Drawing.Size(131, 24);
+            this.tbMaPhong.TabIndex = 13;
+            this.tbMaPhong.TextChanged += new System.EventHandler(this.tbMadondatphong_TextChanged);
             // 
             // lbMadondatphong
             // 
@@ -274,6 +280,8 @@
             this.listPhong.TabIndex = 0;
             this.listPhong.UseCompatibleStateImageBehavior = false;
             this.listPhong.View = System.Windows.Forms.View.Details;
+            this.listPhong.SelectedIndexChanged += new System.EventHandler(this.listPhong_SelectedIndexChanged);
+            this.listPhong.Click += new System.EventHandler(this.listPhong_Click);
             // 
             // MaPhong
             // 
@@ -327,6 +335,7 @@
             this.btnXoaLoaiPhong.TabIndex = 4;
             this.btnXoaLoaiPhong.Text = "Xóa";
             this.btnXoaLoaiPhong.UseVisualStyleBackColor = true;
+            this.btnXoaLoaiPhong.Click += new System.EventHandler(this.btnXoaLoaiPhong_Click);
             // 
             // btnSuaLoaiPhong
             // 
@@ -336,6 +345,7 @@
             this.btnSuaLoaiPhong.TabIndex = 3;
             this.btnSuaLoaiPhong.Text = "Sửa";
             this.btnSuaLoaiPhong.UseVisualStyleBackColor = true;
+            this.btnSuaLoaiPhong.Click += new System.EventHandler(this.btnSuaLoaiPhong_Click);
             // 
             // btnThemLoaiPhong
             // 
@@ -472,6 +482,36 @@
             this.GiaPhong1.Text = "Giá Phòng";
             this.GiaPhong1.Width = 100;
             // 
+            // bttThemPhong
+            // 
+            this.bttThemPhong.Location = new System.Drawing.Point(844, 380);
+            this.bttThemPhong.Name = "bttThemPhong";
+            this.bttThemPhong.Size = new System.Drawing.Size(76, 26);
+            this.bttThemPhong.TabIndex = 2;
+            this.bttThemPhong.Text = "Thêm";
+            this.bttThemPhong.UseVisualStyleBackColor = true;
+            this.bttThemPhong.Click += new System.EventHandler(this.bttThemPhong_Click);
+            // 
+            // btnSuaPhong
+            // 
+            this.btnSuaPhong.Location = new System.Drawing.Point(844, 441);
+            this.btnSuaPhong.Name = "btnSuaPhong";
+            this.btnSuaPhong.Size = new System.Drawing.Size(76, 26);
+            this.btnSuaPhong.TabIndex = 3;
+            this.btnSuaPhong.Text = "Sửa";
+            this.btnSuaPhong.UseVisualStyleBackColor = true;
+            this.btnSuaPhong.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(844, 509);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(76, 26);
+            this.btnXoa.TabIndex = 4;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
             // fQuanLyPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,9 +548,9 @@
         private System.Windows.Forms.ColumnHeader MoTaPhong;
         private System.Windows.Forms.ColumnHeader TrangThai;
         private System.Windows.Forms.GroupBox grbThongtindondatphong;
-        private System.Windows.Forms.TextBox tbMaphong;
-        private System.Windows.Forms.TextBox tbMakhach;
-        private System.Windows.Forms.TextBox tbMadondatphong;
+        private System.Windows.Forms.TextBox tbMaTenPhong;
+        private System.Windows.Forms.TextBox tbTenPhong;
+        private System.Windows.Forms.TextBox tbMaPhong;
         private System.Windows.Forms.Label lbMadondatphong;
         private System.Windows.Forms.Label lbMaphong;
         private System.Windows.Forms.Label lbDatcoc;
@@ -518,7 +558,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rdoTrue;
         private System.Windows.Forms.RadioButton rdoFalse;
-        private System.Windows.Forms.TextBox tbDatcoc;
+        private System.Windows.Forms.TextBox tbMoTa;
         private System.Windows.Forms.ListView listLoaiPhong1;
         private System.Windows.Forms.ColumnHeader MaLoaiPhong1;
         private System.Windows.Forms.ColumnHeader LoaiPhong1;
@@ -536,5 +576,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnSuaPhong;
+        private System.Windows.Forms.Button bttThemPhong;
     }
 }
