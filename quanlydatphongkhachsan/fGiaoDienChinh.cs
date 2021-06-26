@@ -65,15 +65,15 @@ namespace quanlydatphongkhachsan
                 lvi.SubItems.Add(oDate3.ToString("dd/MM/yyyy"));
                 lvi.SubItems.Add(dt.Rows[i]["ThoiGianThue"].ToString());
                 lvi.SubItems.Add(dt.Rows[i]["TienPhong"].ToString());
+                lvi.SubItems.Add(dt.Rows[i]["DatCoc"].ToString());
                 lvi.SubItems.Add(dt.Rows[i]["ConLai"].ToString());
-                cbbHuyDon.SelectedValue = 0;
                 if (dt.Rows[i]["HuyDon"].ToString().Equals("False"))
                 {
-                    cbbHuyDon.SelectedValue = 0;
+                    lvi.SubItems.Add("Không");
                 }
                 else
                 {
-                    cbbHuyDon.SelectedValue = 1;
+                    lvi.SubItems.Add("Đã hủy");
                 }
 
                 listDatPhong.Items.Add(lvi);
@@ -107,6 +107,7 @@ namespace quanlydatphongkhachsan
                 lvi.SubItems.Add(oDate3.ToString("dd/MM/yyyy"));
                 lvi.SubItems.Add(dt.Rows[i]["ThoiGianThue"].ToString());
                 lvi.SubItems.Add(dt.Rows[i]["TienPhong"].ToString());
+                lvi.SubItems.Add(dt.Rows[i]["DatCoc"].ToString());
                 lvi.SubItems.Add(dt.Rows[i]["ConLai"].ToString());
                 if (dt.Rows[i]["HuyDon"].ToString().Equals("False"))
                 {
@@ -144,17 +145,16 @@ namespace quanlydatphongkhachsan
             DateTime oDate3 = Convert.ToDateTime(dt.Rows[0]["NgayDi"]);
             dateTimePicker3.Value = oDate3;
             tbThoigianthue.Text = dt.Rows[0]["ThoiGianThue"].ToString();
-
-            /**
+            txtDatCoc.Text = dt.Rows[0]["DatCoc"].ToString();
             if (dt.Rows[0]["HuyDon"].ToString().Equals("False"))
             {
-                tbHuydon.Text = "Chưa hủy";
+                cbbHuyDon.SelectedIndex = 0;
             }
             else
             {
-                tbHuydon.Text = "Đã hủy";
+                cbbHuyDon.SelectedIndex = 1;
             }
-            */
+            
 
         }
 
@@ -364,6 +364,17 @@ namespace quanlydatphongkhachsan
         {
             MainForm mf = new MainForm();
             mf.ShowDialog();
+        }
+
+        private void listDatPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThongKe thongKe = new ThongKe();
+            thongKe.ShowDialog();
         }
     }
 }
