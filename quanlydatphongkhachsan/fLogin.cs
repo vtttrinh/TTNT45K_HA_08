@@ -51,7 +51,7 @@ namespace quanlydatphongkhachsan
             // Kiểm tra password
             else if (dt.Rows[0]["MatKhau"].ToString().Equals(TB_pass.Text)) 
             {
-                MessageBox.Show("Đăng nhập thành công!", "Thông báo");
+                // MessageBox.Show("Đăng nhập thành công!", "Thông báo");
                 return true;
             }
             else
@@ -67,10 +67,15 @@ namespace quanlydatphongkhachsan
             if (login())
             {
                 fGiaodienchinh f = new fGiaodienchinh();
-                this.Hide();
+                this.Visible = false;
                 f.ShowDialog();
-                this.Show();
+                this.Close();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.ExitThread(); 
         }
     }
 }
