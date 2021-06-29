@@ -80,6 +80,7 @@
             this.dONDATPHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dONDATPHONGTableAdapter = new quanlydatphongkhachsan.QUANLYDATPHONGKHACHSAN1DataSetTableAdapters.DONDATPHONGTableAdapter();
             this.quanlydatphongkhachsaN1DataSet1 = new quanlydatphongkhachsan.QUANLYDATPHONGKHACHSAN1DataSet();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.grbDondatphong.SuspendLayout();
             this.grbSuathongtindondatphong.SuspendLayout();
             this.grbThongtindondatphong.SuspendLayout();
@@ -87,17 +88,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYDATPHONGKHACHSAN1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dONDATPHONGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlydatphongkhachsaN1DataSet1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbDondatphong
             // 
+            this.grbDondatphong.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.grbDondatphong.Controls.Add(this.panel1);
             this.grbDondatphong.Controls.Add(this.grbSuathongtindondatphong);
-            this.grbDondatphong.Controls.Add(this.tbTimdondatphong);
-            this.grbDondatphong.Controls.Add(this.btTimFgiaodienchinh);
-            this.grbDondatphong.Controls.Add(this.lbTimdondatphong);
             this.grbDondatphong.Controls.Add(this.listDatPhong);
             this.grbDondatphong.Controls.Add(this.grbThongtindondatphong);
-            this.grbDondatphong.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbDondatphong.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbDondatphong.Location = new System.Drawing.Point(0, 30);
             this.grbDondatphong.Margin = new System.Windows.Forms.Padding(2);
             this.grbDondatphong.Name = "grbDondatphong";
@@ -109,58 +110,63 @@
             // 
             // grbSuathongtindondatphong
             // 
+            this.grbSuathongtindondatphong.BackColor = System.Drawing.Color.White;
             this.grbSuathongtindondatphong.Controls.Add(this.btThemFgiaodienchinh);
             this.grbSuathongtindondatphong.Controls.Add(this.btSuaFgiaodienchinh);
             this.grbSuathongtindondatphong.Controls.Add(this.btXoaFgiaodienchinh);
-            this.grbSuathongtindondatphong.Location = new System.Drawing.Point(644, 396);
+            this.grbSuathongtindondatphong.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbSuathongtindondatphong.Location = new System.Drawing.Point(636, 395);
             this.grbSuathongtindondatphong.Margin = new System.Windows.Forms.Padding(2);
             this.grbSuathongtindondatphong.Name = "grbSuathongtindondatphong";
             this.grbSuathongtindondatphong.Padding = new System.Windows.Forms.Padding(2);
-            this.grbSuathongtindondatphong.Size = new System.Drawing.Size(326, 89);
+            this.grbSuathongtindondatphong.Size = new System.Drawing.Size(334, 89);
             this.grbSuathongtindondatphong.TabIndex = 29;
             this.grbSuathongtindondatphong.TabStop = false;
             this.grbSuathongtindondatphong.Text = "Sửa thông tin đơn đặt phòng";
             // 
             // btThemFgiaodienchinh
             // 
-            this.btThemFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThemFgiaodienchinh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btThemFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThemFgiaodienchinh.Location = new System.Drawing.Point(20, 34);
             this.btThemFgiaodienchinh.Margin = new System.Windows.Forms.Padding(2);
             this.btThemFgiaodienchinh.Name = "btThemFgiaodienchinh";
             this.btThemFgiaodienchinh.Size = new System.Drawing.Size(84, 35);
             this.btThemFgiaodienchinh.TabIndex = 25;
             this.btThemFgiaodienchinh.Text = "Thêm";
-            this.btThemFgiaodienchinh.UseVisualStyleBackColor = true;
+            this.btThemFgiaodienchinh.UseVisualStyleBackColor = false;
             this.btThemFgiaodienchinh.Click += new System.EventHandler(this.btThemFgiaodienchinh_Click);
             // 
             // btSuaFgiaodienchinh
             // 
-            this.btSuaFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSuaFgiaodienchinh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btSuaFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSuaFgiaodienchinh.Location = new System.Drawing.Point(122, 33);
             this.btSuaFgiaodienchinh.Margin = new System.Windows.Forms.Padding(2);
             this.btSuaFgiaodienchinh.Name = "btSuaFgiaodienchinh";
             this.btSuaFgiaodienchinh.Size = new System.Drawing.Size(84, 35);
             this.btSuaFgiaodienchinh.TabIndex = 26;
             this.btSuaFgiaodienchinh.Text = "Sửa";
-            this.btSuaFgiaodienchinh.UseVisualStyleBackColor = true;
+            this.btSuaFgiaodienchinh.UseVisualStyleBackColor = false;
             this.btSuaFgiaodienchinh.Click += new System.EventHandler(this.btSuaFgiaodienchinh_Click);
             // 
             // btXoaFgiaodienchinh
             // 
-            this.btXoaFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXoaFgiaodienchinh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btXoaFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btXoaFgiaodienchinh.Location = new System.Drawing.Point(222, 34);
             this.btXoaFgiaodienchinh.Margin = new System.Windows.Forms.Padding(2);
             this.btXoaFgiaodienchinh.Name = "btXoaFgiaodienchinh";
             this.btXoaFgiaodienchinh.Size = new System.Drawing.Size(84, 35);
             this.btXoaFgiaodienchinh.TabIndex = 27;
             this.btXoaFgiaodienchinh.Text = "Xóa";
-            this.btXoaFgiaodienchinh.UseVisualStyleBackColor = true;
+            this.btXoaFgiaodienchinh.UseVisualStyleBackColor = false;
             this.btXoaFgiaodienchinh.Click += new System.EventHandler(this.btXoaFgiaodienchinh_Click);
             // 
             // tbTimdondatphong
             // 
             this.tbTimdondatphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTimdondatphong.Location = new System.Drawing.Point(764, 349);
+            this.tbTimdondatphong.Location = new System.Drawing.Point(110, 11);
             this.tbTimdondatphong.Margin = new System.Windows.Forms.Padding(2);
             this.tbTimdondatphong.Name = "tbTimdondatphong";
             this.tbTimdondatphong.Size = new System.Drawing.Size(139, 24);
@@ -168,26 +174,27 @@
             // 
             // btTimFgiaodienchinh
             // 
+            this.btTimFgiaodienchinh.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btTimFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTimFgiaodienchinh.Location = new System.Drawing.Point(908, 349);
+            this.btTimFgiaodienchinh.Location = new System.Drawing.Point(253, 11);
             this.btTimFgiaodienchinh.Margin = new System.Windows.Forms.Padding(2);
             this.btTimFgiaodienchinh.Name = "btTimFgiaodienchinh";
             this.btTimFgiaodienchinh.Size = new System.Drawing.Size(65, 25);
             this.btTimFgiaodienchinh.TabIndex = 24;
             this.btTimFgiaodienchinh.Text = "Tìm";
-            this.btTimFgiaodienchinh.UseVisualStyleBackColor = true;
+            this.btTimFgiaodienchinh.UseVisualStyleBackColor = false;
             this.btTimFgiaodienchinh.Click += new System.EventHandler(this.btTimFgiaodienchinh_Click);
             // 
             // lbTimdondatphong
             // 
             this.lbTimdondatphong.AutoSize = true;
             this.lbTimdondatphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTimdondatphong.Location = new System.Drawing.Point(642, 353);
+            this.lbTimdondatphong.Location = new System.Drawing.Point(12, 15);
             this.lbTimdondatphong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTimdondatphong.Name = "lbTimdondatphong";
-            this.lbTimdondatphong.Size = new System.Drawing.Size(120, 17);
+            this.lbTimdondatphong.Size = new System.Drawing.Size(96, 17);
             this.lbTimdondatphong.TabIndex = 13;
-            this.lbTimdondatphong.Text = "Tìm đơn đặt phòng";
+            this.lbTimdondatphong.Text = "Đơn đặt phòng";
             // 
             // listDatPhong
             // 
@@ -203,7 +210,7 @@
             this.columnHeader9,
             this.columnHeader10,
             this.columnHeader11});
-            this.listDatPhong.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listDatPhong.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listDatPhong.FullRowSelect = true;
             this.listDatPhong.GridLines = true;
             this.listDatPhong.HideSelection = false;
@@ -308,6 +315,7 @@
             this.grbThongtindondatphong.Controls.Add(this.lbTienphong);
             this.grbThongtindondatphong.Controls.Add(this.lbNgayden);
             this.grbThongtindondatphong.Controls.Add(this.lbNgaydatphong);
+            this.grbThongtindondatphong.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbThongtindondatphong.Location = new System.Drawing.Point(7, 334);
             this.grbThongtindondatphong.Margin = new System.Windows.Forms.Padding(2);
             this.grbThongtindondatphong.Name = "grbThongtindondatphong";
@@ -549,14 +557,16 @@
             // quảnLýThôngTinKháchHàngToolStripMenuItem
             // 
             this.quảnLýThôngTinKháchHàngToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quảnLýThôngTinKháchHàngToolStripMenuItem.ForeColor = System.Drawing.Color.Gold;
             this.quảnLýThôngTinKháchHàngToolStripMenuItem.Name = "quảnLýThôngTinKháchHàngToolStripMenuItem";
-            this.quảnLýThôngTinKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
-            this.quảnLýThôngTinKháchHàngToolStripMenuItem.Text = "Quản lý thông tin khách hàng";
+            this.quảnLýThôngTinKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.quảnLýThôngTinKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
             this.quảnLýThôngTinKháchHàngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýThôngTinKháchHàngToolStripMenuItem_Click);
             // 
             // quảnLýPhòngToolStripMenuItem
             // 
             this.quảnLýPhòngToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quảnLýPhòngToolStripMenuItem.ForeColor = System.Drawing.Color.Gold;
             this.quảnLýPhòngToolStripMenuItem.Name = "quảnLýPhòngToolStripMenuItem";
             this.quảnLýPhòngToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.quảnLýPhòngToolStripMenuItem.Text = "Quản lý phòng";
@@ -564,6 +574,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quảnLýThôngTinKháchHàngToolStripMenuItem,
@@ -579,9 +590,10 @@
             // thốngKêToolStripMenuItem
             // 
             this.thốngKêToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thốngKêToolStripMenuItem.ForeColor = System.Drawing.Color.Gold;
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(100, 26);
-            this.thốngKêToolStripMenuItem.Text = "Thống kê";
+            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
+            this.thốngKêToolStripMenuItem.Text = "Quản lý thống kê";
             this.thốngKêToolStripMenuItem.Click += new System.EventHandler(this.thốngKêToolStripMenuItem_Click);
             // 
             // qUANLYDATPHONGKHACHSAN1DataSet
@@ -603,6 +615,17 @@
             this.quanlydatphongkhachsaN1DataSet1.DataSetName = "QUANLYDATPHONGKHACHSAN1DataSet";
             this.quanlydatphongkhachsaN1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.tbTimdondatphong);
+            this.panel1.Controls.Add(this.lbTimdondatphong);
+            this.panel1.Controls.Add(this.btTimFgiaodienchinh);
+            this.panel1.Location = new System.Drawing.Point(636, 334);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(334, 48);
+            this.panel1.TabIndex = 30;
+            // 
             // fGiaodienchinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -618,7 +641,6 @@
             this.Load += new System.EventHandler(this.fGiaodienchinh_Load);
             this.Click += new System.EventHandler(this.fGiaodienchinh_Click);
             this.grbDondatphong.ResumeLayout(false);
-            this.grbDondatphong.PerformLayout();
             this.grbSuathongtindondatphong.ResumeLayout(false);
             this.grbThongtindondatphong.ResumeLayout(false);
             this.grbThongtindondatphong.PerformLayout();
@@ -627,6 +649,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYDATPHONGKHACHSAN1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dONDATPHONGBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlydatphongkhachsaN1DataSet1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -685,5 +709,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;
         private QUANLYDATPHONGKHACHSAN1DataSet quanlydatphongkhachsaN1DataSet1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

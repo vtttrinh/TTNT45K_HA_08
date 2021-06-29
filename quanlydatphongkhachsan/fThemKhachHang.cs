@@ -122,5 +122,10 @@ namespace quanlydatphongkhachsan
             }
 
         }
+
+        private void lbGioitinh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

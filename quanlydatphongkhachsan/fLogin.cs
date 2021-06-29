@@ -33,7 +33,7 @@ namespace quanlydatphongkhachsan
             Connection();
 
             // Kiểm tra xem có người dùng nào không
-            String sql = "SELECT * FROM NGUOIDUNG WHERE TaiKhoan = '" + TB_user.Text + "'";
+            String sql = "SELECT * FROM NGUOIDUNG WHERE TaiKhoan = '" + txtUsername.Text + "'";
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sql, conn);
 
@@ -49,7 +49,7 @@ namespace quanlydatphongkhachsan
                 return false;
             }
             // Kiểm tra password
-            else if (dt.Rows[0]["MatKhau"].ToString().Equals(TB_pass.Text)) 
+            else if (dt.Rows[0]["MatKhau"].ToString().Equals(txtPassword.Text)) 
             {
                 // MessageBox.Show("Đăng nhập thành công!", "Thông báo");
                 return true;

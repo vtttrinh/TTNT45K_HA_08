@@ -15,6 +15,7 @@ namespace quanlydatphongkhachsan
     {
         SqlConnection conn;
         String constring = "Data Source=ADMIN;Initial Catalog=QUANLYDATPHONGKHACHSAN1;Integrated Security=True";
+        string sortCustomer = "DESC";
 
         public ThongKe()
         {
@@ -22,7 +23,9 @@ namespace quanlydatphongkhachsan
 
             cbbTime0.SelectedIndex = 0;
             cbbTime1.SelectedIndex = 0;
-            
+            cboTimeKH.SelectedIndex = 0;
+            cboTypeKH.SelectedIndex = 0;
+            cboTopKH.SelectedIndex = 3;
         }
 
         public void Connection()
@@ -39,7 +42,7 @@ namespace quanlydatphongkhachsan
                 "  FROM DONDATPHONG " +
                 "  JOIN KhachHang ON KhachHang.MaKhach = DONDATPHONG.MaKhach " +
                 "  JOIN PHONG ON Phong.MaPhong = DONDATPHONG.MaPhong " +
-                " WHERE (NgayDen BETWEEN '" + date1 + "' AND '"+ date2 +"') AND HuyDon = " + cancelRoom + " " +
+                " WHERE (NgayDen BETWEEN '" + date1 + "' AND '" + date2 + "') AND HuyDon = " + cancelRoom + " " +
                 " GROUP BY MaDonDatPhong, TenPhong, TenKhachHang, NgayDatPhong, NgayDen, NgayDi, ThoiGianThue, TienPhong, HuyDon";
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sql, conn);
@@ -98,10 +101,10 @@ namespace quanlydatphongkhachsan
         {
             Connection();
             String sql = "" +
-                "SELECT SUM(TienPhong) TongTienPhong, SUM(ThoiGianThue) TongThoiGian,HuyDon " +
-                "  FROM DONDATPHONG " +
+                "SELECT SUM(TienPhong) TongTienPhong, SUM(ThoiGianThue) TongThoiGian,HuyDon                   " +
+                "  FROM DONDATPHONG                                                                           " +
                 " WHERE (NgayDen BETWEEN '" + date1 + "' AND '" + date2 + "') AND HuyDon = " + cancelRoom + " " +
-                " GROUP BY HuyDon";
+                " GROUP BY HuyDon                                                                             ";
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sql, conn);
 
@@ -116,24 +119,147 @@ namespace quanlydatphongkhachsan
             listDonDatHang.Columns.Add("Tổng tiền phòng", 150, HorizontalAlignment.Left);
             listDonDatHang.Columns.Add("Tổng thời gian thuê", 200, HorizontalAlignment.Left);
             listDonDatHang.Columns.Add("Hủy phòng", 150, HorizontalAlignment.Left);
+            listDonDatHang.Columns.Add("Từ ngày", 150, HorizontalAlignment.Left);
+            listDonDatHang.Columns.Add("Đến ngày", 150, HorizontalAlignment.Left);
+
+            listDonDatHang.Items.Clear();
+            // Đổ dữ liệu ở đây từng hàng
+            ListViewItem lvi = new ListViewItem(dt.Rows[0]["TongTienPhong"].ToString());
+            lvi.SubItems.Add(dt.Rows[0]["TongThoiGian"].ToString());
+            if (dt.Rows[0]["HuyDon"].ToString().Equals("False"))
+            {
+                lvi.SubItems.Add("Không");
+            }
+            else
+            {
+                lvi.SubItems.Add("Đã hủy");
+            }
+            lvi.SubItems.Add(dtpTime2.Value.ToString("dd/MM/yyyy"));
+            lvi.SubItems.Add(dtpTime3.Value.ToString("dd/MM/yyyy"));
+
+            listDonDatHang.Items.Add(lvi);
+        }
+
+        public void getRoom()
+        {
+            Connection();
+            String sql = "" +
+                " SELECT                                                        " +
+                " 	     TOP 5 PHONG.TenPhong,                                  " +
+                " 	     LOAIPHONG.LoaiPhong,                                   " +
+                " 	     COUNT(DONDATPHONG.MaPhong) TongSoPhong                 " +
+                "   FROM DONDATPHONG                                            " +
+                "   JOIN PHONG ON PHONG.MaPhong = DONDATPHONG.MaPhong           " +
+                "   JOIN LOAIPHONG ON LOAIPHONG.MaLoaiPhong = PHONG.MaLoaiPhong " +
+                "  WHERE DONDATPHONG.HuyDon = 0                                 " +
+                "  GROUP BY PHONG.TenPhong, LOAIPHONG.LoaiPhong                 " +
+                "  ORDER BY TongSoPhong DESC                                    ";
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+
+            conn.Open();
+            da.Fill(dt);
+            da.Dispose();
+            conn.Close();
+
+            // Set to details view.
+            listDonDatHang.View = View.Details;
+            listDonDatHang.Columns.Clear();
+            listDonDatHang.Columns.Add("Tên phòng", 200, HorizontalAlignment.Left);
+            listDonDatHang.Columns.Add("Loại phòng", 200, HorizontalAlignment.Left);
+            listDonDatHang.Columns.Add("Tổng số phòng", 150, HorizontalAlignment.Left);
 
             listDonDatHang.Items.Clear();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 // Đổ dữ liệu ở đây từng hàng
-                ListViewItem lvi = new ListViewItem(dt.Rows[i]["TongTienPhong"].ToString());
-                lvi.SubItems.Add(dt.Rows[i]["TongThoiGian"].ToString());
-                if (dt.Rows[i]["HuyDon"].ToString().Equals("False"))
-                {
-                    lvi.SubItems.Add("Không");
-                }
-                else
-                {
-                    lvi.SubItems.Add("Đã hủy");
-                }
+                ListViewItem lvi = new ListViewItem(dt.Rows[i]["TenPhong"].ToString());
+                lvi.SubItems.Add(dt.Rows[i]["LoaiPhong"].ToString());
+                lvi.SubItems.Add(dt.Rows[i]["TongSoPhong"].ToString());
 
                 listDonDatHang.Items.Add(lvi);
             }
+        }
+
+        public void getKhachHangByTime(string date1, string date2, int cancelRoom, string typeSort, string typeLimit)
+        {
+
+            Connection();
+            String sql = "";
+            sql += " SELECT                                                             ";
+            sql += "	    " + typeLimit + " KH.TenKhachHang,                          ";
+            sql += "	    COUNT(DD.MaKhach) TongSoPhong,                              ";
+            sql += "		KH.GioiTinh,                                                ";
+            sql += " 	    SUM(DD.TienPhong) TongSoTien,                               ";
+            sql += " 	    SUM(DD.ThoiGianThue) TongThoiGian                           ";
+            sql += "   FROM DONDATPHONG DD                                              ";
+            sql += "   JOIN KHACHHANG KH ON KH.MaKhach = DD.MaKhach                     ";
+            sql += "  WHERE (DD.NgayDi BETWEEN '" + date1 + "' AND '" + date2 + "')     ";
+            sql += "        AND DD.HuyDon = " + cancelRoom + "                          ";
+            sql += "  GROUP BY KH.TenKhachHang, KH.GioiTinh                             ";
+            sql += "  ORDER BY " + typeSort + " " + sortCustomer + "                    ";
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+
+            conn.Open();
+            da.Fill(dt);
+            da.Dispose();
+            conn.Close();
+
+            // Set to details view.
+            listKhachHang.View = View.Details;
+            listKhachHang.Columns.Clear();
+            listKhachHang.Columns.Add("STT", 50, HorizontalAlignment.Left);
+            listKhachHang.Columns.Add("Tên khách hàng", 150, HorizontalAlignment.Left);
+            listKhachHang.Columns.Add("Giới tính", 100, HorizontalAlignment.Left);
+            listKhachHang.Columns.Add("Tổng phòng thuê", 150, HorizontalAlignment.Left);
+            listKhachHang.Columns.Add("Tổng tiền thuê", 150, HorizontalAlignment.Left);
+            listKhachHang.Columns.Add("Tổng thời gian thuê", 200, HorizontalAlignment.Left);
+
+            listKhachHang.Items.Clear();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                // Đổ dữ liệu ở đây từng hàng
+                ListViewItem lvi = new ListViewItem(i + 1 + "");
+                lvi.SubItems.Add(dt.Rows[i]["TenKhachHang"].ToString());
+                if (dt.Rows[i]["GioiTinh"].ToString().Equals("True"))
+                {
+                    lvi.SubItems.Add("Nam");
+                }
+                else
+                {
+                    lvi.SubItems.Add("Nữ");
+                }
+                lvi.SubItems.Add(dt.Rows[i]["TongSoPhong"].ToString());
+                lvi.SubItems.Add(dt.Rows[i]["TongSoTien"].ToString());
+                lvi.SubItems.Add(dt.Rows[i]["TongThoiGian"].ToString());
+
+                listKhachHang.Items.Add(lvi);
+            }
+        }
+
+        /**
+         * 
+         * Lấy ngày trong tháng, năm
+         * 
+         * @param DateTimePicker date
+         * 
+         */
+        private int GetDayOfMonth(DateTimePicker date)
+        {
+            // This duj date = "06/28/2020"
+
+            // Lấy năm trong date (ngày tháng năm)
+            int intYear = int.Parse(date.Value.ToString("yyyy"));
+
+            // Lấy tháng trong date (ngày tháng năm)
+            int intMonth = int.Parse(date.Value.ToString("MM"));
+
+            // Lấy ngày trong tháng và năm và return lại
+            return DateTime.DaysInMonth(intYear, intMonth);
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -147,17 +273,18 @@ namespace quanlydatphongkhachsan
             string strDate1 = "";
             int intSelectTime = cbbTime0.SelectedIndex;
             int intCancelRoom = 0;
+            int dayInMonth = GetDayOfMonth(dtpTime3);
 
 
             if (intSelectTime == 2)
             {
                 strDate0 = dtpTime0.Value.ToString("yyyy-01-01");
-                strDate1 = dtpTime1.Value.ToString("yyyy-12-31");
+                strDate1 = dtpTime1.Value.ToString(("yyyy-12-" + dayInMonth));
             }
             else if (intSelectTime == 1)
             {
                 strDate0 = dtpTime0.Value.ToString("yyyy-MM-01");
-                strDate1 = dtpTime1.Value.ToString("yyyy-MM-28");
+                strDate1 = dtpTime1.Value.ToString(("yyyy-MM-" + dayInMonth));
             }
             else
             {
@@ -169,7 +296,8 @@ namespace quanlydatphongkhachsan
             {
                 intCancelRoom = 0;
             }
-            else {
+            else
+            {
                 intCancelRoom = 1;
             }
 
@@ -182,22 +310,22 @@ namespace quanlydatphongkhachsan
             string strDate1 = "";
             int intSelectTime = cbbTime1.SelectedIndex;
             int intCancelRoom = 1;
-
+            int dayInMonth = GetDayOfMonth(dtpTime3);
 
             if (intSelectTime == 2)
             {
                 strDate0 = dtpTime2.Value.ToString("yyyy-01-01");
-                strDate1 = dtpTime3.Value.ToString("yyyy-12-31");
+                strDate1 = dtpTime3.Value.ToString(("yyyy-12-" + dayInMonth));
             }
             else if (intSelectTime == 1)
             {
                 strDate0 = dtpTime2.Value.ToString("yyyy-MM-01");
-                strDate1 = dtpTime3.Value.ToString("yyyy-MM-28");
+                strDate1 = dtpTime3.Value.ToString(("yyyy-MM-" + dayInMonth));
             }
             else
             {
-                strDate0 = dtpTime2.Value.ToString("yyyy-MM-01");
-                strDate1 = dtpTime3.Value.ToString("yyyy-MM-31");
+                strDate0 = dtpTime2.Value.ToString("yyyy-MM-dd");
+                strDate1 = dtpTime3.Value.ToString("yyyy-MM-dd");
             }
 
             if (ckbHuyPhong0.Checked.ToString() == "False")
@@ -210,6 +338,306 @@ namespace quanlydatphongkhachsan
             }
 
             getSumData(strDate0, strDate1, intCancelRoom);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            getRoom();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            sortCustomer = "DESC";
+            string strDate0 = "";
+            string strDate1 = "";
+            int intSelectTime = cboTimeKH.SelectedIndex;
+            int intCancelRoom = 1;
+            int dayInMonth = GetDayOfMonth(dtpTime5);
+            string typeSort = "TongSoPhong";
+            string typeLimit = "";
+
+            if (intSelectTime == 2)
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-01-01");
+                strDate1 = dtpTime5.Value.ToString(("yyyy-12-" + dayInMonth));
+            }
+            else if (intSelectTime == 1)
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-MM-01");
+                strDate1 = dtpTime5.Value.ToString(("yyyy-MM-" + dayInMonth));
+            }
+            else
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-MM-dd");
+                strDate1 = dtpTime5.Value.ToString("yyyy-MM-dd");
+            }
+
+            if (ckbCancelRoomKH.Checked.ToString() == "False")
+            {
+                intCancelRoom = 0;
+            }
+
+            if (cboTypeKH.SelectedIndex == 1)
+            {
+                typeSort = "TongSoTien";
+            }
+            else if (cboTypeKH.SelectedIndex == 2)
+            {
+                typeSort = "TongThoiGian";
+            }
+
+            if (cboTopKH.SelectedIndex == 0)
+            {
+                typeLimit = "TOP 5";
+            }
+            else if (cboTopKH.SelectedIndex == 1)
+            {
+                typeLimit = "TOP 10";
+            }
+            else if (cboTopKH.SelectedIndex == 2)
+            {
+                typeLimit = "TOP 20";
+            }
+
+            getKhachHangByTime(strDate0, strDate1, intCancelRoom, typeSort, typeLimit);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            sortCustomer = "ASC";
+            string strDate0 = "";
+            string strDate1 = "";
+            int intSelectTime = cboTimeKH.SelectedIndex;
+            int intCancelRoom = 1;
+            int dayInMonth = GetDayOfMonth(dtpTime5);
+            string typeSort = "TongSoPhong";
+            string typeLimit = "";
+
+            if (intSelectTime == 2)
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-01-01");
+                strDate1 = dtpTime5.Value.ToString(("yyyy-12-" + dayInMonth));
+            }
+            else if (intSelectTime == 1)
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-MM-01");
+                strDate1 = dtpTime5.Value.ToString(("yyyy-MM-" + dayInMonth));
+            }
+            else
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-MM-dd");
+                strDate1 = dtpTime5.Value.ToString("yyyy-MM-dd");
+            }
+
+            if (ckbCancelRoomKH.Checked.ToString() == "False")
+            {
+                intCancelRoom = 0;
+            }
+
+            if (cboTypeKH.SelectedIndex == 1)
+            {
+                typeSort = "TongSoTien";
+            }
+            else if (cboTypeKH.SelectedIndex == 2)
+            {
+                typeSort = "TongThoiGian";
+            }
+
+            if (cboTopKH.SelectedIndex == 0)
+            {
+                typeLimit = "TOP 5";
+            }
+            else if (cboTopKH.SelectedIndex == 1)
+            {
+                typeLimit = "TOP 10";
+            }
+            else if (cboTopKH.SelectedIndex == 2)
+            {
+                typeLimit = "TOP 20";
+            }
+
+            getKhachHangByTime(strDate0, strDate1, intCancelRoom, typeSort, typeLimit);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            sortCustomer = "DESC";
+            string strDate0 = "";
+            string strDate1 = "";
+            int intSelectTime = cboTimeKH.SelectedIndex;
+            int intCancelRoom = 1;
+            int dayInMonth = GetDayOfMonth(dtpTime5);
+            string typeSort = "TongSoPhong";
+            string typeLimit = "";
+
+            if (intSelectTime == 2)
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-01-01");
+                strDate1 = dtpTime5.Value.ToString(("yyyy-12-" + dayInMonth));
+            }
+            else if (intSelectTime == 1)
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-MM-01");
+                strDate1 = dtpTime5.Value.ToString(("yyyy-MM-" + dayInMonth));
+            }
+            else
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-MM-dd");
+                strDate1 = dtpTime5.Value.ToString("yyyy-MM-dd");
+            }
+
+            if (ckbCancelRoomKH.Checked.ToString() == "False")
+            {
+                intCancelRoom = 0;
+            }
+
+            if (cboTypeKH.SelectedIndex == 1)
+            {
+                typeSort = "TongSoTien";
+            }
+            else if (cboTypeKH.SelectedIndex == 2)
+            {
+                typeSort = "TongThoiGian";
+            }
+
+            if (cboTopKH.SelectedIndex == 0)
+            {
+                typeLimit = "TOP 5";
+            }
+            else if (cboTopKH.SelectedIndex == 1)
+            {
+                typeLimit = "TOP 10";
+            }
+            else if (cboTopKH.SelectedIndex == 2)
+            {
+                typeLimit = "TOP 20";
+            }
+
+            getKhachHangByTime(strDate0, strDate1, intCancelRoom, typeSort, typeLimit);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            sortCustomer = "DESC";
+            string strDate0 = "";
+            string strDate1 = "";
+            int intSelectTime = cboTimeKH.SelectedIndex;
+            int intCancelRoom = 1;
+            int dayInMonth = GetDayOfMonth(dtpTime5);
+            string typeSort = "TongSoPhong";
+            string typeLimit = "";
+
+            if (intSelectTime == 2)
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-01-01");
+                strDate1 = dtpTime5.Value.ToString(("yyyy-12-" + dayInMonth));
+            }
+            else if (intSelectTime == 1)
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-MM-01");
+                strDate1 = dtpTime5.Value.ToString(("yyyy-MM-" + dayInMonth));
+            }
+            else
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-MM-dd");
+                strDate1 = dtpTime5.Value.ToString("yyyy-MM-dd");
+            }
+
+            if (ckbCancelRoomKH.Checked.ToString() == "False")
+            {
+                intCancelRoom = 0;
+            }
+
+            if (cboTypeKH.SelectedIndex == 1)
+            {
+                typeSort = "TongSoTien";
+            }
+            else if (cboTypeKH.SelectedIndex == 2)
+            {
+                typeSort = "TongThoiGian";
+            }
+
+            if (cboTopKH.SelectedIndex == 0)
+            {
+                typeLimit = "TOP 5";
+            }
+            else if (cboTopKH.SelectedIndex == 1)
+            {
+                typeLimit = "TOP 10";
+            }
+            else if (cboTopKH.SelectedIndex == 2)
+            {
+                typeLimit = "TOP 20";
+            }
+
+            getKhachHangByTime(strDate0, strDate1, intCancelRoom, typeSort, typeLimit);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            sortCustomer = "DESC";
+            string strDate0 = "";
+            string strDate1 = "";
+            int intSelectTime = cboTimeKH.SelectedIndex;
+            int intCancelRoom = 1;
+            int dayInMonth = GetDayOfMonth(dtpTime5);
+            string typeSort = "TongSoPhong";
+            string typeLimit = "";
+
+            if (intSelectTime == 2)
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-01-01");
+                strDate1 = dtpTime5.Value.ToString(("yyyy-12-" + dayInMonth));
+            }
+            else if (intSelectTime == 1)
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-MM-01");
+                strDate1 = dtpTime5.Value.ToString(("yyyy-MM-" + dayInMonth));
+            }
+            else
+            {
+                strDate0 = dtpTime4.Value.ToString("yyyy-MM-dd");
+                strDate1 = dtpTime5.Value.ToString("yyyy-MM-dd");
+            }
+
+            if (ckbCancelRoomKH.Checked.ToString() == "False")
+            {
+                intCancelRoom = 0;
+            }
+
+            if (cboTypeKH.SelectedIndex == 1)
+            {
+                typeSort = "TongSoTien";
+            }
+            else if (cboTypeKH.SelectedIndex == 2)
+            {
+                typeSort = "TongThoiGian";
+            }
+
+            if (cboTopKH.SelectedIndex == 0)
+            {
+                typeLimit = "TOP 5";
+            }
+            else if (cboTopKH.SelectedIndex == 1)
+            {
+                typeLimit = "TOP 10";
+            }
+            else if (cboTopKH.SelectedIndex == 2)
+            {
+                typeLimit = "TOP 20";
+            }
+
+            getKhachHangByTime(strDate0, strDate1, intCancelRoom, typeSort, typeLimit);
         }
     }
 }
