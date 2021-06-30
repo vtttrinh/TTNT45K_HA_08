@@ -362,8 +362,6 @@ namespace quanlydatphongkhachsan
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            MainForm mf = new MainForm();
-            mf.ShowDialog();
         }
 
         private void listDatPhong_SelectedIndexChanged(object sender, EventArgs e)

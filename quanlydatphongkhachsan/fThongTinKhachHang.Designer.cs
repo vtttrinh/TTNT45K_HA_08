@@ -66,10 +66,10 @@
             // txtTimKiemKhachHang
             // 
             this.txtTimKiemKhachHang.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimKiemKhachHang.Location = new System.Drawing.Point(182, 17);
+            this.txtTimKiemKhachHang.Location = new System.Drawing.Point(133, 17);
             this.txtTimKiemKhachHang.Margin = new System.Windows.Forms.Padding(2);
             this.txtTimKiemKhachHang.Name = "txtTimKiemKhachHang";
-            this.txtTimKiemKhachHang.Size = new System.Drawing.Size(130, 24);
+            this.txtTimKiemKhachHang.Size = new System.Drawing.Size(179, 24);
             this.txtTimKiemKhachHang.TabIndex = 13;
             // 
             // lbTimthongtinkhachhang
@@ -79,9 +79,9 @@
             this.lbTimthongtinkhachhang.Location = new System.Drawing.Point(24, 20);
             this.lbTimthongtinkhachhang.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTimthongtinkhachhang.Name = "lbTimthongtinkhachhang";
-            this.lbTimthongtinkhachhang.Size = new System.Drawing.Size(156, 17);
+            this.lbTimthongtinkhachhang.Size = new System.Drawing.Size(105, 17);
             this.lbTimthongtinkhachhang.TabIndex = 12;
-            this.lbTimthongtinkhachhang.Text = "Tìm thông tin khách hàng";
+            this.lbTimthongtinkhachhang.Text = "Tên khách hàng:";
             // 
             // grbThongtinkhachhang
             // 

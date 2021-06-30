@@ -63,9 +63,9 @@ namespace quanlydatphongkhachsan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap button {
+        internal static System.Drawing.Bitmap btn_login {
             get {
-                object obj = ResourceManager.GetObject("button", resourceCulture);
+                object obj = ResourceManager.GetObject("btn-login", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,39 +73,9 @@ namespace quanlydatphongkhachsan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ĐĂNG_NHẬP {
+        internal static System.Drawing.Bitmap login_screen {
             get {
-                object obj = ResourceManager.GetObject("ĐĂNG NHẬP", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap hotel_novotel {
-            get {
-                object obj = ResourceManager.GetObject("hotel-novotel", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap login1 {
-            get {
-                object obj = ResourceManager.GetObject("login1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap novotel {
-            get {
-                object obj = ResourceManager.GetObject("novotel", resourceCulture);
+                object obj = ResourceManager.GetObject("login-screen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

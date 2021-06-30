@@ -38,12 +38,12 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(498, 331);
+            this.button1.BackColor = System.Drawing.Color.LightGray;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(517, 330);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 45);
+            this.button1.Size = new System.Drawing.Size(88, 37);
             this.button1.TabIndex = 6;
             this.button1.Text = "Thoát";
             this.button1.UseVisualStyleBackColor = false;
@@ -51,7 +51,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.BackColor = System.Drawing.Color.LightCyan;
+            this.txtUsername.BackColor = System.Drawing.Color.LightSteelBlue;
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(430, 236);
@@ -62,7 +62,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.BackColor = System.Drawing.Color.LightCyan;
+            this.txtPassword.BackColor = System.Drawing.Color.LightSteelBlue;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(429, 287);
@@ -74,13 +74,13 @@
             // 
             // btDangnhap
             // 
-            this.btDangnhap.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btDangnhap.BackColor = System.Drawing.Color.LightGray;
             this.btDangnhap.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btDangnhap.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDangnhap.Location = new System.Drawing.Point(389, 331);
+            this.btDangnhap.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDangnhap.Location = new System.Drawing.Point(392, 330);
             this.btDangnhap.Margin = new System.Windows.Forms.Padding(2);
             this.btDangnhap.Name = "btDangnhap";
-            this.btDangnhap.Size = new System.Drawing.Size(110, 45);
+            this.btDangnhap.Size = new System.Drawing.Size(114, 37);
             this.btDangnhap.TabIndex = 0;
             this.btDangnhap.Text = "Đăng nhập";
             this.btDangnhap.UseVisualStyleBackColor = false;
@@ -88,7 +88,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::quanlydatphongkhachsan.Properties.Resources.login1;
+            this.pictureBox1.BackgroundImage = global::quanlydatphongkhachsan.Properties.Resources.login_screen;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";

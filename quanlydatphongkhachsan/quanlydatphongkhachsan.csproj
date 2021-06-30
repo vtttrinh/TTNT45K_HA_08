@@ -151,20 +151,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\novotel1.jpg" />
+    <None Include="Resources\login-screen.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\hotel-novotel.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\login1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ĐĂNG NHẬP.png" />
+    <None Include="Resources\btn-login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
