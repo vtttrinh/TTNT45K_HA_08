@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbPhong = new System.Windows.Forms.TabPage();
             this.grbPhong = new System.Windows.Forms.GroupBox();
@@ -36,11 +37,11 @@
             this.bttThemPhong = new System.Windows.Forms.Button();
             this.btnSuaPhong = new System.Windows.Forms.Button();
             this.grbThongtindondatphong = new System.Windows.Forms.GroupBox();
+            this.cbbMaLoaiPhong = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdoTrue = new System.Windows.Forms.RadioButton();
             this.rdoFalse = new System.Windows.Forms.RadioButton();
             this.tbMoTa = new System.Windows.Forms.TextBox();
-            this.tbMaTenPhong = new System.Windows.Forms.TextBox();
             this.tbTenPhong = new System.Windows.Forms.TextBox();
             this.tbMaPhong = new System.Windows.Forms.TextBox();
             this.lbMadondatphong = new System.Windows.Forms.Label();
@@ -72,6 +73,9 @@
             this.LoaiPhong1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SoLuong1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GiaPhong1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.qLKS = new quanlydatphongkhachsan.QLKS();
+            this.lOAIPHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lOAIPHONGTableAdapter = new quanlydatphongkhachsan.QLKSTableAdapters.LOAIPHONGTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tbPhong.SuspendLayout();
             this.grbPhong.SuspendLayout();
@@ -81,6 +85,8 @@
             this.listLoaiphong.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qLKS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOAIPHONGBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -174,9 +180,9 @@
             // grbThongtindondatphong
             // 
             this.grbThongtindondatphong.BackColor = System.Drawing.Color.White;
+            this.grbThongtindondatphong.Controls.Add(this.cbbMaLoaiPhong);
             this.grbThongtindondatphong.Controls.Add(this.groupBox1);
             this.grbThongtindondatphong.Controls.Add(this.tbMoTa);
-            this.grbThongtindondatphong.Controls.Add(this.tbMaTenPhong);
             this.grbThongtindondatphong.Controls.Add(this.tbTenPhong);
             this.grbThongtindondatphong.Controls.Add(this.tbMaPhong);
             this.grbThongtindondatphong.Controls.Add(this.lbMadondatphong);
@@ -193,12 +199,24 @@
             this.grbThongtindondatphong.Text = "Thông tin đơn đặt phòng";
             this.grbThongtindondatphong.Enter += new System.EventHandler(this.grbThongtindondatphong_Enter);
             // 
+            // cbbMaLoaiPhong
+            // 
+            this.cbbMaLoaiPhong.BackColor = System.Drawing.Color.White;
+            this.cbbMaLoaiPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbMaLoaiPhong.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMaLoaiPhong.ForeColor = System.Drawing.Color.Black;
+            this.cbbMaLoaiPhong.FormattingEnabled = true;
+            this.cbbMaLoaiPhong.Location = new System.Drawing.Point(102, 84);
+            this.cbbMaLoaiPhong.Name = "cbbMaLoaiPhong";
+            this.cbbMaLoaiPhong.Size = new System.Drawing.Size(131, 25);
+            this.cbbMaLoaiPhong.TabIndex = 18;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rdoTrue);
             this.groupBox1.Controls.Add(this.rdoFalse);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(260, 45);
+            this.groupBox1.Location = new System.Drawing.Point(266, 35);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(124, 79);
             this.groupBox1.TabIndex = 17;
@@ -231,28 +249,18 @@
             // tbMoTa
             // 
             this.tbMoTa.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMoTa.Location = new System.Drawing.Point(493, 45);
+            this.tbMoTa.Location = new System.Drawing.Point(493, 32);
             this.tbMoTa.Margin = new System.Windows.Forms.Padding(2);
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
             this.tbMoTa.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbMoTa.Size = new System.Drawing.Size(256, 146);
+            this.tbMoTa.Size = new System.Drawing.Size(256, 160);
             this.tbMoTa.TabIndex = 16;
-            // 
-            // tbMaTenPhong
-            // 
-            this.tbMaTenPhong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaTenPhong.Location = new System.Drawing.Point(102, 92);
-            this.tbMaTenPhong.Margin = new System.Windows.Forms.Padding(2);
-            this.tbMaTenPhong.Name = "tbMaTenPhong";
-            this.tbMaTenPhong.Size = new System.Drawing.Size(131, 24);
-            this.tbMaTenPhong.TabIndex = 15;
-            this.tbMaTenPhong.TextChanged += new System.EventHandler(this.tbMaphong_TextChanged);
             // 
             // tbTenPhong
             // 
             this.tbTenPhong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTenPhong.Location = new System.Drawing.Point(102, 137);
+            this.tbTenPhong.Location = new System.Drawing.Point(102, 130);
             this.tbTenPhong.Margin = new System.Windows.Forms.Padding(2);
             this.tbTenPhong.Name = "tbTenPhong";
             this.tbTenPhong.Size = new System.Drawing.Size(131, 24);
@@ -262,7 +270,7 @@
             // tbMaPhong
             // 
             this.tbMaPhong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaPhong.Location = new System.Drawing.Point(102, 45);
+            this.tbMaPhong.Location = new System.Drawing.Point(102, 38);
             this.tbMaPhong.Margin = new System.Windows.Forms.Padding(2);
             this.tbMaPhong.Name = "tbMaPhong";
             this.tbMaPhong.Size = new System.Drawing.Size(131, 24);
@@ -273,7 +281,7 @@
             // 
             this.lbMadondatphong.AutoSize = true;
             this.lbMadondatphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMadondatphong.Location = new System.Drawing.Point(32, 49);
+            this.lbMadondatphong.Location = new System.Drawing.Point(32, 42);
             this.lbMadondatphong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbMadondatphong.Name = "lbMadondatphong";
             this.lbMadondatphong.Size = new System.Drawing.Size(67, 17);
@@ -285,7 +293,7 @@
             // 
             this.lbMaphong.AutoSize = true;
             this.lbMaphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaphong.Location = new System.Drawing.Point(8, 96);
+            this.lbMaphong.Location = new System.Drawing.Point(8, 89);
             this.lbMaphong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbMaphong.Name = "lbMaphong";
             this.lbMaphong.Size = new System.Drawing.Size(91, 17);
@@ -297,7 +305,7 @@
             // 
             this.lbDatcoc.AutoSize = true;
             this.lbDatcoc.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDatcoc.Location = new System.Drawing.Point(408, 51);
+            this.lbDatcoc.Location = new System.Drawing.Point(408, 35);
             this.lbDatcoc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbDatcoc.Name = "lbDatcoc";
             this.lbDatcoc.Size = new System.Drawing.Size(82, 17);
@@ -308,7 +316,7 @@
             // 
             this.lbMakhach.AutoSize = true;
             this.lbMakhach.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMakhach.Location = new System.Drawing.Point(30, 141);
+            this.lbMakhach.Location = new System.Drawing.Point(30, 134);
             this.lbMakhach.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbMakhach.Name = "lbMakhach";
             this.lbMakhach.Size = new System.Drawing.Size(70, 17);
@@ -541,13 +549,27 @@
             // 
             // SoLuong1
             // 
-            this.SoLuong1.Text = "Số Lượng";
+            this.SoLuong1.Text = "Số Giường";
             this.SoLuong1.Width = 159;
             // 
             // GiaPhong1
             // 
             this.GiaPhong1.Text = "Giá Phòng";
             this.GiaPhong1.Width = 150;
+            // 
+            // qLKS
+            // 
+            this.qLKS.DataSetName = "QLKS";
+            this.qLKS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lOAIPHONGBindingSource
+            // 
+            this.lOAIPHONGBindingSource.DataMember = "LOAIPHONG";
+            this.lOAIPHONGBindingSource.DataSource = this.qLKS;
+            // 
+            // lOAIPHONGTableAdapter
+            // 
+            this.lOAIPHONGTableAdapter.ClearBeforeFill = true;
             // 
             // fQuanLyPhong
             // 
@@ -557,7 +579,9 @@
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fQuanLyPhong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý phòng";
+            this.Load += new System.EventHandler(this.fQuanLyPhong_Load);
             this.tabControl1.ResumeLayout(false);
             this.tbPhong.ResumeLayout(false);
             this.grbPhong.ResumeLayout(false);
@@ -570,6 +594,8 @@
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qLKS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOAIPHONGBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -587,7 +613,6 @@
         private System.Windows.Forms.ColumnHeader MoTaPhong;
         private System.Windows.Forms.ColumnHeader TrangThai;
         private System.Windows.Forms.GroupBox grbThongtindondatphong;
-        private System.Windows.Forms.TextBox tbMaTenPhong;
         private System.Windows.Forms.TextBox tbTenPhong;
         private System.Windows.Forms.TextBox tbMaPhong;
         private System.Windows.Forms.Label lbMadondatphong;
@@ -620,5 +645,9 @@
         private System.Windows.Forms.Button bttThemPhong;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox cbbMaLoaiPhong;
+        private QLKS qLKS;
+        private System.Windows.Forms.BindingSource lOAIPHONGBindingSource;
+        private QLKSTableAdapters.LOAIPHONGTableAdapter lOAIPHONGTableAdapter;
     }
 }

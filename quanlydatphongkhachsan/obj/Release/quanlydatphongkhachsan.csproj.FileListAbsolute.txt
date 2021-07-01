@@ -1,0 +1,14 @@
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\bin\Release\quanlydatphongkhachsan.exe.config
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\bin\Release\quanlydatphongkhachsan.exe
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\bin\Release\quanlydatphongkhachsan.pdb
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.fGiaodienchinh.resources
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.fLogin.resources
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.fQuanLyPhong.resources
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.fThemDonDatPhong.resources
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.fThemKhachHang.resources
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.fThongTinKhachHang.resources
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.Properties.Resources.resources
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.ThongKe.resources
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.csproj.GenerateResource.Cache
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.exe
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.pdb

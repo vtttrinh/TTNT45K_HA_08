@@ -125,9 +125,9 @@
             this.panel1.Controls.Add(this.tbTimdondatphong);
             this.panel1.Controls.Add(this.lbTimdondatphong);
             this.panel1.Controls.Add(this.btTimFgiaodienchinh);
-            this.panel1.Location = new System.Drawing.Point(636, 334);
+            this.panel1.Location = new System.Drawing.Point(641, 334);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(334, 48);
+            this.panel1.Size = new System.Drawing.Size(332, 48);
             this.panel1.TabIndex = 30;
             // 
             // tbTimdondatphong
@@ -174,7 +174,7 @@
             this.grbSuathongtindondatphong.Margin = new System.Windows.Forms.Padding(2);
             this.grbSuathongtindondatphong.Name = "grbSuathongtindondatphong";
             this.grbSuathongtindondatphong.Padding = new System.Windows.Forms.Padding(2);
-            this.grbSuathongtindondatphong.Size = new System.Drawing.Size(334, 89);
+            this.grbSuathongtindondatphong.Size = new System.Drawing.Size(332, 89);
             this.grbSuathongtindondatphong.TabIndex = 29;
             this.grbSuathongtindondatphong.TabStop = false;
             this.grbSuathongtindondatphong.Text = "Sửa thông tin đơn đặt phòng";
@@ -356,6 +356,7 @@
             this.cbbKhach.Name = "cbbKhach";
             this.cbbKhach.Size = new System.Drawing.Size(150, 27);
             this.cbbKhach.TabIndex = 28;
+            this.cbbKhach.Click += new System.EventHandler(this.cbbKhach_Click);
             // 
             // cbbMaPhong
             // 
@@ -368,6 +369,7 @@
             this.cbbMaPhong.TabIndex = 27;
             this.cbbMaPhong.SelectedIndexChanged += new System.EventHandler(this.cbbMaPhong_SelectedIndexChanged);
             this.cbbMaPhong.SelectedValueChanged += new System.EventHandler(this.cbbMaPhong_SelectedValueChanged);
+            this.cbbMaPhong.Click += new System.EventHandler(this.cbbMaPhong_Click);
             // 
             // txtDatCoc
             // 
@@ -640,8 +642,8 @@
             this.thốngKêToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thốngKêToolStripMenuItem.ForeColor = System.Drawing.Color.Gold;
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
-            this.thốngKêToolStripMenuItem.Text = "Quản lý thống kê";
+            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.thốngKêToolStripMenuItem.Text = "Báo cáo thống kê";
             this.thốngKêToolStripMenuItem.Click += new System.EventHandler(this.thốngKêToolStripMenuItem_Click);
             // 
             // qUANLYDATPHONGKHACHSAN1DataSet

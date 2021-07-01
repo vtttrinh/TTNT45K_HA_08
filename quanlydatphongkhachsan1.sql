@@ -73,8 +73,8 @@ ALTER TABLE dbo.DONDATPHONG
 ADD CONSTRAINT FK_KHACHHANG1 FOREIGN KEY (MaKhach) REFERENCES dbo.KHACHHANG(MaKhach) ON DELETE CASCADE ON UPDATE CASCADE
 
 --Thoi gian thue--
-update DONDATPHONG
-set ThoiGianThue = iif(DATEDIFF(day, NgayDi, NgayDen)=0,1,DATEDIFF(day, NgayDen, NgayDi))
+--update DONDATPHONG
+--set ThoiGianThue = iif(DATEDIFF(day, NgayDi, NgayDen)=0,1,DATEDIFF(day, NgayDen, NgayDi))
 
 --Tien phong--
 --update DONDATPHONG

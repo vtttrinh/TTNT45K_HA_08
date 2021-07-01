@@ -1,7 +1,4 @@
-C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\bin\Debug\quanlydatphongkhachsan.exe.config
-C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\bin\Debug\quanlydatphongkhachsan.exe
-C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\bin\Debug\quanlydatphongkhachsan.pdb
-C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\quanlydatphongkhachsan.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\quanlydatphongkhachsan.exe
 C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\quanlydatphongkhachsan.fGiaodienchinh.resources
 C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\quanlydatphongkhachsan.fLogin.resources
 C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\quanlydatphongkhachsan.fQuanLyPhong.resources
@@ -11,5 +8,4 @@ C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\q
 C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\quanlydatphongkhachsan.Properties.Resources.resources
 C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\quanlydatphongkhachsan.ThongKe.resources
 C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\quanlydatphongkhachsan.csproj.GenerateResource.Cache
-C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\quanlydatphongkhachsan.exe
 C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Debug\quanlydatphongkhachsan.pdb

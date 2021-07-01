@@ -227,7 +227,7 @@ namespace quanlydatphongkhachsan
         {
             tbConlai.Text = "";
             tbMadondatphong.Text = "";
-            tbThoigianthue.Text = "";
+            tbThoigianthue.Text = "0";
             tbTienphong.Text = "";
         }
 
@@ -249,6 +249,7 @@ namespace quanlydatphongkhachsan
             // Kiểm tra xem mã phòng có tồn tại
             if (dt.Rows.Count != 0)
             {
+                cbbMaPhong.Items.Clear();
                 // Lặp danh sách
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
@@ -276,6 +277,7 @@ namespace quanlydatphongkhachsan
             // Kiểm tra xem mã phòng có tồn tại
             if (dt.Rows.Count != 0)
             {
+                cbbKhach.Items.Clear();
                 // Lặp danh sách
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
@@ -359,6 +361,18 @@ namespace quanlydatphongkhachsan
             else if ((CheckMa(strMaDonDatPhong)) == false)
             {
                 MessageBox.Show("Mã đơn đặt phòng không tồn tại", "Thông báo");
+            }
+            else if (cbbMaPhong.SelectedIndex < 0)
+            {
+                MessageBox.Show("Vui lòng chọn mã phòng!", "Thông báo");
+            }
+            else if (cbbKhach.SelectedIndex < 0)
+            {
+                MessageBox.Show("Vui lòng chọn mã khách!", "Thông báo");
+            }
+            else if (cbbHuyDon.SelectedIndex < 0)
+            {
+                MessageBox.Show("Vui lòng chọn hủy đơn phòng!", "Thông báo");
             }
             else
             {
@@ -502,7 +516,7 @@ namespace quanlydatphongkhachsan
 
         private void tbThoigianthue_TextChanged(object sender, EventArgs e)
         {
-            if (tbTienphong.Text != "")
+            if (tbTienphong.Text != "") 
             {
                 int thoiGianThue = int.Parse(tbThoigianthue.Text);
 
@@ -530,6 +544,16 @@ namespace quanlydatphongkhachsan
         private void tbConlai_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbbMaPhong_Click(object sender, EventArgs e)
+        {
+            FillToComboboxMaPhong();
+        }
+
+        private void cbbKhach_Click(object sender, EventArgs e)
+        {
+            FillToComboboxMaKhach();
         }
     }
 }

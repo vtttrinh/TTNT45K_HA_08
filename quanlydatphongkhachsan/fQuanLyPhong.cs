@@ -23,6 +23,7 @@ namespace quanlydatphongkhachsan
             Connection();
             FillToTable();
             FillToTableLoaiPhong();
+            FillToComboboxMaLoaiPhong();
 
             rdoFalse.Select();
 
@@ -127,8 +128,8 @@ namespace quanlydatphongkhachsan
             da.Dispose();
             conn.Close();
 
+            cbbMaLoaiPhong.SelectedIndex = cbbMaLoaiPhong.Items.IndexOf(dt.Rows[0]["MaLoaiPhong"].ToString());
             tbMaPhong.Text = dt.Rows[0]["MaPhong"].ToString();
-            tbMaTenPhong.Text = dt.Rows[0]["MaLoaiPhong"].ToString();
             tbTenPhong.Text = dt.Rows[0]["TenPhong"].ToString();
             if (dt.Rows[0]["TrangThai"].ToString() == "False")
             {
@@ -168,7 +169,8 @@ namespace quanlydatphongkhachsan
 
         public void insertPhong()
         {
-            string strMaLoaiPhong = tbMaTenPhong.Text;
+            string strMaLoaiPhong = cbbMaLoaiPhong.SelectedItem.ToString();
+
             string strMaPhong = tbMaPhong.Text;
             if (checkMaPhong(strMaPhong) == false)
             {
@@ -178,6 +180,11 @@ namespace quanlydatphongkhachsan
             if (checkData(strMaLoaiPhong) == false)
             {
                 MessageBox.Show("Mã loại phòng không tồn tại!", "Thông báo");
+                return;
+            }
+            if (strMaPhong.Length > 5)
+            {
+                MessageBox.Show("Mã phòng phải bé hơn 6!", "Thông báo");
                 return;
             }
             else
@@ -192,7 +199,7 @@ namespace quanlydatphongkhachsan
                     trangthai = 1;
                 }
                 string sql = "INSERT INTO PHONG (MaPhong, MaLoaiPhong,TenPhong, MoTaPhong, TrangThai) VALUES ('" + tbMaPhong.Text +
-                    "','" + tbMaTenPhong.Text + "','" + tbTenPhong.Text + "',N'" + tbMoTa.Text + "'," + trangthai + ")";
+                    "','" + strMaLoaiPhong + "','" + tbTenPhong.Text + "',N'" + tbMoTa.Text + "'," + trangthai + ")";
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(sql, conn);
     
@@ -209,7 +216,7 @@ namespace quanlydatphongkhachsan
 
         public void updatePhong()
         {
-            string strMaLoaiPhong = tbMaTenPhong.Text;
+            string strMaLoaiPhong = cbbMaLoaiPhong.SelectedItem.ToString();
             string strMaPhong = tbMaPhong.Text;
             if (checkMaPhong(strMaPhong) == true)
             {
@@ -219,6 +226,11 @@ namespace quanlydatphongkhachsan
             if (checkData(strMaLoaiPhong) == false)
             {
                 MessageBox.Show("Mã loại phòng không tồn tại!", "Thông báo");
+                return;
+            }
+            if (strMaPhong.Length > 5)
+            {
+                MessageBox.Show("Mã phòng phải bé hơn 6!", "Thông báo");
                 return;
             }
             else
@@ -232,7 +244,7 @@ namespace quanlydatphongkhachsan
                 {
                     trangthai = 1;
                 }
-                string sql = "UPDATE PHONG SET  MaLoaiPhong = '" + tbMaTenPhong.Text + "', TenPhong = '" + tbTenPhong.Text + 
+                string sql = "UPDATE PHONG SET  MaLoaiPhong = '" + strMaLoaiPhong + "', TenPhong = '" + tbTenPhong.Text + 
                     "', MoTaPhong = N'" + tbMoTa.Text + "', TrangThai = " + trangthai + " WHERE MaPhong = '" + tbMaPhong.Text + "'"; ;
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(sql, conn);
@@ -250,7 +262,7 @@ namespace quanlydatphongkhachsan
         public void clearphongtxt()
         {
             tbMaPhong.Text = "";
-            tbMaTenPhong.Text = "";
+            cbbMaLoaiPhong.SelectedIndex = 0;
             tbTenPhong.Text = "";
             tbMoTa.Text = "";
             rdoTrue.Checked = false;
@@ -264,10 +276,9 @@ namespace quanlydatphongkhachsan
                 MessageBox.Show("Mã phòng không được để trống!", "Thông báo");
                 return true;
             }
-            if (tbMaTenPhong.Text.Equals(""))
+            else if (cbbMaLoaiPhong.SelectedIndex < 0)
             {
-                MessageBox.Show("Mã tên phòng không được để trống!", "Thông báo");
-                return true;
+                MessageBox.Show("Vui lòng chọn mã loại phòng!", "Thông báo");
             }
             if (tbTenPhong.Text.Equals(""))
             {
@@ -287,7 +298,7 @@ namespace quanlydatphongkhachsan
             string strMaPhong = tbMaPhong.Text;
             if (checkMaPhong(strMaPhong) == true)
             {
-                MessageBox.Show("Mã phòng không tồn tại!", "Thông báo");
+                MessageBox.Show("Mã phòng không tồn tại2!", "Thông báo");
                 return;
             }
             else
@@ -339,6 +350,11 @@ namespace quanlydatphongkhachsan
                 MessageBox.Show("Mã phòng đã tồn tại!", "Thông báo");
                 return;
             }
+            if (strMaLoaiPhong.Length > 5)
+            {
+                MessageBox.Show("Mã phòng phải bé hơn 6!", "Thông báo");
+                return;
+            }
             if (!isNumeric)
             {
                 MessageBox.Show("Vui lòng nhập số ở số giường!", "Thông báo");
@@ -375,6 +391,11 @@ namespace quanlydatphongkhachsan
             if (checkData(strMaLoaiPhong) == false)
             {
                 MessageBox.Show("Mã phòng không tồn tại!", "Thông báo");
+                return;
+            }
+            if (strMaLoaiPhong.Length > 5)
+            {
+                MessageBox.Show("Mã phòng phải bé hơn 6!", "Thông báo");
                 return;
             }
             if (!isNumeric)
@@ -459,7 +480,32 @@ namespace quanlydatphongkhachsan
             }
         }
 
+        private void FillToComboboxMaLoaiPhong()
+        {
+            // Kết nối cơ sở dữ liệu (Database)
+            Connection();
 
+            String sql = "SELECT MaLoaiPhong FROM LOAIPHONG";
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+
+            conn.Open();
+            da.Fill(dt);
+            da.Dispose();
+            conn.Close();
+
+            // Kiểm tra xem mã phòng có tồn tại
+            if (dt.Rows.Count != 0)
+            {
+                cbbMaLoaiPhong.Items.Clear();
+                // Lặp danh sách
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cbbMaLoaiPhong.Items.Add(dt.Rows[i]["MaLoaiPhong"].ToString());
+                }
+            }
+        }
         private void lbMadondatphong_Click(object sender, EventArgs e)
         {
 
@@ -581,6 +627,7 @@ namespace quanlydatphongkhachsan
             {
                 insert();
                 FillToTableLoaiPhong();
+                FillToComboboxMaLoaiPhong();
             }
         }
 
@@ -610,16 +657,12 @@ namespace quanlydatphongkhachsan
                 strMaPhong = item.Text;
             }
 
-            // Kiểm tra mã đơn không để trống
-            if (strMaPhong == "")
-            {
-                MessageBox.Show("Mã phòng không tồn tại", "Thông báo");
-            }
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa loại phòng này không?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 delete(strMaPhong);
                 FillToTableLoaiPhong();
+                FillToComboboxMaLoaiPhong();
                 cleartxt();
             }
         }
@@ -669,11 +712,6 @@ namespace quanlydatphongkhachsan
                 strMaLoaiPhong = item.Text;
             }
 
-            // Kiểm tra mã đơn không để trống
-            if (strMaLoaiPhong == "")
-            {
-                MessageBox.Show("Mã đơn đặt phòng không tồn tại", "Thông báo");
-            }
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa phòng này không?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -681,6 +719,13 @@ namespace quanlydatphongkhachsan
                 FillToTable();
                 clearphongtxt();
             }
+        }
+
+        private void fQuanLyPhong_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'qLKS.LOAIPHONG' table. You can move, or remove it, as needed.
+            this.lOAIPHONGTableAdapter.Fill(this.qLKS.LOAIPHONG);
+
         }
 
     }

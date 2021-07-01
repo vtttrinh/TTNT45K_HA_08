@@ -57,7 +57,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.cboTypeKH = new System.Windows.Forms.ComboBox();
             this.cboTopKH = new System.Windows.Forms.ComboBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -68,6 +67,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dtpTime5 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
+            this.cbbKhongHuyPhong = new System.Windows.Forms.CheckBox();
+            this.cbbKhongHuyPhongTime = new System.Windows.Forms.CheckBox();
+            this.ckbChuaHuy = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -128,16 +130,16 @@
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.button1);
-            this.panel3.Location = new System.Drawing.Point(865, 16);
+            this.panel3.Location = new System.Drawing.Point(865, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(108, 96);
+            this.panel3.Size = new System.Drawing.Size(108, 107);
             this.panel3.TabIndex = 10;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 13);
+            this.button1.Location = new System.Drawing.Point(3, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 65);
             this.button1.TabIndex = 0;
@@ -148,6 +150,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.cbbKhongHuyPhongTime);
             this.groupBox2.Controls.Add(this.ckbHuyPhong1);
             this.groupBox2.Controls.Add(this.cbbTime1);
             this.groupBox2.Controls.Add(this.btnSearchPrice);
@@ -244,6 +247,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.cbbKhongHuyPhong);
             this.groupBox1.Controls.Add(this.ckbHuyPhong0);
             this.groupBox1.Controls.Add(this.cbbTime0);
             this.groupBox1.Controls.Add(this.btnSearchTime);
@@ -373,7 +377,6 @@
             this.groupBox4.Controls.Add(this.button5);
             this.groupBox4.Controls.Add(this.cboTypeKH);
             this.groupBox4.Controls.Add(this.cboTopKH);
-            this.groupBox4.Controls.Add(this.button6);
             this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -387,9 +390,9 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(310, 64);
+            this.button5.Location = new System.Drawing.Point(269, 64);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 27);
+            this.button5.Size = new System.Drawing.Size(135, 27);
             this.button5.TabIndex = 7;
             this.button5.Text = "Hiển thị";
             this.button5.UseVisualStyleBackColor = true;
@@ -401,12 +404,12 @@
             this.cboTypeKH.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTypeKH.FormattingEnabled = true;
             this.cboTypeKH.Items.AddRange(new object[] {
-            "Tổng số phòng",
-            "Tổng tiền phòng",
+            "Tổng số phòng thuê",
+            "Tổng tiền phòng thuê",
             "Tổng thời gian thuê"});
-            this.cboTypeKH.Location = new System.Drawing.Point(15, 30);
+            this.cboTypeKH.Location = new System.Drawing.Point(27, 30);
             this.cboTypeKH.Name = "cboTypeKH";
-            this.cboTypeKH.Size = new System.Drawing.Size(279, 27);
+            this.cboTypeKH.Size = new System.Drawing.Size(227, 27);
             this.cboTypeKH.TabIndex = 6;
             // 
             // cboTopKH
@@ -419,28 +422,17 @@
             "Top 10",
             "Top 20",
             "Tất cả"});
-            this.cboTopKH.Location = new System.Drawing.Point(310, 31);
+            this.cboTopKH.Location = new System.Drawing.Point(269, 31);
             this.cboTopKH.Name = "cboTopKH";
-            this.cboTopKH.Size = new System.Drawing.Size(100, 27);
+            this.cboTopKH.Size = new System.Drawing.Size(135, 27);
             this.cboTopKH.TabIndex = 5;
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(14, 65);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(87, 27);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Sắp xếp";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(204, 66);
+            this.button3.Location = new System.Drawing.Point(141, 66);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 27);
+            this.button3.Size = new System.Drawing.Size(113, 27);
             this.button3.TabIndex = 0;
             this.button3.Text = "Giảm dần";
             this.button3.UseVisualStyleBackColor = true;
@@ -449,9 +441,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(108, 65);
+            this.button4.Location = new System.Drawing.Point(27, 66);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 27);
+            this.button4.Size = new System.Drawing.Size(108, 27);
             this.button4.TabIndex = 1;
             this.button4.Text = "Tăng dần";
             this.button4.UseVisualStyleBackColor = true;
@@ -460,6 +452,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.ckbChuaHuy);
             this.groupBox3.Controls.Add(this.ckbCancelRoomKH);
             this.groupBox3.Controls.Add(this.cboTimeKH);
             this.groupBox3.Controls.Add(this.button2);
@@ -552,6 +545,39 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "đến";
             // 
+            // cbbKhongHuyPhong
+            // 
+            this.cbbKhongHuyPhong.AutoSize = true;
+            this.cbbKhongHuyPhong.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbKhongHuyPhong.Location = new System.Drawing.Point(314, 26);
+            this.cbbKhongHuyPhong.Name = "cbbKhongHuyPhong";
+            this.cbbKhongHuyPhong.Size = new System.Drawing.Size(101, 23);
+            this.cbbKhongHuyPhong.TabIndex = 10;
+            this.cbbKhongHuyPhong.Text = "Không hủy";
+            this.cbbKhongHuyPhong.UseVisualStyleBackColor = true;
+            // 
+            // cbbKhongHuyPhongTime
+            // 
+            this.cbbKhongHuyPhongTime.AutoSize = true;
+            this.cbbKhongHuyPhongTime.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbKhongHuyPhongTime.Location = new System.Drawing.Point(310, 25);
+            this.cbbKhongHuyPhongTime.Name = "cbbKhongHuyPhongTime";
+            this.cbbKhongHuyPhongTime.Size = new System.Drawing.Size(101, 23);
+            this.cbbKhongHuyPhongTime.TabIndex = 11;
+            this.cbbKhongHuyPhongTime.Text = "Không hủy";
+            this.cbbKhongHuyPhongTime.UseVisualStyleBackColor = true;
+            // 
+            // ckbChuaHuy
+            // 
+            this.ckbChuaHuy.AutoSize = true;
+            this.ckbChuaHuy.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbChuaHuy.Location = new System.Drawing.Point(303, 27);
+            this.ckbChuaHuy.Name = "ckbChuaHuy";
+            this.ckbChuaHuy.Size = new System.Drawing.Size(91, 23);
+            this.ckbChuaHuy.TabIndex = 17;
+            this.ckbChuaHuy.Text = "Chưa hủy";
+            this.ckbChuaHuy.UseVisualStyleBackColor = true;
+            // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,6 +585,7 @@
             this.ClientSize = new System.Drawing.Size(984, 601);
             this.Controls.Add(this.tabControl1);
             this.Name = "ThongKe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thống kê";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -606,7 +633,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.CheckBox ckbCancelRoomKH;
@@ -619,6 +645,9 @@
         private System.Windows.Forms.ComboBox cboTopKH;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ComboBox cboTypeKH;
+        private System.Windows.Forms.CheckBox cbbKhongHuyPhongTime;
+        private System.Windows.Forms.CheckBox cbbKhongHuyPhong;
+        private System.Windows.Forms.CheckBox ckbChuaHuy;
 
     }
 }

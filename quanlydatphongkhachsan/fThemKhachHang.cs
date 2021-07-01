@@ -53,8 +53,6 @@ namespace quanlydatphongkhachsan
             da.Dispose();
             conn.Close();
 
-            MessageBox.Show("Thêm đơn khách hàng thành công", "Thông báo");
-
         }
 
         /** 
@@ -111,6 +109,7 @@ namespace quanlydatphongkhachsan
                 DialogResult dialogResult = MessageBox.Show("Bạn có muốn thêm khách hàng không?", "Thông báo", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    insert();
                     this.Close();
                 }
 
