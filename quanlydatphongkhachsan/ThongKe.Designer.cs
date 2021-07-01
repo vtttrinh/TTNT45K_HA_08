@@ -106,7 +106,7 @@
             // 
             // listDonDatHang
             // 
-            this.listDonDatHang.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listDonDatHang.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listDonDatHang.Location = new System.Drawing.Point(6, 126);
             this.listDonDatHang.Name = "listDonDatHang";
             this.listDonDatHang.Size = new System.Drawing.Size(968, 432);
@@ -203,8 +203,9 @@
             // 
             // dtpTime2
             // 
+            this.dtpTime2.CustomFormat = "dd/MM/yyyy";
             this.dtpTime2.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTime2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTime2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTime2.Location = new System.Drawing.Point(77, 25);
             this.dtpTime2.Name = "dtpTime2";
             this.dtpTime2.Size = new System.Drawing.Size(123, 27);
@@ -222,8 +223,9 @@
             // 
             // dtpTime3
             // 
+            this.dtpTime3.CustomFormat = "dd/MM/yyyy";
             this.dtpTime3.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTime3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTime3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTime3.Location = new System.Drawing.Point(78, 63);
             this.dtpTime3.Name = "dtpTime3";
             this.dtpTime3.Size = new System.Drawing.Size(122, 27);
@@ -297,8 +299,9 @@
             // 
             // dtpTime0
             // 
+            this.dtpTime0.CustomFormat = "dd/MM/yyyy";
             this.dtpTime0.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTime0.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTime0.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTime0.Location = new System.Drawing.Point(77, 25);
             this.dtpTime0.Name = "dtpTime0";
             this.dtpTime0.Size = new System.Drawing.Size(120, 27);
@@ -316,8 +319,9 @@
             // 
             // dtpTime1
             // 
+            this.dtpTime1.CustomFormat = "dd/MM/yyyy";
             this.dtpTime1.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTime1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTime1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTime1.Location = new System.Drawing.Point(78, 63);
             this.dtpTime1.Name = "dtpTime1";
             this.dtpTime1.Size = new System.Drawing.Size(119, 27);
@@ -347,6 +351,7 @@
             // 
             // listKhachHang
             // 
+            this.listKhachHang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listKhachHang.Location = new System.Drawing.Point(6, 125);
             this.listKhachHang.Name = "listKhachHang";
             this.listKhachHang.Size = new System.Drawing.Size(968, 432);
@@ -509,8 +514,9 @@
             // 
             // dtpTime4
             // 
+            this.dtpTime4.CustomFormat = "dd/MM/yyyy";
             this.dtpTime4.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTime4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTime4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTime4.Location = new System.Drawing.Point(74, 27);
             this.dtpTime4.Name = "dtpTime4";
             this.dtpTime4.Size = new System.Drawing.Size(120, 27);
@@ -528,8 +534,9 @@
             // 
             // dtpTime5
             // 
+            this.dtpTime5.CustomFormat = "dd/MM/yyyy";
             this.dtpTime5.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTime5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTime5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTime5.Location = new System.Drawing.Point(75, 65);
             this.dtpTime5.Name = "dtpTime5";
             this.dtpTime5.Size = new System.Drawing.Size(119, 27);
@@ -552,7 +559,7 @@
             this.ClientSize = new System.Drawing.Size(984, 601);
             this.Controls.Add(this.tabControl1);
             this.Name = "ThongKe";
-            this.Text = "ThongKe";
+            this.Text = "Thống kê";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

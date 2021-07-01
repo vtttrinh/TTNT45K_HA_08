@@ -1,5 +1,5 @@
-﻿create database QUANLYDATPHONGKHACHSAN
-use QUANLYDATPHONGKHACHSAN
+﻿create database QUANLYDATPHONGKHACHSAN1
+use QUANLYDATPHONGKHACHSAN1
 
 create table NGUOIDUNG(TaiKhoan varchar(50) not null primary key,MatKhau varchar(50) not null)
 insert into NGUOIDUNG(TaiKhoan, MatKhau)

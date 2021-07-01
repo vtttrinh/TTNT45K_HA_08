@@ -45,7 +45,7 @@ namespace quanlydatphongkhachsan
             // Kiểm tra xem sql có tồn tại bảng nào không?
             if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("Tài khoản không tồn tại!", "Thông báo");
+                MessageBox.Show("Tài khoản bạn vừa nhập không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             // Kiểm tra password
@@ -56,10 +56,9 @@ namespace quanlydatphongkhachsan
             }
             else
             {
-                MessageBox.Show("Sai mật khẩu!", "Thông báo");
+                MessageBox.Show("Mật khẩu bạn vừa nhập không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
 
         }
         private void btDangnhap_Click(object sender, EventArgs e)
@@ -74,6 +73,22 @@ namespace quanlydatphongkhachsan
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (login())
+            {
+                fGiaodienchinh f = new fGiaodienchinh();
+                this.Visible = false;
+                f.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.ExitThread(); 
         }

@@ -31,13 +31,15 @@
             this.txtTimKiemKhachHang = new System.Windows.Forms.TextBox();
             this.lbTimthongtinkhachhang = new System.Windows.Forms.Label();
             this.grbThongtinkhachhang = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rdoNam = new System.Windows.Forms.RadioButton();
+            this.rdoFemale = new System.Windows.Forms.RadioButton();
+            this.lbGioitinh = new System.Windows.Forms.Label();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
-            this.txtGioiTinh = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTenKhachHang = new System.Windows.Forms.TextBox();
             this.txtMaKhach = new System.Windows.Forms.TextBox();
-            this.lbGioitinh = new System.Windows.Forms.Label();
             this.lbSodienthoai = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
             this.lbDiachi = new System.Windows.Forms.Label();
@@ -58,6 +60,7 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.grbThongtinkhachhang.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grbKhachhang.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -86,13 +89,12 @@
             // grbThongtinkhachhang
             // 
             this.grbThongtinkhachhang.BackColor = System.Drawing.Color.White;
+            this.grbThongtinkhachhang.Controls.Add(this.panel2);
             this.grbThongtinkhachhang.Controls.Add(this.txtSoDienThoai);
-            this.grbThongtinkhachhang.Controls.Add(this.txtGioiTinh);
             this.grbThongtinkhachhang.Controls.Add(this.txtDiaChi);
             this.grbThongtinkhachhang.Controls.Add(this.txtEmail);
             this.grbThongtinkhachhang.Controls.Add(this.txtTenKhachHang);
             this.grbThongtinkhachhang.Controls.Add(this.txtMaKhach);
-            this.grbThongtinkhachhang.Controls.Add(this.lbGioitinh);
             this.grbThongtinkhachhang.Controls.Add(this.lbSodienthoai);
             this.grbThongtinkhachhang.Controls.Add(this.lbEmail);
             this.grbThongtinkhachhang.Controls.Add(this.lbDiachi);
@@ -108,6 +110,51 @@
             this.grbThongtinkhachhang.TabStop = false;
             this.grbThongtinkhachhang.Text = "Thông tin khách hàng";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rdoNam);
+            this.panel2.Controls.Add(this.rdoFemale);
+            this.panel2.Controls.Add(this.lbGioitinh);
+            this.panel2.Location = new System.Drawing.Point(299, 28);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(204, 32);
+            this.panel2.TabIndex = 12;
+            // 
+            // rdoNam
+            // 
+            this.rdoNam.AutoSize = true;
+            this.rdoNam.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoNam.Location = new System.Drawing.Point(135, 8);
+            this.rdoNam.Name = "rdoNam";
+            this.rdoNam.Size = new System.Drawing.Size(55, 21);
+            this.rdoNam.TabIndex = 7;
+            this.rdoNam.TabStop = true;
+            this.rdoNam.Text = "Nam";
+            this.rdoNam.UseVisualStyleBackColor = true;
+            // 
+            // rdoFemale
+            // 
+            this.rdoFemale.AutoSize = true;
+            this.rdoFemale.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoFemale.Location = new System.Drawing.Point(76, 8);
+            this.rdoFemale.Name = "rdoFemale";
+            this.rdoFemale.Size = new System.Drawing.Size(45, 21);
+            this.rdoFemale.TabIndex = 6;
+            this.rdoFemale.TabStop = true;
+            this.rdoFemale.Text = "Nữ";
+            this.rdoFemale.UseVisualStyleBackColor = true;
+            // 
+            // lbGioitinh
+            // 
+            this.lbGioitinh.AutoSize = true;
+            this.lbGioitinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGioitinh.Location = new System.Drawing.Point(4, 12);
+            this.lbGioitinh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbGioitinh.Name = "lbGioitinh";
+            this.lbGioitinh.Size = new System.Drawing.Size(57, 17);
+            this.lbGioitinh.TabIndex = 5;
+            this.lbGioitinh.Text = "Giới tính";
+            // 
             // txtSoDienThoai
             // 
             this.txtSoDienThoai.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,15 +163,6 @@
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Size = new System.Drawing.Size(362, 24);
             this.txtSoDienThoai.TabIndex = 11;
-            // 
-            // txtGioiTinh
-            // 
-            this.txtGioiTinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGioiTinh.Location = new System.Drawing.Point(398, 36);
-            this.txtGioiTinh.Margin = new System.Windows.Forms.Padding(2);
-            this.txtGioiTinh.Name = "txtGioiTinh";
-            this.txtGioiTinh.Size = new System.Drawing.Size(105, 24);
-            this.txtGioiTinh.TabIndex = 10;
             // 
             // txtDiaChi
             // 
@@ -159,19 +197,8 @@
             this.txtMaKhach.Location = new System.Drawing.Point(141, 36);
             this.txtMaKhach.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaKhach.Name = "txtMaKhach";
-            this.txtMaKhach.Size = new System.Drawing.Size(105, 24);
+            this.txtMaKhach.Size = new System.Drawing.Size(140, 24);
             this.txtMaKhach.TabIndex = 6;
-            // 
-            // lbGioitinh
-            // 
-            this.lbGioitinh.AutoSize = true;
-            this.lbGioitinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGioitinh.Location = new System.Drawing.Point(297, 42);
-            this.lbGioitinh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbGioitinh.Name = "lbGioitinh";
-            this.lbGioitinh.Size = new System.Drawing.Size(57, 17);
-            this.lbGioitinh.TabIndex = 5;
-            this.lbGioitinh.Text = "Giới tính";
             // 
             // lbSodienthoai
             // 
@@ -301,11 +328,11 @@
             this.grbKhachhang.BackColor = System.Drawing.Color.LightSteelBlue;
             this.grbKhachhang.Controls.Add(this.listKhachHang);
             this.grbKhachhang.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbKhachhang.Location = new System.Drawing.Point(0, 0);
+            this.grbKhachhang.Location = new System.Drawing.Point(0, 6);
             this.grbKhachhang.Margin = new System.Windows.Forms.Padding(2);
             this.grbKhachhang.Name = "grbKhachhang";
             this.grbKhachhang.Padding = new System.Windows.Forms.Padding(2);
-            this.grbKhachhang.Size = new System.Drawing.Size(987, 405);
+            this.grbKhachhang.Size = new System.Drawing.Size(987, 400);
             this.grbKhachhang.TabIndex = 9;
             this.grbKhachhang.TabStop = false;
             this.grbKhachhang.Text = "Khách hàng";
@@ -319,11 +346,11 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
-            this.listKhachHang.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listKhachHang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listKhachHang.FullRowSelect = true;
             this.listKhachHang.GridLines = true;
             this.listKhachHang.HideSelection = false;
-            this.listKhachHang.Location = new System.Drawing.Point(6, 27);
+            this.listKhachHang.Location = new System.Drawing.Point(6, 25);
             this.listKhachHang.Margin = new System.Windows.Forms.Padding(2);
             this.listKhachHang.Name = "listKhachHang";
             this.listKhachHang.Size = new System.Drawing.Size(969, 369);
@@ -391,9 +418,12 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fThongTinKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thông tin khách hàng";
+            this.Text = "Quản lý khách hàng";
+            this.Load += new System.EventHandler(this.fThongTinKhachHang_Load);
             this.grbThongtinkhachhang.ResumeLayout(false);
             this.grbThongtinkhachhang.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.grbKhachhang.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -408,7 +438,6 @@
         private System.Windows.Forms.Label lbTimthongtinkhachhang;
         private System.Windows.Forms.GroupBox grbThongtinkhachhang;
         private System.Windows.Forms.TextBox txtSoDienThoai;
-        private System.Windows.Forms.TextBox txtGioiTinh;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtTenKhachHang;
@@ -433,5 +462,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton rdoNam;
+        private System.Windows.Forms.RadioButton rdoFemale;
     }
 }

@@ -25,7 +25,12 @@ namespace quanlydatphongkhachsan
             Connection();
             // Đổ dữ liệu ra list
             fillToTable();
+            FillToComboboxMaPhong();
+            FillToComboboxMaKhach();
 
+            cbbHuyDon.SelectedIndex = 0;
+
+            TinhNgay();
         }
 
         public void Connection()
@@ -69,7 +74,7 @@ namespace quanlydatphongkhachsan
                 lvi.SubItems.Add(dt.Rows[i]["ConLai"].ToString());
                 if (dt.Rows[i]["HuyDon"].ToString().Equals("False"))
                 {
-                    lvi.SubItems.Add("Không");
+                    lvi.SubItems.Add("Chưa hủy");
                 }
                 else
                 {
@@ -111,7 +116,7 @@ namespace quanlydatphongkhachsan
                 lvi.SubItems.Add(dt.Rows[i]["ConLai"].ToString());
                 if (dt.Rows[i]["HuyDon"].ToString().Equals("False"))
                 {
-                    lvi.SubItems.Add("Không");
+                    lvi.SubItems.Add("Chưa");
                 }
                 else
                 {
@@ -133,9 +138,9 @@ namespace quanlydatphongkhachsan
             da.Dispose();
             conn.Close();
 
+            cbbMaPhong.SelectedIndex = cbbMaPhong.Items.IndexOf(dt.Rows[0]["MaPhong"].ToString());
+            cbbKhach.SelectedIndex = cbbKhach.Items.IndexOf(dt.Rows[0]["MaKhach"].ToString());
             tbMadondatphong.Text = dt.Rows[0]["MaDonDatPhong"].ToString();
-            tbMaphong.Text = dt.Rows[0]["MaPhong"].ToString();
-            tbMakhach.Text = dt.Rows[0]["MaKhach"].ToString();
             tbTienphong.Text = dt.Rows[0]["TienPhong"].ToString();
             tbConlai.Text = dt.Rows[0]["ConLai"].ToString();
             DateTime oDate1 = Convert.ToDateTime(dt.Rows[0]["NgayDatPhong"]);
@@ -154,7 +159,7 @@ namespace quanlydatphongkhachsan
             {
                 cbbHuyDon.SelectedIndex = 1;
             }
-            
+
 
         }
 
@@ -163,7 +168,6 @@ namespace quanlydatphongkhachsan
             String sql = "SELECT * FROM DONDATPHONG WHERE MaDonDatPhong = '" + maDonDatPhong + "'";
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sql, conn);
-
             conn.Open();
             da.Fill(dt);
             da.Dispose();
@@ -181,10 +185,9 @@ namespace quanlydatphongkhachsan
 
         public void update(String maDonDatPhong)
         {
-            int intHuyDon = 0;
-            
-            String sql = "UPDATE DONDATPHONG SET MaPhong = '" + tbMaphong.Text + "', MaKhach = '" + tbMakhach.Text + "', NgayDatPhong = '" +
-                dateTimePicker1.Value + "', NgayDen = '" + dateTimePicker2.Value + "',NgayDi = '" + dateTimePicker3.Value + "', HuyDon = " + intHuyDon +
+
+            String sql = "UPDATE DONDATPHONG SET MaPhong = '', MaKhach = '', NgayDatPhong = '" +
+                dateTimePicker1.Value + "', NgayDen = '" + dateTimePicker2.Value + "',NgayDi = '" + dateTimePicker3.Value + "', HuyDon = " + cbbHuyDon.SelectedIndex +
                 ", ThoiGianThue = '" + tbThoigianthue.Text + "',TienPhong ='" + tbTienphong.Text + "',ConLai ='" + tbConlai.Text
                 + "'  WHERE MaDonDatPhong = '" + tbMadondatphong.Text + "'";
 
@@ -218,16 +221,20 @@ namespace quanlydatphongkhachsan
 
         }
 
-        /**
-         * Kiểm tra dữ liệu nhập vào 
-         * @params Mã phòng và mã khách
-         */
-        private string checkData(string maPhong, string maKhach)
+        private void clearForm()
+        {
+            tbConlai.Text = "";
+            tbMadondatphong.Text = "";
+            tbThoigianthue.Text = "";
+            tbTienphong.Text = "";
+        }
+
+        private void FillToComboboxMaPhong()
         {
             // Kết nối cơ sở dữ liệu (Database)
             Connection();
 
-            String sql = "SELECT KH.MaKhach FROM KHACHHANG AS KH, PHONG AS PH WHERE PH.MaPhong = '" + maPhong + "'";
+            String sql = "SELECT MaPhong FROM PHONG";
 
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sql, conn);
@@ -238,25 +245,50 @@ namespace quanlydatphongkhachsan
             conn.Close();
 
             // Kiểm tra xem mã phòng có tồn tại
-            if (dt.Rows.Count == 0)
-            {
-                return "Mã phòng không tồn tại!";
-            }
-            else
+            if (dt.Rows.Count != 0)
             {
                 // Lặp danh sách
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    // Kiểm tra danh sách có chứa MaKhach
-                    if (dt.Rows[i]["MaKhach"].ToString() == maKhach)
-                    {
-                        return "";
-                    }
+                    cbbMaPhong.Items.Add(dt.Rows[i]["MaPhong"].ToString());
                 }
             }
-
-            return "Mã khách không tồn tại!";
         }
+
+        private void FillToComboboxMaKhach()
+        {
+
+            // Kết nối cơ sở dữ liệu (Database)
+            Connection();
+
+            String sql = "SELECT MaKhach FROM KHACHHANG";
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+
+            conn.Open();
+            da.Fill(dt);
+            da.Dispose();
+            conn.Close();
+
+            // Kiểm tra xem mã phòng có tồn tại
+            if (dt.Rows.Count != 0)
+            {
+                // Lặp danh sách
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cbbKhach.Items.Add(dt.Rows[i]["MaKhach"].ToString());
+                }
+            }
+        }
+
+        private void TinhNgay() 
+        {
+            int a = (dateTimePicker3.Value - dateTimePicker2.Value).Days;
+            MessageBox.Show(a + "");
+        }
+
+        private void TinhTienPhong() { }
 
         private void fGiaodienchinh_Click(object sender, EventArgs e)
         {
@@ -283,50 +315,62 @@ namespace quanlydatphongkhachsan
         private void btSuaFgiaodienchinh_Click(object sender, EventArgs e)
         {
             string strMaDonDatPhong = tbMadondatphong.Text;
-            if (strMaDonDatPhong.Equals("")) // Kiểm tra mã đơn không để trống
-            {
-                MessageBox.Show("Vui lòng nhập mã đơn đặt phòng", "Thông báo");
-            }
-            else if (CheckMa(strMaDonDatPhong)) // == true
-            {
-                string strMaPhong = tbMaphong.Text;
-                string strMaKhach = tbMakhach.Text;
-                string strError = checkData(strMaPhong, strMaKhach);
 
-                // Check orror
-                if (strError == "")
+            if (strMaDonDatPhong == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã đơn phòng!", "Thông báo");
+            }
+            else if (strMaDonDatPhong.Length > 10)
+            {
+                MessageBox.Show("Mã đơn phòng phải nhỏ hơn 11 ký tự!", "Thông báo");
+            }
+            else if ((CheckMa(strMaDonDatPhong)) == false)
+            {
+                MessageBox.Show("Mã đơn đặt phòng không tồn tại", "Thông báo");
+            }
+            else
+            {
+                // Hiển thị thông báo
+                DialogResult dialogResult = MessageBox.Show("Bạn có muốn sửa đơn đặt phòng không?", "Thông báo", MessageBoxButtons.YesNo);
+
+                // Nếu chọn YES
+                if (dialogResult == DialogResult.Yes)
                 {
-                    update(tbMadondatphong.Text);
+                    update(strMaDonDatPhong);
                     fillToTable();
                 }
-                else
-                {
-                    MessageBox.Show(strError, "Thông báo");
-                }
 
-            }
-            else { // == false
-                MessageBox.Show("Mã đơn không tồn tại", "Thông báo");
             }
         }
 
         private void btXoaFgiaodienchinh_Click(object sender, EventArgs e)
         {
-            // Kiểm tra mã đơn không để trống
-            if (tbMadondatphong.Text.Equals(""))
+            string strMaDonPhong = "";
+            // Khi click từng hàng trong bảng
+            if (listDatPhong.SelectedItems.Count >= 1)
             {
-                MessageBox.Show("Vui lòng nhập mã đơn đặt phòng", "Thông báo");
+                ListViewItem item = listDatPhong.SelectedItems[0];
+                // Đổ dữ liệu đúng với mã đặt phòng
+                strMaDonPhong = item.Text;
+            }
+
+            // Kiểm tra mã đơn không để trống
+            if (strMaDonPhong == "")
+            {
+                MessageBox.Show("Mã đơn đặt phòng không tồn tại", "Thông báo");
             }
             else if (CheckMa(tbMadondatphong.Text)) // == true
             {
                 DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa đơn đặt phòng không?", "Thông báo", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    delete(tbMadondatphong.Text);
+                    delete(strMaDonPhong);
+                    clearForm();
                     fillToTable();
                 }
             }
-            else { // false
+            else
+            { // false
                 MessageBox.Show("Mã đơn không tồn tại", "Thông báo");
             }
         }
@@ -373,6 +417,11 @@ namespace quanlydatphongkhachsan
         {
             ThongKe thongKe = new ThongKe();
             thongKe.ShowDialog();
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            fillToTable();
         }
     }
 }

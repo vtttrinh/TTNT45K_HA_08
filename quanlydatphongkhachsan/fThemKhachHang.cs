@@ -37,13 +37,13 @@ namespace quanlydatphongkhachsan
 
             // Set giới tính
             int gioiTinh = 0;
-            if (txtGioiTinh.Text.Equals("Nam"))
+            if (rdoNam.Checked)
             {
                 gioiTinh = 1;
             }
 
             String sql = "INSERT INTO KHACHHANG (MaKhach,TenKhachHang,DiaChi,Email,SoDienThoai,GioiTinh)" +
-                " VALUES ('" + txtMaKhach.Text + "','" + txtTenKhachHang.Text + "','" + txtDiaChi.Text + "','" + txtEmail.Text + "'," +
+                " VALUES ('" + txtMaKhach.Text + "',N'" + txtTenKhachHang.Text + "',N'" + txtDiaChi.Text + "','" + txtEmail.Text + "'," +
                 txtSoDienThoai.Text + "," + gioiTinh + ")";
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sql, conn);
@@ -111,7 +111,7 @@ namespace quanlydatphongkhachsan
                 DialogResult dialogResult = MessageBox.Show("Bạn có muốn thêm khách hàng không?", "Thông báo", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    insert();
+                    this.Close();
                 }
 
             }

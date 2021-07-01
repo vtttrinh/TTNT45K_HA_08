@@ -31,9 +31,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbPhong = new System.Windows.Forms.TabPage();
             this.grbPhong = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSuaPhong = new System.Windows.Forms.Button();
             this.bttThemPhong = new System.Windows.Forms.Button();
+            this.btnSuaPhong = new System.Windows.Forms.Button();
             this.grbThongtindondatphong = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdoTrue = new System.Windows.Forms.RadioButton();
@@ -53,9 +54,10 @@
             this.MoTaPhong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TrangThai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listLoaiphong = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnXoaLoaiPhong = new System.Windows.Forms.Button();
-            this.btnSuaLoaiPhong = new System.Windows.Forms.Button();
             this.btnThemLoaiPhong = new System.Windows.Forms.Button();
+            this.btnSuaLoaiPhong = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,17 +72,15 @@
             this.LoaiPhong1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SoLuong1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GiaPhong1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tbPhong.SuspendLayout();
             this.grbPhong.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.grbThongtindondatphong.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.listLoaiphong.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -124,6 +124,17 @@
             this.grbPhong.TabStop = false;
             this.grbPhong.Text = "Phòng";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnXoa);
+            this.panel1.Controls.Add(this.bttThemPhong);
+            this.panel1.Controls.Add(this.btnSuaPhong);
+            this.panel1.Location = new System.Drawing.Point(797, 348);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(170, 212);
+            this.panel1.TabIndex = 2;
+            // 
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -136,18 +147,6 @@
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // btnSuaPhong
-            // 
-            this.btnSuaPhong.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSuaPhong.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaPhong.Location = new System.Drawing.Point(48, 86);
-            this.btnSuaPhong.Name = "btnSuaPhong";
-            this.btnSuaPhong.Size = new System.Drawing.Size(80, 27);
-            this.btnSuaPhong.TabIndex = 3;
-            this.btnSuaPhong.Text = "Sửa";
-            this.btnSuaPhong.UseVisualStyleBackColor = false;
-            this.btnSuaPhong.Click += new System.EventHandler(this.button2_Click);
-            // 
             // bttThemPhong
             // 
             this.bttThemPhong.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -159,6 +158,18 @@
             this.bttThemPhong.Text = "Thêm";
             this.bttThemPhong.UseVisualStyleBackColor = false;
             this.bttThemPhong.Click += new System.EventHandler(this.bttThemPhong_Click);
+            // 
+            // btnSuaPhong
+            // 
+            this.btnSuaPhong.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSuaPhong.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuaPhong.Location = new System.Drawing.Point(48, 86);
+            this.btnSuaPhong.Name = "btnSuaPhong";
+            this.btnSuaPhong.Size = new System.Drawing.Size(80, 27);
+            this.btnSuaPhong.TabIndex = 3;
+            this.btnSuaPhong.Text = "Sửa";
+            this.btnSuaPhong.UseVisualStyleBackColor = false;
+            this.btnSuaPhong.Click += new System.EventHandler(this.button2_Click);
             // 
             // grbThongtindondatphong
             // 
@@ -224,6 +235,7 @@
             this.tbMoTa.Margin = new System.Windows.Forms.Padding(2);
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
+            this.tbMoTa.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbMoTa.Size = new System.Drawing.Size(256, 146);
             this.tbMoTa.TabIndex = 16;
             // 
@@ -312,7 +324,7 @@
             this.TenPhong,
             this.MoTaPhong,
             this.TrangThai});
-            this.listPhong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listPhong.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listPhong.Location = new System.Drawing.Point(4, 26);
             this.listPhong.Margin = new System.Windows.Forms.Padding(2);
             this.listPhong.Name = "listPhong";
@@ -365,6 +377,17 @@
             this.listLoaiphong.Text = "Loại phòng";
             this.listLoaiphong.Click += new System.EventHandler(this.listLoaiphong_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnXoaLoaiPhong);
+            this.panel2.Controls.Add(this.btnThemLoaiPhong);
+            this.panel2.Controls.Add(this.btnSuaLoaiPhong);
+            this.panel2.Location = new System.Drawing.Point(600, 246);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(373, 111);
+            this.panel2.TabIndex = 5;
+            // 
             // btnXoaLoaiPhong
             // 
             this.btnXoaLoaiPhong.Location = new System.Drawing.Point(245, 35);
@@ -375,16 +398,6 @@
             this.btnXoaLoaiPhong.UseVisualStyleBackColor = true;
             this.btnXoaLoaiPhong.Click += new System.EventHandler(this.btnXoaLoaiPhong_Click);
             // 
-            // btnSuaLoaiPhong
-            // 
-            this.btnSuaLoaiPhong.Location = new System.Drawing.Point(150, 35);
-            this.btnSuaLoaiPhong.Name = "btnSuaLoaiPhong";
-            this.btnSuaLoaiPhong.Size = new System.Drawing.Size(81, 35);
-            this.btnSuaLoaiPhong.TabIndex = 3;
-            this.btnSuaLoaiPhong.Text = "Sửa";
-            this.btnSuaLoaiPhong.UseVisualStyleBackColor = true;
-            this.btnSuaLoaiPhong.Click += new System.EventHandler(this.btnSuaLoaiPhong_Click);
-            // 
             // btnThemLoaiPhong
             // 
             this.btnThemLoaiPhong.Location = new System.Drawing.Point(36, 35);
@@ -394,6 +407,16 @@
             this.btnThemLoaiPhong.Text = "Thêm";
             this.btnThemLoaiPhong.UseVisualStyleBackColor = true;
             this.btnThemLoaiPhong.Click += new System.EventHandler(this.btnThemLoaiPhong_Click);
+            // 
+            // btnSuaLoaiPhong
+            // 
+            this.btnSuaLoaiPhong.Location = new System.Drawing.Point(150, 35);
+            this.btnSuaLoaiPhong.Name = "btnSuaLoaiPhong";
+            this.btnSuaLoaiPhong.Size = new System.Drawing.Size(81, 35);
+            this.btnSuaLoaiPhong.TabIndex = 3;
+            this.btnSuaLoaiPhong.Text = "Sửa";
+            this.btnSuaLoaiPhong.UseVisualStyleBackColor = true;
+            this.btnSuaLoaiPhong.Click += new System.EventHandler(this.btnSuaLoaiPhong_Click);
             // 
             // groupBox2
             // 
@@ -496,6 +519,7 @@
             this.LoaiPhong1,
             this.SoLuong1,
             this.GiaPhong1});
+            this.listLoaiPhong1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listLoaiPhong1.Location = new System.Drawing.Point(5, 5);
             this.listLoaiPhong1.Name = "listLoaiPhong1";
             this.listLoaiPhong1.Size = new System.Drawing.Size(579, 565);
@@ -525,28 +549,6 @@
             this.GiaPhong1.Text = "Giá Phòng";
             this.GiaPhong1.Width = 150;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnXoa);
-            this.panel1.Controls.Add(this.bttThemPhong);
-            this.panel1.Controls.Add(this.btnSuaPhong);
-            this.panel1.Location = new System.Drawing.Point(797, 348);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(170, 212);
-            this.panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.btnXoaLoaiPhong);
-            this.panel2.Controls.Add(this.btnThemLoaiPhong);
-            this.panel2.Controls.Add(this.btnSuaLoaiPhong);
-            this.panel2.Location = new System.Drawing.Point(600, 246);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(373, 111);
-            this.panel2.TabIndex = 5;
-            // 
             // fQuanLyPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,19 +557,19 @@
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fQuanLyPhong";
-            this.Text = "fQuanLyPhong";
+            this.Text = "Quản lý phòng";
             this.tabControl1.ResumeLayout(false);
             this.tbPhong.ResumeLayout(false);
             this.grbPhong.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.grbThongtindondatphong.ResumeLayout(false);
             this.grbThongtindondatphong.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.listLoaiphong.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -67,7 +67,7 @@ namespace quanlydatphongkhachsan
             listDonDatHang.Columns.Add("Hủy phòng", 150, HorizontalAlignment.Left);
 
             listDonDatHang.Items.Clear();
-
+            listDonDatHang.FullRowSelect = true;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 // Đổ dữ liệu ở đây từng hàng
@@ -121,8 +121,14 @@ namespace quanlydatphongkhachsan
             listDonDatHang.Columns.Add("Hủy phòng", 150, HorizontalAlignment.Left);
             listDonDatHang.Columns.Add("Từ ngày", 150, HorizontalAlignment.Left);
             listDonDatHang.Columns.Add("Đến ngày", 150, HorizontalAlignment.Left);
-
             listDonDatHang.Items.Clear();
+            listDonDatHang.FullRowSelect = true;
+
+            if (dt.Rows.Count == 0) { 
+                ListViewItem lviNull = new ListViewItem("Không có dữ liệu.");                
+                listDonDatHang.Items.Add(lviNull);
+                return;
+            }
             // Đổ dữ liệu ở đây từng hàng
             ListViewItem lvi = new ListViewItem(dt.Rows[0]["TongTienPhong"].ToString());
             lvi.SubItems.Add(dt.Rows[0]["TongThoiGian"].ToString());
@@ -171,6 +177,7 @@ namespace quanlydatphongkhachsan
             listDonDatHang.Columns.Add("Tổng số phòng", 150, HorizontalAlignment.Left);
 
             listDonDatHang.Items.Clear();
+            listDonDatHang.FullRowSelect = true;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 // Đổ dữ liệu ở đây từng hàng
@@ -219,6 +226,7 @@ namespace quanlydatphongkhachsan
             listKhachHang.Columns.Add("Tổng thời gian thuê", 200, HorizontalAlignment.Left);
 
             listKhachHang.Items.Clear();
+            listKhachHang.FullRowSelect = true;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 // Đổ dữ liệu ở đây từng hàng

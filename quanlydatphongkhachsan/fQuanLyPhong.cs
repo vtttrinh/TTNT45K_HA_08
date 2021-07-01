@@ -51,6 +51,7 @@ namespace quanlydatphongkhachsan
             conn.Close();
 
             listLoaiPhong1.Items.Clear();
+            listLoaiPhong1.FullRowSelect = true;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ListViewItem lvi = new ListViewItem(dt.Rows[i]["MaLoaiPhong"].ToString());
@@ -75,6 +76,7 @@ namespace quanlydatphongkhachsan
             conn.Close();
 
             listPhong.Items.Clear();
+            listPhong.FullRowSelect = true;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ListViewItem lvi = new ListViewItem(dt.Rows[i]["MaPhong"].ToString());
@@ -111,7 +113,7 @@ namespace quanlydatphongkhachsan
             txtLoaiPhong.Text = dt.Rows[0]["LoaiPhong"].ToString();
             txtSoGiuong.Text = dt.Rows[0]["SoGiuong"].ToString();
             txtGiaPhong.Text = dt.Rows[0]["GiaPhong"].ToString();
-            
+
 
         }
 
@@ -125,20 +127,20 @@ namespace quanlydatphongkhachsan
             da.Dispose();
             conn.Close();
 
-          tbMaPhong.Text = dt.Rows[0]["MaPhong"].ToString();
-          tbMaTenPhong.Text = dt.Rows[0]["MaLoaiPhong"].ToString();
-          tbTenPhong.Text = dt.Rows[0]["TenPhong"].ToString();
-          if (dt.Rows[0]["TrangThai"].ToString() == "False")
-          {
-              rdoFalse.Checked = true;
-              rdoTrue.Checked = false;
-          }
-          else
-          {
-              rdoTrue.Checked = true;
-              rdoFalse.Checked = false;
-          }
-          tbMoTa.Text = dt.Rows[0]["MoTaPhong"].ToString();
+            tbMaPhong.Text = dt.Rows[0]["MaPhong"].ToString();
+            tbMaTenPhong.Text = dt.Rows[0]["MaLoaiPhong"].ToString();
+            tbTenPhong.Text = dt.Rows[0]["TenPhong"].ToString();
+            if (dt.Rows[0]["TrangThai"].ToString() == "False")
+            {
+                rdoFalse.Checked = true;
+                rdoTrue.Checked = false;
+            }
+            else
+            {
+                rdoTrue.Checked = true;
+                rdoFalse.Checked = false;
+            }
+            tbMoTa.Text = dt.Rows[0]["MoTaPhong"].ToString();
         }
 
 
@@ -170,12 +172,12 @@ namespace quanlydatphongkhachsan
             string strMaPhong = tbMaPhong.Text;
             if (checkMaPhong(strMaPhong) == false)
             {
-                MessageBox.Show("Mã phòng đã tồn tại", "Thông báo");
+                MessageBox.Show("Mã phòng đã tồn tại!", "Thông báo");
                 return;
             }
             if (checkData(strMaLoaiPhong) == false)
             {
-                MessageBox.Show("Mã loại phòng không tồn tại", "Thông báo");
+                MessageBox.Show("Mã loại phòng không tồn tại!", "Thông báo");
                 return;
             }
             else
@@ -189,15 +191,17 @@ namespace quanlydatphongkhachsan
                 {
                     trangthai = 1;
                 }
-                string sql = "INSERT INTO PHONG (MaPhong, MaLoaiPhong,TenPhong, MoTaPhong, TrangThai) VALUES ('" + tbMaPhong.Text + "','" + tbMaTenPhong.Text + "','" + tbTenPhong.Text + "','" + tbMoTa.Text + "'," + trangthai + ")";
+                string sql = "INSERT INTO PHONG (MaPhong, MaLoaiPhong,TenPhong, MoTaPhong, TrangThai) VALUES ('" + tbMaPhong.Text +
+                    "','" + tbMaTenPhong.Text + "','" + tbTenPhong.Text + "',N'" + tbMoTa.Text + "'," + trangthai + ")";
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+    
                 conn.Open();
                 da.Fill(dt);
                 da.Dispose();
                 conn.Close();
 
-                MessageBox.Show("Thêm phòng thành công", "Thông báo");
+                MessageBox.Show("Thêm phòng thành công!", "Thông báo");
                 clearphongtxt();
             }
 
@@ -209,12 +213,12 @@ namespace quanlydatphongkhachsan
             string strMaPhong = tbMaPhong.Text;
             if (checkMaPhong(strMaPhong) == true)
             {
-                MessageBox.Show("Mã phòng không tồn tại", "Thông báo");
+                MessageBox.Show("Mã phòng không tồn tại!", "Thông báo");
                 return;
             }
             if (checkData(strMaLoaiPhong) == false)
             {
-                MessageBox.Show("Mã loại phòng không tồn tại", "Thông báo");
+                MessageBox.Show("Mã loại phòng không tồn tại!", "Thông báo");
                 return;
             }
             else
@@ -228,7 +232,8 @@ namespace quanlydatphongkhachsan
                 {
                     trangthai = 1;
                 }
-                string sql = "UPDATE PHONG SET  MaLoaiPhong = '" + tbMaTenPhong.Text + "', TenPhong = '" + tbTenPhong.Text + "', MoTaPhong = '" + tbMoTa.Text + "', TrangThai = " + trangthai + " WHERE MaPhong = '" + tbMaPhong.Text + "'"; ;
+                string sql = "UPDATE PHONG SET  MaLoaiPhong = '" + tbMaTenPhong.Text + "', TenPhong = '" + tbTenPhong.Text + 
+                    "', MoTaPhong = N'" + tbMoTa.Text + "', TrangThai = " + trangthai + " WHERE MaPhong = '" + tbMaPhong.Text + "'"; ;
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                 conn.Open();
@@ -236,7 +241,7 @@ namespace quanlydatphongkhachsan
                 da.Dispose();
                 conn.Close();
 
-                MessageBox.Show("cập nhật phòng thành công", "Thông báo");
+                MessageBox.Show("Cập nhật phòng thành công!", "Thông báo");
                 clearphongtxt();
             }
 
@@ -256,17 +261,22 @@ namespace quanlydatphongkhachsan
         {
             if (tbMaPhong.Text.Equals(""))
             {
-                MessageBox.Show("Mã phòng không được để trống", "Thông báo");
+                MessageBox.Show("Mã phòng không được để trống!", "Thông báo");
                 return true;
             }
             if (tbMaTenPhong.Text.Equals(""))
             {
-                MessageBox.Show("Mã tên phòng không được để trống", "Thông báo");
+                MessageBox.Show("Mã tên phòng không được để trống!", "Thông báo");
                 return true;
             }
             if (tbTenPhong.Text.Equals(""))
             {
-                MessageBox.Show("Tên phòng không được để trống", "Thông báo");
+                MessageBox.Show("Tên phòng không được để trống!", "Thông báo");
+                return true;
+            }
+            if (tbMoTa.Text.Equals(""))
+            {
+                MessageBox.Show("Mô tả không được để trống!", "Thông báo");
                 return true;
             }
             return false;
@@ -277,7 +287,7 @@ namespace quanlydatphongkhachsan
             string strMaPhong = tbMaPhong.Text;
             if (checkMaPhong(strMaPhong) == true)
             {
-                MessageBox.Show("Mã phòng không tồn tại", "Thông báo");
+                MessageBox.Show("Mã phòng không tồn tại!", "Thông báo");
                 return;
             }
             else
@@ -291,7 +301,7 @@ namespace quanlydatphongkhachsan
                 da.Dispose();
                 conn.Close();
 
-                MessageBox.Show("Xóa phòng thành công", "Thông báo");
+                MessageBox.Show("Xóa phòng thành công!", "Thông báo");
             }
         }
 
@@ -326,17 +336,17 @@ namespace quanlydatphongkhachsan
             bool isNumeric1 = int.TryParse(txtGiaPhong.Text, out n);
             if (checkData(strMaLoaiPhong) == true)
             {
-                MessageBox.Show("Mã phòng đã tồn tại", "Thông báo");
+                MessageBox.Show("Mã phòng đã tồn tại!", "Thông báo");
                 return;
-            } 
+            }
             if (!isNumeric)
             {
-                MessageBox.Show("Vui lòng nhập số ở số giường", "Thông báo");
+                MessageBox.Show("Vui lòng nhập số ở số giường!", "Thông báo");
                 return;
             }
             if (!isNumeric1)
             {
-                MessageBox.Show("Vui lòng nhập số ở giá phòng ", "Thông báo");
+                MessageBox.Show("Vui lòng nhập số ở giá phòng!", "Thông báo");
                 return;
             }
             else
@@ -350,10 +360,10 @@ namespace quanlydatphongkhachsan
                 da.Dispose();
                 conn.Close();
 
-                MessageBox.Show("Thêm đơn đặt phòng thành công", "Thông báo");
+                MessageBox.Show("Thêm loại phòng thành công!", "Thông báo");
                 cleartxt();
             }
-            
+
         }
 
         public void update(String MaLoaiPhong)
@@ -364,17 +374,17 @@ namespace quanlydatphongkhachsan
             string strMaLoaiPhong = txtMaLoaiPhong.Text;
             if (checkData(strMaLoaiPhong) == false)
             {
-                MessageBox.Show("Mã phòng không tồn tại", "Thông báo");
+                MessageBox.Show("Mã phòng không tồn tại!", "Thông báo");
                 return;
             }
             if (!isNumeric)
             {
-                MessageBox.Show("Vui lòng nhập số ở số giường", "Thông báo");
+                MessageBox.Show("Vui lòng nhập số ở số giường!", "Thông báo");
                 return;
             }
             if (!isNumeric1)
             {
-                MessageBox.Show("Vui lòng nhập số ở giá phòng ", "Thông báo");
+                MessageBox.Show("Vui lòng nhập số ở giá phòng!", "Thông báo");
                 return;
             }
             else
@@ -387,12 +397,13 @@ namespace quanlydatphongkhachsan
                 da.Dispose();
                 conn.Close();
 
-                MessageBox.Show("Cập nhật loại phòng thành công", "Thông báo");
+                MessageBox.Show("Cập nhật loại phòng thành công!", "Thông báo");
                 cleartxt();
             }
         }
 
-        public void cleartxt() {
+        public void cleartxt()
+        {
             txtLoaiPhong.Text = "";
             txtSoGiuong.Text = "";
             txtGiaPhong.Text = "";
@@ -402,24 +413,24 @@ namespace quanlydatphongkhachsan
 
         public bool checkEmpty()
         {
-            if (txtLoaiPhong.Text.Equals("")) 
+            if (txtLoaiPhong.Text.Equals(""))
             {
-              MessageBox.Show("Loại phòng không được để trống", "Thông báo");
-              return true;
+                MessageBox.Show("Loại phòng không được để trống!", "Thông báo");
+                return true;
             }
             if (txtSoGiuong.Text.Equals(""))
             {
-                MessageBox.Show("Số Giường không được để trống", "Thông báo");
+                MessageBox.Show("Số Giường không được để trống!", "Thông báo");
                 return true;
             }
             if (txtGiaPhong.Text.Equals(""))
             {
-                MessageBox.Show("Giá phòng không được để trống", "Thông báo");
+                MessageBox.Show("Giá phòng không được để trống!", "Thông báo");
                 return true;
             }
             if (txtMaLoaiPhong.Text.Equals(""))
             {
-                MessageBox.Show("Mã Loại phòng không được để trống", "Thông báo");
+                MessageBox.Show("Mã Loại phòng không được để trống!", "Thông báo");
                 return true;
             }
             return false;
@@ -430,11 +441,11 @@ namespace quanlydatphongkhachsan
             string strMaLoaiPhong = txtMaLoaiPhong.Text;
             if (checkData(strMaLoaiPhong) == false)
             {
-                MessageBox.Show("Mã phòng không tồn tại", "Thông báo");
+                MessageBox.Show("Mã phòng không tồn tại!", "Thông báo");
                 return;
             }
             else
-            {   
+            {
                 String sql = "DELETE LOAIPHONG WHERE MaLoaiPhong = '" + txtMaLoaiPhong.Text + "'";
 
                 DataTable dt = new DataTable();
@@ -444,7 +455,7 @@ namespace quanlydatphongkhachsan
                 da.Dispose();
                 conn.Close();
 
-                MessageBox.Show("Xóa loại phòng thành công", "Thông báo");
+                MessageBox.Show("Xóa loại phòng thành công!", "Thông báo");
             }
         }
 
@@ -546,7 +557,7 @@ namespace quanlydatphongkhachsan
 
         private void label2_Click(object sender, EventArgs e)
         {
-                    }
+        }
 
         private void listLoaiPhong1_Click(object sender, EventArgs e)
         {
@@ -585,15 +596,29 @@ namespace quanlydatphongkhachsan
                 update(txtMaLoaiPhong.Text);
                 FillToTableLoaiPhong();
             }
-            
+
         }
 
         private void btnXoaLoaiPhong_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa loại phòng này không", "Thông báo", MessageBoxButtons.YesNo);
+            string strMaPhong = "";
+            // Khi click từng hàng trong bảng
+            if (listPhong.SelectedItems.Count >= 1)
+            {
+                ListViewItem item = listPhong.SelectedItems[0];
+                // Đổ dữ liệu đúng với mã đặt phòng
+                strMaPhong = item.Text;
+            }
+
+            // Kiểm tra mã đơn không để trống
+            if (strMaPhong == "")
+            {
+                MessageBox.Show("Mã phòng không tồn tại", "Thông báo");
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa loại phòng này không?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                delete(txtMaLoaiPhong.Text);
+                delete(strMaPhong);
                 FillToTableLoaiPhong();
                 cleartxt();
             }
@@ -635,10 +660,24 @@ namespace quanlydatphongkhachsan
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa phòng này không", "Thông báo", MessageBoxButtons.YesNo);
+            string strMaLoaiPhong = "";
+            // Khi click từng hàng trong bảng
+            if (listLoaiPhong1.SelectedItems.Count >= 1)
+            {
+                ListViewItem item = listLoaiPhong1.SelectedItems[0];
+                // Đổ dữ liệu đúng với mã đặt phòng
+                strMaLoaiPhong = item.Text;
+            }
+
+            // Kiểm tra mã đơn không để trống
+            if (strMaLoaiPhong == "")
+            {
+                MessageBox.Show("Mã đơn đặt phòng không tồn tại", "Thông báo");
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa phòng này không?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                deletePhong(tbMaPhong.Text);
+                deletePhong(strMaLoaiPhong);
                 FillToTable();
                 clearphongtxt();
             }

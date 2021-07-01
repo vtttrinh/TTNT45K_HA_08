@@ -29,33 +29,35 @@
         private void InitializeComponent()
         {
             this.grbThongtinkhachhang = new System.Windows.Forms.GroupBox();
+            this.btThemFthemkhachhang = new System.Windows.Forms.Button();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTenKhachHang = new System.Windows.Forms.TextBox();
             this.txtMaKhach = new System.Windows.Forms.TextBox();
-            this.lbGioitinh = new System.Windows.Forms.Label();
             this.lbSodienthoai = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
             this.lbDiachi = new System.Windows.Forms.Label();
             this.lbTenkhachhang = new System.Windows.Forms.Label();
             this.lbMakhach = new System.Windows.Forms.Label();
-            this.btThemFthemkhachhang = new System.Windows.Forms.Button();
-            this.txtGioiTinh = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rdoNam = new System.Windows.Forms.RadioButton();
+            this.rdoFemale = new System.Windows.Forms.RadioButton();
+            this.lbGioitinh = new System.Windows.Forms.Label();
             this.grbThongtinkhachhang.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbThongtinkhachhang
             // 
             this.grbThongtinkhachhang.BackColor = System.Drawing.Color.White;
+            this.grbThongtinkhachhang.Controls.Add(this.panel2);
             this.grbThongtinkhachhang.Controls.Add(this.btThemFthemkhachhang);
             this.grbThongtinkhachhang.Controls.Add(this.txtSoDienThoai);
-            this.grbThongtinkhachhang.Controls.Add(this.txtGioiTinh);
             this.grbThongtinkhachhang.Controls.Add(this.txtDiaChi);
             this.grbThongtinkhachhang.Controls.Add(this.txtEmail);
             this.grbThongtinkhachhang.Controls.Add(this.txtTenKhachHang);
             this.grbThongtinkhachhang.Controls.Add(this.txtMaKhach);
-            this.grbThongtinkhachhang.Controls.Add(this.lbGioitinh);
             this.grbThongtinkhachhang.Controls.Add(this.lbSodienthoai);
             this.grbThongtinkhachhang.Controls.Add(this.lbEmail);
             this.grbThongtinkhachhang.Controls.Add(this.lbDiachi);
@@ -70,6 +72,18 @@
             this.grbThongtinkhachhang.TabIndex = 12;
             this.grbThongtinkhachhang.TabStop = false;
             this.grbThongtinkhachhang.Text = "Thông tin khách hàng";
+            // 
+            // btThemFthemkhachhang
+            // 
+            this.btThemFthemkhachhang.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThemFthemkhachhang.Location = new System.Drawing.Point(352, 180);
+            this.btThemFthemkhachhang.Margin = new System.Windows.Forms.Padding(2);
+            this.btThemFthemkhachhang.Name = "btThemFthemkhachhang";
+            this.btThemFthemkhachhang.Size = new System.Drawing.Size(128, 32);
+            this.btThemFthemkhachhang.TabIndex = 13;
+            this.btThemFthemkhachhang.Text = "Thêm";
+            this.btThemFthemkhachhang.UseVisualStyleBackColor = true;
+            this.btThemFthemkhachhang.Click += new System.EventHandler(this.btThemFthemkhachhang_Click);
             // 
             // txtSoDienThoai
             // 
@@ -113,20 +127,8 @@
             this.txtMaKhach.Location = new System.Drawing.Point(118, 39);
             this.txtMaKhach.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaKhach.Name = "txtMaKhach";
-            this.txtMaKhach.Size = new System.Drawing.Size(105, 24);
+            this.txtMaKhach.Size = new System.Drawing.Size(143, 24);
             this.txtMaKhach.TabIndex = 6;
-            // 
-            // lbGioitinh
-            // 
-            this.lbGioitinh.AutoSize = true;
-            this.lbGioitinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGioitinh.Location = new System.Drawing.Point(274, 43);
-            this.lbGioitinh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbGioitinh.Name = "lbGioitinh";
-            this.lbGioitinh.Size = new System.Drawing.Size(57, 17);
-            this.lbGioitinh.TabIndex = 5;
-            this.lbGioitinh.Text = "Giới tính";
-            this.lbGioitinh.Click += new System.EventHandler(this.lbGioitinh_Click);
             // 
             // lbSodienthoai
             // 
@@ -183,26 +185,50 @@
             this.lbMakhach.TabIndex = 0;
             this.lbMakhach.Text = "Mã khách";
             // 
-            // btThemFthemkhachhang
+            // panel2
             // 
-            this.btThemFthemkhachhang.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btThemFthemkhachhang.Location = new System.Drawing.Point(352, 180);
-            this.btThemFthemkhachhang.Margin = new System.Windows.Forms.Padding(2);
-            this.btThemFthemkhachhang.Name = "btThemFthemkhachhang";
-            this.btThemFthemkhachhang.Size = new System.Drawing.Size(128, 32);
-            this.btThemFthemkhachhang.TabIndex = 13;
-            this.btThemFthemkhachhang.Text = "Thêm";
-            this.btThemFthemkhachhang.UseVisualStyleBackColor = true;
-            this.btThemFthemkhachhang.Click += new System.EventHandler(this.btThemFthemkhachhang_Click);
+            this.panel2.Controls.Add(this.rdoNam);
+            this.panel2.Controls.Add(this.rdoFemale);
+            this.panel2.Controls.Add(this.lbGioitinh);
+            this.panel2.Location = new System.Drawing.Point(276, 34);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(204, 32);
+            this.panel2.TabIndex = 14;
             // 
-            // txtGioiTinh
+            // rdoNam
             // 
-            this.txtGioiTinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGioiTinh.Location = new System.Drawing.Point(335, 40);
-            this.txtGioiTinh.Margin = new System.Windows.Forms.Padding(2);
-            this.txtGioiTinh.Name = "txtGioiTinh";
-            this.txtGioiTinh.Size = new System.Drawing.Size(145, 24);
-            this.txtGioiTinh.TabIndex = 10;
+            this.rdoNam.AutoSize = true;
+            this.rdoNam.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoNam.Location = new System.Drawing.Point(135, 8);
+            this.rdoNam.Name = "rdoNam";
+            this.rdoNam.Size = new System.Drawing.Size(55, 21);
+            this.rdoNam.TabIndex = 7;
+            this.rdoNam.TabStop = true;
+            this.rdoNam.Text = "Nam";
+            this.rdoNam.UseVisualStyleBackColor = true;
+            // 
+            // rdoFemale
+            // 
+            this.rdoFemale.AutoSize = true;
+            this.rdoFemale.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoFemale.Location = new System.Drawing.Point(76, 8);
+            this.rdoFemale.Name = "rdoFemale";
+            this.rdoFemale.Size = new System.Drawing.Size(45, 21);
+            this.rdoFemale.TabIndex = 6;
+            this.rdoFemale.TabStop = true;
+            this.rdoFemale.Text = "Nữ";
+            this.rdoFemale.UseVisualStyleBackColor = true;
+            // 
+            // lbGioitinh
+            // 
+            this.lbGioitinh.AutoSize = true;
+            this.lbGioitinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGioitinh.Location = new System.Drawing.Point(4, 12);
+            this.lbGioitinh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbGioitinh.Name = "lbGioitinh";
+            this.lbGioitinh.Size = new System.Drawing.Size(57, 17);
+            this.lbGioitinh.TabIndex = 5;
+            this.lbGioitinh.Text = "Giới tính";
             // 
             // fThemKhachHang
             // 
@@ -217,6 +243,8 @@
             this.Text = "Thêm khách hàng";
             this.grbThongtinkhachhang.ResumeLayout(false);
             this.grbThongtinkhachhang.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -229,13 +257,15 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtTenKhachHang;
         private System.Windows.Forms.TextBox txtMaKhach;
-        private System.Windows.Forms.Label lbGioitinh;
         private System.Windows.Forms.Label lbSodienthoai;
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Label lbDiachi;
         private System.Windows.Forms.Label lbTenkhachhang;
         private System.Windows.Forms.Label lbMakhach;
         private System.Windows.Forms.Button btThemFthemkhachhang;
-        private System.Windows.Forms.TextBox txtGioiTinh;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton rdoNam;
+        private System.Windows.Forms.RadioButton rdoFemale;
+        private System.Windows.Forms.Label lbGioitinh;
     }
 }

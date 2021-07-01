@@ -30,13 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grbDondatphong = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tbTimdondatphong = new System.Windows.Forms.TextBox();
+            this.lbTimdondatphong = new System.Windows.Forms.Label();
+            this.btTimFgiaodienchinh = new System.Windows.Forms.Button();
             this.grbSuathongtindondatphong = new System.Windows.Forms.GroupBox();
             this.btThemFgiaodienchinh = new System.Windows.Forms.Button();
             this.btSuaFgiaodienchinh = new System.Windows.Forms.Button();
             this.btXoaFgiaodienchinh = new System.Windows.Forms.Button();
-            this.tbTimdondatphong = new System.Windows.Forms.TextBox();
-            this.btTimFgiaodienchinh = new System.Windows.Forms.Button();
-            this.lbTimdondatphong = new System.Windows.Forms.Label();
             this.listDatPhong = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,6 +51,8 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbThongtindondatphong = new System.Windows.Forms.GroupBox();
+            this.cbbKhach = new System.Windows.Forms.ComboBox();
+            this.cbbMaPhong = new System.Windows.Forms.ComboBox();
             this.txtDatCoc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,8 +63,6 @@
             this.tbConlai = new System.Windows.Forms.TextBox();
             this.tbTienphong = new System.Windows.Forms.TextBox();
             this.tbThoigianthue = new System.Windows.Forms.TextBox();
-            this.tbMaphong = new System.Windows.Forms.TextBox();
-            this.tbMakhach = new System.Windows.Forms.TextBox();
             this.tbMadondatphong = new System.Windows.Forms.TextBox();
             this.lbMadondatphong = new System.Windows.Forms.Label();
             this.lbConlai = new System.Windows.Forms.Label();
@@ -80,15 +81,14 @@
             this.dONDATPHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dONDATPHONGTableAdapter = new quanlydatphongkhachsan.QUANLYDATPHONGKHACHSAN1DataSetTableAdapters.DONDATPHONGTableAdapter();
             this.quanlydatphongkhachsaN1DataSet1 = new quanlydatphongkhachsan.QUANLYDATPHONGKHACHSAN1DataSet();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.grbDondatphong.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.grbSuathongtindondatphong.SuspendLayout();
             this.grbThongtindondatphong.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYDATPHONGKHACHSAN1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dONDATPHONGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlydatphongkhachsaN1DataSet1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbDondatphong
@@ -108,6 +108,50 @@
             this.grbDondatphong.TabStop = false;
             this.grbDondatphong.Text = "Đơn đặt phòng";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.tbTimdondatphong);
+            this.panel1.Controls.Add(this.lbTimdondatphong);
+            this.panel1.Controls.Add(this.btTimFgiaodienchinh);
+            this.panel1.Location = new System.Drawing.Point(636, 334);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(334, 48);
+            this.panel1.TabIndex = 30;
+            // 
+            // tbTimdondatphong
+            // 
+            this.tbTimdondatphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTimdondatphong.Location = new System.Drawing.Point(110, 11);
+            this.tbTimdondatphong.Margin = new System.Windows.Forms.Padding(2);
+            this.tbTimdondatphong.Name = "tbTimdondatphong";
+            this.tbTimdondatphong.Size = new System.Drawing.Size(139, 24);
+            this.tbTimdondatphong.TabIndex = 28;
+            // 
+            // lbTimdondatphong
+            // 
+            this.lbTimdondatphong.AutoSize = true;
+            this.lbTimdondatphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimdondatphong.Location = new System.Drawing.Point(12, 15);
+            this.lbTimdondatphong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbTimdondatphong.Name = "lbTimdondatphong";
+            this.lbTimdondatphong.Size = new System.Drawing.Size(96, 17);
+            this.lbTimdondatphong.TabIndex = 13;
+            this.lbTimdondatphong.Text = "Đơn đặt phòng";
+            // 
+            // btTimFgiaodienchinh
+            // 
+            this.btTimFgiaodienchinh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btTimFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTimFgiaodienchinh.Location = new System.Drawing.Point(253, 11);
+            this.btTimFgiaodienchinh.Margin = new System.Windows.Forms.Padding(2);
+            this.btTimFgiaodienchinh.Name = "btTimFgiaodienchinh";
+            this.btTimFgiaodienchinh.Size = new System.Drawing.Size(65, 25);
+            this.btTimFgiaodienchinh.TabIndex = 24;
+            this.btTimFgiaodienchinh.Text = "Tìm";
+            this.btTimFgiaodienchinh.UseVisualStyleBackColor = false;
+            this.btTimFgiaodienchinh.Click += new System.EventHandler(this.btTimFgiaodienchinh_Click);
+            // 
             // grbSuathongtindondatphong
             // 
             this.grbSuathongtindondatphong.BackColor = System.Drawing.Color.White;
@@ -115,7 +159,7 @@
             this.grbSuathongtindondatphong.Controls.Add(this.btSuaFgiaodienchinh);
             this.grbSuathongtindondatphong.Controls.Add(this.btXoaFgiaodienchinh);
             this.grbSuathongtindondatphong.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbSuathongtindondatphong.Location = new System.Drawing.Point(636, 395);
+            this.grbSuathongtindondatphong.Location = new System.Drawing.Point(641, 395);
             this.grbSuathongtindondatphong.Margin = new System.Windows.Forms.Padding(2);
             this.grbSuathongtindondatphong.Name = "grbSuathongtindondatphong";
             this.grbSuathongtindondatphong.Padding = new System.Windows.Forms.Padding(2);
@@ -141,7 +185,7 @@
             // 
             this.btSuaFgiaodienchinh.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btSuaFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSuaFgiaodienchinh.Location = new System.Drawing.Point(122, 33);
+            this.btSuaFgiaodienchinh.Location = new System.Drawing.Point(125, 33);
             this.btSuaFgiaodienchinh.Margin = new System.Windows.Forms.Padding(2);
             this.btSuaFgiaodienchinh.Name = "btSuaFgiaodienchinh";
             this.btSuaFgiaodienchinh.Size = new System.Drawing.Size(84, 35);
@@ -154,7 +198,7 @@
             // 
             this.btXoaFgiaodienchinh.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btXoaFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btXoaFgiaodienchinh.Location = new System.Drawing.Point(222, 34);
+            this.btXoaFgiaodienchinh.Location = new System.Drawing.Point(230, 34);
             this.btXoaFgiaodienchinh.Margin = new System.Windows.Forms.Padding(2);
             this.btXoaFgiaodienchinh.Name = "btXoaFgiaodienchinh";
             this.btXoaFgiaodienchinh.Size = new System.Drawing.Size(84, 35);
@@ -162,39 +206,6 @@
             this.btXoaFgiaodienchinh.Text = "Xóa";
             this.btXoaFgiaodienchinh.UseVisualStyleBackColor = false;
             this.btXoaFgiaodienchinh.Click += new System.EventHandler(this.btXoaFgiaodienchinh_Click);
-            // 
-            // tbTimdondatphong
-            // 
-            this.tbTimdondatphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTimdondatphong.Location = new System.Drawing.Point(110, 11);
-            this.tbTimdondatphong.Margin = new System.Windows.Forms.Padding(2);
-            this.tbTimdondatphong.Name = "tbTimdondatphong";
-            this.tbTimdondatphong.Size = new System.Drawing.Size(139, 24);
-            this.tbTimdondatphong.TabIndex = 28;
-            // 
-            // btTimFgiaodienchinh
-            // 
-            this.btTimFgiaodienchinh.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btTimFgiaodienchinh.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTimFgiaodienchinh.Location = new System.Drawing.Point(253, 11);
-            this.btTimFgiaodienchinh.Margin = new System.Windows.Forms.Padding(2);
-            this.btTimFgiaodienchinh.Name = "btTimFgiaodienchinh";
-            this.btTimFgiaodienchinh.Size = new System.Drawing.Size(65, 25);
-            this.btTimFgiaodienchinh.TabIndex = 24;
-            this.btTimFgiaodienchinh.Text = "Tìm";
-            this.btTimFgiaodienchinh.UseVisualStyleBackColor = false;
-            this.btTimFgiaodienchinh.Click += new System.EventHandler(this.btTimFgiaodienchinh_Click);
-            // 
-            // lbTimdondatphong
-            // 
-            this.lbTimdondatphong.AutoSize = true;
-            this.lbTimdondatphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTimdondatphong.Location = new System.Drawing.Point(12, 15);
-            this.lbTimdondatphong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbTimdondatphong.Name = "lbTimdondatphong";
-            this.lbTimdondatphong.Size = new System.Drawing.Size(96, 17);
-            this.lbTimdondatphong.TabIndex = 13;
-            this.lbTimdondatphong.Text = "Đơn đặt phòng";
             // 
             // listDatPhong
             // 
@@ -210,7 +221,7 @@
             this.columnHeader9,
             this.columnHeader10,
             this.columnHeader11});
-            this.listDatPhong.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listDatPhong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listDatPhong.FullRowSelect = true;
             this.listDatPhong.GridLines = true;
             this.listDatPhong.HideSelection = false;
@@ -293,6 +304,8 @@
             // grbThongtindondatphong
             // 
             this.grbThongtindondatphong.BackColor = System.Drawing.SystemColors.Window;
+            this.grbThongtindondatphong.Controls.Add(this.cbbKhach);
+            this.grbThongtindondatphong.Controls.Add(this.cbbMaPhong);
             this.grbThongtindondatphong.Controls.Add(this.txtDatCoc);
             this.grbThongtindondatphong.Controls.Add(this.label2);
             this.grbThongtindondatphong.Controls.Add(this.label1);
@@ -303,8 +316,6 @@
             this.grbThongtindondatphong.Controls.Add(this.tbConlai);
             this.grbThongtindondatphong.Controls.Add(this.tbTienphong);
             this.grbThongtindondatphong.Controls.Add(this.tbThoigianthue);
-            this.grbThongtindondatphong.Controls.Add(this.tbMaphong);
-            this.grbThongtindondatphong.Controls.Add(this.tbMakhach);
             this.grbThongtindondatphong.Controls.Add(this.tbMadondatphong);
             this.grbThongtindondatphong.Controls.Add(this.lbMadondatphong);
             this.grbThongtindondatphong.Controls.Add(this.lbConlai);
@@ -324,6 +335,26 @@
             this.grbThongtindondatphong.TabIndex = 0;
             this.grbThongtindondatphong.TabStop = false;
             this.grbThongtindondatphong.Text = "Thông tin đơn đặt phòng";
+            // 
+            // cbbKhach
+            // 
+            this.cbbKhach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKhach.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbKhach.FormattingEnabled = true;
+            this.cbbKhach.Location = new System.Drawing.Point(141, 96);
+            this.cbbKhach.Name = "cbbKhach";
+            this.cbbKhach.Size = new System.Drawing.Size(150, 27);
+            this.cbbKhach.TabIndex = 28;
+            // 
+            // cbbMaPhong
+            // 
+            this.cbbMaPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbMaPhong.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMaPhong.FormattingEnabled = true;
+            this.cbbMaPhong.Location = new System.Drawing.Point(141, 61);
+            this.cbbMaPhong.Name = "cbbMaPhong";
+            this.cbbMaPhong.Size = new System.Drawing.Size(150, 27);
+            this.cbbMaPhong.TabIndex = 27;
             // 
             // txtDatCoc
             // 
@@ -361,8 +392,8 @@
             this.cbbHuyDon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbHuyDon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbHuyDon.Items.AddRange(new object[] {
-            "Đã hủy",
-            "Chưa hủy"});
+            "Chưa hủy",
+            "Đã hủy"});
             this.cbbHuyDon.Location = new System.Drawing.Point(439, 163);
             this.cbbHuyDon.Name = "cbbHuyDon";
             this.cbbHuyDon.Size = new System.Drawing.Size(150, 27);
@@ -370,8 +401,9 @@
             // 
             // dateTimePicker3
             // 
+            this.dateTimePicker3.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker3.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker3.Location = new System.Drawing.Point(439, 95);
             this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker3.Name = "dateTimePicker3";
@@ -381,8 +413,9 @@
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker2.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(439, 60);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.Name = "dateTimePicker2";
@@ -392,8 +425,9 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(439, 27);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -412,7 +446,10 @@
             // 
             // tbTienphong
             // 
+            this.tbTienphong.BackColor = System.Drawing.Color.White;
+            this.tbTienphong.Enabled = false;
             this.tbTienphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTienphong.ForeColor = System.Drawing.Color.Black;
             this.tbTienphong.Location = new System.Drawing.Point(141, 131);
             this.tbTienphong.Margin = new System.Windows.Forms.Padding(2);
             this.tbTienphong.Name = "tbTienphong";
@@ -428,31 +465,13 @@
             this.tbThoigianthue.Size = new System.Drawing.Size(150, 24);
             this.tbThoigianthue.TabIndex = 17;
             // 
-            // tbMaphong
-            // 
-            this.tbMaphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaphong.Location = new System.Drawing.Point(141, 63);
-            this.tbMaphong.Margin = new System.Windows.Forms.Padding(2);
-            this.tbMaphong.Name = "tbMaphong";
-            this.tbMaphong.Size = new System.Drawing.Size(150, 24);
-            this.tbMaphong.TabIndex = 15;
-            // 
-            // tbMakhach
-            // 
-            this.tbMakhach.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMakhach.Location = new System.Drawing.Point(141, 97);
-            this.tbMakhach.Margin = new System.Windows.Forms.Padding(2);
-            this.tbMakhach.Name = "tbMakhach";
-            this.tbMakhach.Size = new System.Drawing.Size(150, 24);
-            this.tbMakhach.TabIndex = 14;
-            // 
             // tbMadondatphong
             // 
             this.tbMadondatphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMadondatphong.Location = new System.Drawing.Point(143, 28);
             this.tbMadondatphong.Margin = new System.Windows.Forms.Padding(2);
             this.tbMadondatphong.Name = "tbMadondatphong";
-            this.tbMadondatphong.Size = new System.Drawing.Size(150, 24);
+            this.tbMadondatphong.Size = new System.Drawing.Size(148, 24);
             this.tbMadondatphong.TabIndex = 13;
             // 
             // lbMadondatphong
@@ -615,17 +634,6 @@
             this.quanlydatphongkhachsaN1DataSet1.DataSetName = "QUANLYDATPHONGKHACHSAN1DataSet";
             this.quanlydatphongkhachsaN1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.tbTimdondatphong);
-            this.panel1.Controls.Add(this.lbTimdondatphong);
-            this.panel1.Controls.Add(this.btTimFgiaodienchinh);
-            this.panel1.Location = new System.Drawing.Point(636, 334);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(334, 48);
-            this.panel1.TabIndex = 30;
-            // 
             // fGiaodienchinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -637,10 +645,12 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fGiaodienchinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Giao diện chính";
+            this.Text = "Quản lý đơn đặt phòng";
             this.Load += new System.EventHandler(this.fGiaodienchinh_Load);
             this.Click += new System.EventHandler(this.fGiaodienchinh_Click);
             this.grbDondatphong.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.grbSuathongtindondatphong.ResumeLayout(false);
             this.grbThongtindondatphong.ResumeLayout(false);
             this.grbThongtindondatphong.PerformLayout();
@@ -649,8 +659,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYDATPHONGKHACHSAN1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dONDATPHONGBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlydatphongkhachsaN1DataSet1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -681,8 +689,6 @@
         private System.Windows.Forms.TextBox tbConlai;
         private System.Windows.Forms.TextBox tbTienphong;
         private System.Windows.Forms.TextBox tbThoigianthue;
-        private System.Windows.Forms.TextBox tbMaphong;
-        private System.Windows.Forms.TextBox tbMakhach;
         private System.Windows.Forms.TextBox tbMadondatphong;
         private System.Windows.Forms.Label lbMadondatphong;
         private System.Windows.Forms.Label lbConlai;
@@ -710,5 +716,7 @@
         private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;
         private QUANLYDATPHONGKHACHSAN1DataSet quanlydatphongkhachsaN1DataSet1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cbbMaPhong;
+        private System.Windows.Forms.ComboBox cbbKhach;
     }
 }

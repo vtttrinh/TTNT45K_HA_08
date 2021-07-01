@@ -121,13 +121,14 @@ namespace quanlydatphongkhachsan
             txtDiaChi.Text = dt.Rows[0]["DiaChi"].ToString();
             txtEmail.Text = dt.Rows[0]["Email"].ToString();
             txtSoDienThoai.Text = dt.Rows[0]["SoDienThoai"].ToString();
+
             if (dt.Rows[0]["GioiTinh"].ToString().Equals("False"))
             {
-                txtGioiTinh.Text = "Nữ";
+                rdoFemale.Checked = true;
             }
             else
             {
-                txtGioiTinh.Text = "Nam";
+                rdoNam.Checked = true;
             }
 
         }
@@ -156,11 +157,11 @@ namespace quanlydatphongkhachsan
         {
             Connection();
             int gioiTinh = 0;
-            if (txtGioiTinh.Text.Equals("Nam"))
+            if (rdoNam.Checked)
             {
                 gioiTinh = 1;
             }
-            String sql = "UPDATE KHACHHANG SET TenKhachHang = '" + txtTenKhachHang.Text + "',DiaChi = '" + txtDiaChi.Text + "',Email = '" + txtEmail.Text +
+            String sql = "UPDATE KHACHHANG SET TenKhachHang = N'" + txtTenKhachHang.Text + "',DiaChi = N'" + txtDiaChi.Text + "',Email = '" + txtEmail.Text +
                 "',SoDienThoai = '" + txtSoDienThoai.Text + "',GioiTinh = " + gioiTinh + " WHERE MaKhach = '" + txtMaKhach.Text + "'";
 
             DataTable dt = new DataTable();
@@ -199,7 +200,7 @@ namespace quanlydatphongkhachsan
             txtDiaChi.Text = "";
             txtEmail.Text = "";
             txtSoDienThoai.Text = "";
-            txtGioiTinh.Text = "";
+            rdoFemale.Checked = true;
         }
 
         /** 
@@ -315,6 +316,11 @@ namespace quanlydatphongkhachsan
             {
                 MessageBox.Show("Mã khách hàng không tồn tại!", "Thông báo");
             }
+        }
+
+        private void fThongTinKhachHang_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
