@@ -134,10 +134,14 @@
             this.cbbMaPhong.Name = "cbbMaPhong";
             this.cbbMaPhong.Size = new System.Drawing.Size(150, 27);
             this.cbbMaPhong.TabIndex = 29;
+            this.cbbMaPhong.SelectedIndexChanged += new System.EventHandler(this.cbbMaPhong_SelectedIndexChanged);
             // 
             // tbDatCoc
             // 
+            this.tbDatCoc.BackColor = System.Drawing.Color.White;
+            this.tbDatCoc.Enabled = false;
             this.tbDatCoc.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDatCoc.ForeColor = System.Drawing.Color.Black;
             this.tbDatCoc.Location = new System.Drawing.Point(126, 198);
             this.tbDatCoc.Margin = new System.Windows.Forms.Padding(2);
             this.tbDatCoc.Name = "tbDatCoc";
@@ -166,6 +170,7 @@
             this.dateTimePicker3.ShowUpDown = true;
             this.dateTimePicker3.Size = new System.Drawing.Size(131, 24);
             this.dateTimePicker3.TabIndex = 22;
+            this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
             // 
             // dateTimePicker2
             // 
@@ -178,6 +183,7 @@
             this.dateTimePicker2.ShowUpDown = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(131, 24);
             this.dateTimePicker2.TabIndex = 21;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // dateTimePicker1
             // 
@@ -190,10 +196,14 @@
             this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(131, 24);
             this.dateTimePicker1.TabIndex = 20;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // tbConlai
             // 
+            this.tbConlai.BackColor = System.Drawing.Color.White;
+            this.tbConlai.Enabled = false;
             this.tbConlai.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbConlai.ForeColor = System.Drawing.Color.Black;
             this.tbConlai.Location = new System.Drawing.Point(402, 165);
             this.tbConlai.Margin = new System.Windows.Forms.Padding(2);
             this.tbConlai.Name = "tbConlai";
@@ -202,21 +212,29 @@
             // 
             // tbTienphong
             // 
+            this.tbTienphong.BackColor = System.Drawing.Color.White;
+            this.tbTienphong.Enabled = false;
             this.tbTienphong.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTienphong.ForeColor = System.Drawing.Color.Black;
             this.tbTienphong.Location = new System.Drawing.Point(126, 165);
             this.tbTienphong.Margin = new System.Windows.Forms.Padding(2);
             this.tbTienphong.Name = "tbTienphong";
             this.tbTienphong.Size = new System.Drawing.Size(150, 24);
             this.tbTienphong.TabIndex = 19;
+            this.tbTienphong.TextChanged += new System.EventHandler(this.tbTienphong_TextChanged);
             // 
             // tbThoigianthue
             // 
+            this.tbThoigianthue.BackColor = System.Drawing.Color.White;
+            this.tbThoigianthue.Enabled = false;
             this.tbThoigianthue.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbThoigianthue.ForeColor = System.Drawing.Color.Black;
             this.tbThoigianthue.Location = new System.Drawing.Point(402, 132);
             this.tbThoigianthue.Margin = new System.Windows.Forms.Padding(2);
             this.tbThoigianthue.Name = "tbThoigianthue";
             this.tbThoigianthue.Size = new System.Drawing.Size(131, 24);
             this.tbThoigianthue.TabIndex = 17;
+            this.tbThoigianthue.TextChanged += new System.EventHandler(this.tbThoigianthue_TextChanged);
             // 
             // tbMadondatphong
             // 

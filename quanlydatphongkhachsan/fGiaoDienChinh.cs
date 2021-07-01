@@ -17,6 +17,7 @@ namespace quanlydatphongkhachsan
 
         SqlConnection conn;
         String constring = "Data Source=ADMIN;Initial Catalog=QUANLYDATPHONGKHACHSAN1;Integrated Security=True";
+        int intTienPhong = 0;
 
         public fGiaodienchinh()
         {
@@ -28,9 +29,10 @@ namespace quanlydatphongkhachsan
             FillToComboboxMaPhong();
             FillToComboboxMaKhach();
 
-            cbbHuyDon.SelectedIndex = 0;
-
-            TinhNgay();
+            tbTienphong.Text = "0";
+            tbConlai.Text = "0";
+            txtDatCoc.Text = "0";
+            tbThoigianthue.Text = "1";
         }
 
         public void Connection()
@@ -186,7 +188,7 @@ namespace quanlydatphongkhachsan
         public void update(String maDonDatPhong)
         {
 
-            String sql = "UPDATE DONDATPHONG SET MaPhong = '', MaKhach = '', NgayDatPhong = '" +
+            String sql = "UPDATE DONDATPHONG SET MaPhong = '" + cbbMaPhong.SelectedItem.ToString() + "', MaKhach = '" + cbbKhach.SelectedItem.ToString() + "', NgayDatPhong = '" +
                 dateTimePicker1.Value + "', NgayDen = '" + dateTimePicker2.Value + "',NgayDi = '" + dateTimePicker3.Value + "', HuyDon = " + cbbHuyDon.SelectedIndex +
                 ", ThoiGianThue = '" + tbThoigianthue.Text + "',TienPhong ='" + tbTienphong.Text + "',ConLai ='" + tbConlai.Text
                 + "'  WHERE MaDonDatPhong = '" + tbMadondatphong.Text + "'";
@@ -282,13 +284,43 @@ namespace quanlydatphongkhachsan
             }
         }
 
-        private void TinhNgay() 
+        private void TinhNgay()
         {
-            int a = (dateTimePicker3.Value - dateTimePicker2.Value).Days;
-            MessageBox.Show(a + "");
+            if (dateTimePicker2.Value > dateTimePicker3.Value && dateTimePicker2.Value == dateTimePicker3.Value)
+            {
+                dateTimePicker2.Value = DateTime.Today.AddDays(0);
+                dateTimePicker3.Value = DateTime.Today.AddDays(0);
+                return;
+            }
+
+            int date = (dateTimePicker3.Value - dateTimePicker2.Value).Days;
+            date += 1;
+            tbThoigianthue.Text = date.ToString();
         }
 
-        private void TinhTienPhong() { }
+        private void GetPriceTypeRoom(string maPhong)
+        {
+            // Kết nối cơ sở dữ liệu (Database)
+            Connection();
+
+            String sql = "SELECT GiaPhong FROM LOAIPHONG LP INNER JOIN PHONG P ON P.MaLoaiPhong = LP.MaLoaiPhong WHERE MaPhong = '" + maPhong + "'";
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+
+            conn.Open();
+            da.Fill(dt);
+            da.Dispose();
+            conn.Close();
+
+            // Kiểm tra xem mã phòng có tồn tại
+            if (dt.Rows.Count != 0)
+            {
+                tbTienphong.Text = dt.Rows[0]["GiaPhong"].ToString();
+                intTienPhong = int.Parse(dt.Rows[0]["GiaPhong"].ToString());
+                tbTienphong.Text = dt.Rows[0]["GiaPhong"].ToString();
+            }
+        }
 
         private void fGiaodienchinh_Click(object sender, EventArgs e)
         {
@@ -383,6 +415,8 @@ namespace quanlydatphongkhachsan
 
         private void fGiaodienchinh_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLKS.PHONG' table. You can move, or remove it, as needed.
+            this.pHONGTableAdapter.Fill(this.qLKS.PHONG);
             // TODO: This line of code loads data into the 'qUANLYDATPHONGKHACHSAN1DataSet.DONDATPHONG' table. You can move, or remove it, as needed.
             this.dONDATPHONGTableAdapter.Fill(this.qUANLYDATPHONGKHACHSAN1DataSet.DONDATPHONG);
 
@@ -422,6 +456,80 @@ namespace quanlydatphongkhachsan
         private void button1_Click_2(object sender, EventArgs e)
         {
             fillToTable();
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            TinhNgay();
+        }
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+            TinhNgay();
+        }
+
+        private void cbbMaPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string maPhong = cbbMaPhong.SelectedItem.ToString();
+            GetPriceTypeRoom(maPhong);
+
+        }
+
+        private void cbbMaPhong_SelectedValueChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txtDatCoc_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimePicker1.Value == dateTimePicker2.Value)
+            {
+                tbThoigianthue.Text = "1";
+            }
+            if (dateTimePicker1.Value > dateTimePicker2.Value)
+            {
+                dateTimePicker1.Value = dateTimePicker3.Value;
+            }
+        }
+
+        private void tbThoigianthue_TextChanged(object sender, EventArgs e)
+        {
+            if (tbTienphong.Text != "")
+            {
+                int thoiGianThue = int.Parse(tbThoigianthue.Text);
+
+                tbTienphong.Text = (thoiGianThue * intTienPhong).ToString();
+            }
+        }
+
+        private void tbTienphong_TextChanged(object sender, EventArgs e)
+        {
+            if (tbThoigianthue.Text != "")
+            {
+                int thoiGianThue = int.Parse(tbThoigianthue.Text);
+                tbTienphong.Text = (thoiGianThue * intTienPhong).ToString();
+
+                int tienPhong = int.Parse(tbTienphong.Text);
+                double douDatCoc = Math.Round(tienPhong * 0.3, 0);
+                txtDatCoc.Text = douDatCoc.ToString();
+
+                tienPhong = int.Parse(tbTienphong.Text);
+                int datCoc = int.Parse(txtDatCoc.Text);
+                tbConlai.Text = (tienPhong - datCoc).ToString();
+            }
+        }
+
+        private void tbConlai_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -77,17 +77,17 @@ update DONDATPHONG
 set ThoiGianThue = iif(DATEDIFF(day, NgayDi, NgayDen)=0,1,DATEDIFF(day, NgayDen, NgayDi))
 
 --Tien phong--
-update DONDATPHONG
-set TienPhong = ThoiGianThue * GiaPhong
-FROM DONDATPHONG INNER JOIN  PHONG ON 
-DONDATPHONG.MaPhong = PHONG.MaPhong 
- INNER JOIN LOAIPHONG ON LOAIPHONG.MaLoaiPhong = PHONG.MaLoaiPhong 
+--update DONDATPHONG
+--set TienPhong = ThoiGianThue * GiaPhong
+--FROM DONDATPHONG INNER JOIN  PHONG ON 
+--DONDATPHONG.MaPhong = PHONG.MaPhong 
+-- INNER JOIN LOAIPHONG ON LOAIPHONG.MaLoaiPhong = PHONG.MaLoaiPhong 
  
  --Tien dat coc--
- update DONDATPHONG
- set DatCoc = TienPhong * 0.3
+ --update DONDATPHONG
+ --set DatCoc = TienPhong * 0.3
  
  --Con lai--
- update DONDATPHONG
- set ConLai = TienPhong - DatCoc
- select * from DONDATPHONG
+ --update DONDATPHONG
+ --set ConLai = TienPhong - DatCoc
+ --select * from DONDATPHONG

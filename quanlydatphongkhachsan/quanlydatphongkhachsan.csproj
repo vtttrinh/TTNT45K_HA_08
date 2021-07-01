@@ -90,10 +90,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="QLKS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QUANLYDATPHONGKHACHSAN1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QUANLYDATPHONGKHACHSAN1DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QUANLYDATPHONGKHACHSAN1DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QUANLYDATPHONGKHACHSAN1DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="ThongKe.cs">
       <SubType>Form</SubType>
@@ -136,6 +146,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QLKS.xsc">
+      <DependentUpon>QLKS.xsd</DependentUpon>
+    </None>
+    <None Include="QLKS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKS.xss">
+      <DependentUpon>QLKS.xsd</DependentUpon>
+    </None>
     <None Include="QUANLYDATPHONGKHACHSAN1DataSet.xsc">
       <DependentUpon>QUANLYDATPHONGKHACHSAN1DataSet.xsd</DependentUpon>
     </None>
@@ -152,6 +173,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QUANLYDATPHONGKHACHSAN1DataSet1.xsc">
+      <DependentUpon>QUANLYDATPHONGKHACHSAN1DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QUANLYDATPHONGKHACHSAN1DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QUANLYDATPHONGKHACHSAN1DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QUANLYDATPHONGKHACHSAN1DataSet1.xss">
+      <DependentUpon>QUANLYDATPHONGKHACHSAN1DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Resources\button-login.png" />
   </ItemGroup>
   <ItemGroup>

@@ -81,6 +81,12 @@
             this.dONDATPHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dONDATPHONGTableAdapter = new quanlydatphongkhachsan.QUANLYDATPHONGKHACHSAN1DataSetTableAdapters.DONDATPHONGTableAdapter();
             this.quanlydatphongkhachsaN1DataSet1 = new quanlydatphongkhachsan.QUANLYDATPHONGKHACHSAN1DataSet();
+            this.qUANLYDATPHONGKHACHSAN1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dONDATPHONGBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.qLKS = new quanlydatphongkhachsan.QLKS();
+            this.qLKSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pHONGTableAdapter = new quanlydatphongkhachsan.QLKSTableAdapters.PHONGTableAdapter();
             this.grbDondatphong.SuspendLayout();
             this.panel1.SuspendLayout();
             this.grbSuathongtindondatphong.SuspendLayout();
@@ -89,6 +95,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYDATPHONGKHACHSAN1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dONDATPHONGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlydatphongkhachsaN1DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYDATPHONGKHACHSAN1DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dONDATPHONGBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLKS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLKSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pHONGBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // grbDondatphong
@@ -355,15 +366,21 @@
             this.cbbMaPhong.Name = "cbbMaPhong";
             this.cbbMaPhong.Size = new System.Drawing.Size(150, 27);
             this.cbbMaPhong.TabIndex = 27;
+            this.cbbMaPhong.SelectedIndexChanged += new System.EventHandler(this.cbbMaPhong_SelectedIndexChanged);
+            this.cbbMaPhong.SelectedValueChanged += new System.EventHandler(this.cbbMaPhong_SelectedValueChanged);
             // 
             // txtDatCoc
             // 
+            this.txtDatCoc.BackColor = System.Drawing.Color.White;
+            this.txtDatCoc.Enabled = false;
             this.txtDatCoc.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDatCoc.ForeColor = System.Drawing.Color.Black;
             this.txtDatCoc.Location = new System.Drawing.Point(141, 194);
             this.txtDatCoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtDatCoc.Name = "txtDatCoc";
             this.txtDatCoc.Size = new System.Drawing.Size(150, 24);
             this.txtDatCoc.TabIndex = 26;
+            this.txtDatCoc.TextChanged += new System.EventHandler(this.txtDatCoc_TextChanged);
             // 
             // label2
             // 
@@ -410,6 +427,7 @@
             this.dateTimePicker3.ShowUpDown = true;
             this.dateTimePicker3.Size = new System.Drawing.Size(150, 24);
             this.dateTimePicker3.TabIndex = 22;
+            this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
             // 
             // dateTimePicker2
             // 
@@ -422,6 +440,7 @@
             this.dateTimePicker2.ShowUpDown = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(150, 24);
             this.dateTimePicker2.TabIndex = 21;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // dateTimePicker1
             // 
@@ -434,15 +453,20 @@
             this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(150, 24);
             this.dateTimePicker1.TabIndex = 20;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // tbConlai
             // 
+            this.tbConlai.BackColor = System.Drawing.Color.White;
+            this.tbConlai.Enabled = false;
             this.tbConlai.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbConlai.ForeColor = System.Drawing.Color.Black;
             this.tbConlai.Location = new System.Drawing.Point(141, 163);
             this.tbConlai.Margin = new System.Windows.Forms.Padding(2);
             this.tbConlai.Name = "tbConlai";
             this.tbConlai.Size = new System.Drawing.Size(150, 24);
             this.tbConlai.TabIndex = 14;
+            this.tbConlai.TextChanged += new System.EventHandler(this.tbConlai_TextChanged);
             // 
             // tbTienphong
             // 
@@ -455,15 +479,20 @@
             this.tbTienphong.Name = "tbTienphong";
             this.tbTienphong.Size = new System.Drawing.Size(150, 24);
             this.tbTienphong.TabIndex = 19;
+            this.tbTienphong.TextChanged += new System.EventHandler(this.tbTienphong_TextChanged);
             // 
             // tbThoigianthue
             // 
+            this.tbThoigianthue.BackColor = System.Drawing.Color.White;
+            this.tbThoigianthue.Enabled = false;
             this.tbThoigianthue.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbThoigianthue.ForeColor = System.Drawing.Color.Black;
             this.tbThoigianthue.Location = new System.Drawing.Point(439, 131);
             this.tbThoigianthue.Margin = new System.Windows.Forms.Padding(2);
             this.tbThoigianthue.Name = "tbThoigianthue";
             this.tbThoigianthue.Size = new System.Drawing.Size(150, 24);
             this.tbThoigianthue.TabIndex = 17;
+            this.tbThoigianthue.TextChanged += new System.EventHandler(this.tbThoigianthue_TextChanged);
             // 
             // tbMadondatphong
             // 
@@ -634,6 +663,35 @@
             this.quanlydatphongkhachsaN1DataSet1.DataSetName = "QUANLYDATPHONGKHACHSAN1DataSet";
             this.quanlydatphongkhachsaN1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // qUANLYDATPHONGKHACHSAN1DataSetBindingSource
+            // 
+            this.qUANLYDATPHONGKHACHSAN1DataSetBindingSource.DataSource = this.qUANLYDATPHONGKHACHSAN1DataSet;
+            this.qUANLYDATPHONGKHACHSAN1DataSetBindingSource.Position = 0;
+            // 
+            // dONDATPHONGBindingSource1
+            // 
+            this.dONDATPHONGBindingSource1.DataMember = "DONDATPHONG";
+            this.dONDATPHONGBindingSource1.DataSource = this.qUANLYDATPHONGKHACHSAN1DataSetBindingSource;
+            // 
+            // qLKS
+            // 
+            this.qLKS.DataSetName = "QLKS";
+            this.qLKS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // qLKSBindingSource
+            // 
+            this.qLKSBindingSource.DataSource = this.qLKS;
+            this.qLKSBindingSource.Position = 0;
+            // 
+            // pHONGBindingSource
+            // 
+            this.pHONGBindingSource.DataMember = "PHONG";
+            this.pHONGBindingSource.DataSource = this.qLKSBindingSource;
+            // 
+            // pHONGTableAdapter
+            // 
+            this.pHONGTableAdapter.ClearBeforeFill = true;
+            // 
             // fGiaodienchinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,6 +717,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.qUANLYDATPHONGKHACHSAN1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dONDATPHONGBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlydatphongkhachsaN1DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYDATPHONGKHACHSAN1DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dONDATPHONGBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLKS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLKSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pHONGBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -718,5 +781,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cbbMaPhong;
         private System.Windows.Forms.ComboBox cbbKhach;
+        private System.Windows.Forms.BindingSource qLKSBindingSource;
+        private QLKS qLKS;
+        private System.Windows.Forms.BindingSource qUANLYDATPHONGKHACHSAN1DataSetBindingSource;
+        private System.Windows.Forms.BindingSource dONDATPHONGBindingSource1;
+        private System.Windows.Forms.BindingSource pHONGBindingSource;
+        private QLKSTableAdapters.PHONGTableAdapter pHONGTableAdapter;
     }
 }

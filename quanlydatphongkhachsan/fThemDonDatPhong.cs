@@ -16,6 +16,7 @@ namespace quanlydatphongkhachsan
 
         SqlConnection conn;
         String constring = "Data Source=ADMIN;Initial Catalog=QUANLYDATPHONGKHACHSAN1;Integrated Security=True";
+        int intTienPhong = 0;
 
         public fThemDonDatPhong()
         {
@@ -23,7 +24,11 @@ namespace quanlydatphongkhachsan
 
             FillToComboboxMaPhong();
             FillToComboboxMaKhach();
-            
+
+            tbTienphong.Text = "0";
+            tbConlai.Text = "0";
+            tbDatCoc.Text = "0";
+            tbThoigianthue.Text = "1";
         }
         public void Connection()
         {
@@ -133,6 +138,44 @@ namespace quanlydatphongkhachsan
             }
         }
 
+        private void TinhNgay()
+        {
+            if (dateTimePicker2.Value > dateTimePicker3.Value && dateTimePicker2.Value == dateTimePicker3.Value)
+            {
+                dateTimePicker2.Value = DateTime.Today.AddDays(0);
+                dateTimePicker3.Value = DateTime.Today.AddDays(0);
+                return;
+            }
+
+            int date = (dateTimePicker3.Value - dateTimePicker2.Value).Days;
+            date += 1;
+            tbThoigianthue.Text = date.ToString();
+        }
+
+        private void GetPriceTypeRoom(string maPhong)
+        {
+            // Kết nối cơ sở dữ liệu (Database)
+            Connection();
+
+            String sql = "SELECT GiaPhong FROM LOAIPHONG LP INNER JOIN PHONG P ON P.MaLoaiPhong = LP.MaLoaiPhong WHERE MaPhong = '" + maPhong + "'";
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+
+            conn.Open();
+            da.Fill(dt);
+            da.Dispose();
+            conn.Close();
+
+            // Kiểm tra xem mã phòng có tồn tại
+            if (dt.Rows.Count != 0)
+            {
+                tbTienphong.Text = dt.Rows[0]["GiaPhong"].ToString();
+                intTienPhong = int.Parse(dt.Rows[0]["GiaPhong"].ToString());
+                tbTienphong.Text = dt.Rows[0]["GiaPhong"].ToString();
+            }
+        }
+
         private void btThemFthemdondatphong_Click(object sender, EventArgs e)
         {
             string strMaDonDatPhong = tbMadondatphong.Text;
@@ -175,6 +218,61 @@ namespace quanlydatphongkhachsan
 
             }
 
+        }
+
+        private void cbbMaPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string maPhong = cbbMaPhong.SelectedItem.ToString();
+            GetPriceTypeRoom(maPhong);
+        }
+
+        private void tbTienphong_TextChanged(object sender, EventArgs e)
+        {
+            if (tbThoigianthue.Text != "")
+            {
+                int thoiGianThue = int.Parse(tbThoigianthue.Text);
+                tbTienphong.Text = (thoiGianThue * intTienPhong).ToString();
+
+                int tienPhong = int.Parse(tbTienphong.Text);
+                double douDatCoc = Math.Round(tienPhong * 0.3, 0);
+                tbDatCoc.Text = douDatCoc.ToString();
+
+                tienPhong = int.Parse(tbTienphong.Text);
+                int datCoc = int.Parse(tbDatCoc.Text);
+                tbConlai.Text = (tienPhong - datCoc).ToString();
+            }
+        }
+
+        private void tbThoigianthue_TextChanged(object sender, EventArgs e)
+        {
+            if (tbTienphong.Text != "")
+            {
+                int thoiGianThue = int.Parse(tbThoigianthue.Text);
+
+                tbTienphong.Text = (thoiGianThue * intTienPhong).ToString();
+            }
+        }
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+            TinhNgay();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            TinhNgay();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimePicker1.Value == dateTimePicker2.Value)
+            {
+                tbThoigianthue.Text = "1";
+            }
+            if (dateTimePicker1.Value > dateTimePicker2.Value)
+            {
+                dateTimePicker1.Value = dateTimePicker3.Value;
+            }
         }
     }
 }
