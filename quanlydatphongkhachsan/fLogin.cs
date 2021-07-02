@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using quanlydatphongkhachsan.Properties;
 
 namespace quanlydatphongkhachsan
 {
@@ -15,7 +16,7 @@ namespace quanlydatphongkhachsan
     {
         //khai báo biến kết nối
         public SqlConnection conn;
-        String constring = "Data Source=ADMIN;Initial Catalog=QUANLYDATPHONGKHACHSAN1;Integrated Security=True";
+        String constring = Settings.Default["QUANLYDATPHONGKHACHSAN1ConnectionString"].ToString();
 
         public fLogin()
         {
