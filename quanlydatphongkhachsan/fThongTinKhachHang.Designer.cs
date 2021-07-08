@@ -74,6 +74,7 @@
             this.txtTimKiemKhachHang.Name = "txtTimKiemKhachHang";
             this.txtTimKiemKhachHang.Size = new System.Drawing.Size(179, 24);
             this.txtTimKiemKhachHang.TabIndex = 13;
+            this.txtTimKiemKhachHang.TextChanged += new System.EventHandler(this.txtTimKiemKhachHang_TextChanged);
             // 
             // lbTimthongtinkhachhang
             // 
@@ -154,6 +155,7 @@
             this.lbGioitinh.Size = new System.Drawing.Size(57, 17);
             this.lbGioitinh.TabIndex = 5;
             this.lbGioitinh.Text = "Giới tính";
+            this.lbGioitinh.Click += new System.EventHandler(this.lbGioitinh_Click);
             // 
             // txtSoDienThoai
             // 
@@ -190,6 +192,7 @@
             this.txtTenKhachHang.Name = "txtTenKhachHang";
             this.txtTenKhachHang.Size = new System.Drawing.Size(362, 24);
             this.txtTenKhachHang.TabIndex = 7;
+            this.txtTenKhachHang.TextChanged += new System.EventHandler(this.txtTenKhachHang_TextChanged);
             // 
             // txtMaKhach
             // 
@@ -199,6 +202,7 @@
             this.txtMaKhach.Name = "txtMaKhach";
             this.txtMaKhach.Size = new System.Drawing.Size(140, 24);
             this.txtMaKhach.TabIndex = 6;
+            this.txtMaKhach.TextChanged += new System.EventHandler(this.txtMaKhach_TextChanged);
             // 
             // lbSodienthoai
             // 

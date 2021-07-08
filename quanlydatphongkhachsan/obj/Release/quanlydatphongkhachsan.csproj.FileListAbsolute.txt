@@ -12,3 +12,4 @@ C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release
 C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.csproj.GenerateResource.Cache
 C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.exe
 C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.pdb
+C:\Users\Admin\Documents\GitHub\TTNT45K_HA_08\quanlydatphongkhachsan\obj\Release\quanlydatphongkhachsan.csprojResolveAssemblyReference.cache

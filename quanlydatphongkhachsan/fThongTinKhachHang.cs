@@ -323,5 +323,25 @@ namespace quanlydatphongkhachsan
         {
 
         }
+
+        private void txtMaKhach_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTimKiemKhachHang_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenKhachHang_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbGioitinh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -93,5 +93,10 @@ namespace quanlydatphongkhachsan
         {
             System.Windows.Forms.Application.ExitThread(); 
         }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

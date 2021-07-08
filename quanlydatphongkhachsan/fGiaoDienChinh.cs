@@ -34,6 +34,8 @@ namespace quanlydatphongkhachsan
             tbConlai.Text = "0";
             txtDatCoc.Text = "0";
             tbThoigianthue.Text = "1";
+
+            
         }
 
         public void Connection()
@@ -555,6 +557,11 @@ namespace quanlydatphongkhachsan
         private void cbbKhach_Click(object sender, EventArgs e)
         {
             FillToComboboxMaKhach();
+        }
+
+        private void button1_Click_4(object sender, EventArgs e)
+        {
+            clearForm();
         }
     }
 }
