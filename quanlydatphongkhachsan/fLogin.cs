@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using quanlydatphongkhachsan.Properties;
 
 namespace quanlydatphongkhachsan
 {
@@ -15,7 +16,7 @@ namespace quanlydatphongkhachsan
     {
         //khai báo biến kết nối
         public SqlConnection conn;
-        String constring = "Data Source=ADMIN;Initial Catalog=QUANLYDATPHONGKHACHSAN1;Integrated Security=True";
+        String constring = Settings.Default["QUANLYDATPHONGKHACHSAN1ConnectionString"].ToString();
 
         public fLogin()
         {
@@ -91,6 +92,11 @@ namespace quanlydatphongkhachsan
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.ExitThread(); 
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

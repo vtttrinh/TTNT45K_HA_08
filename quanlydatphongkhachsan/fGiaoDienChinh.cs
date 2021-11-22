@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using quanlydatphongkhachsan.Properties;
 
 namespace quanlydatphongkhachsan
 {
@@ -16,7 +17,7 @@ namespace quanlydatphongkhachsan
     {
 
         SqlConnection conn;
-        String constring = "Data Source=ADMIN;Initial Catalog=QUANLYDATPHONGKHACHSAN1;Integrated Security=True";
+        String constring = Settings.Default["QUANLYDATPHONGKHACHSAN1ConnectionString"].ToString();
         int intTienPhong = 0;
 
         public fGiaodienchinh()
@@ -33,6 +34,8 @@ namespace quanlydatphongkhachsan
             tbConlai.Text = "0";
             txtDatCoc.Text = "0";
             tbThoigianthue.Text = "1";
+
+            
         }
 
         public void Connection()
@@ -554,6 +557,11 @@ namespace quanlydatphongkhachsan
         private void cbbKhach_Click(object sender, EventArgs e)
         {
             FillToComboboxMaKhach();
+        }
+
+        private void button1_Click_4(object sender, EventArgs e)
+        {
+            clearForm();
         }
     }
 }
